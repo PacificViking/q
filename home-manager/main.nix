@@ -25,6 +25,7 @@
     pkgs.git
     pkgs.nodejs
     pkgs.firefox-devedition
+    pkgs.wofi
     
     pkgs.neofetch
   ];
