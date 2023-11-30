@@ -12,6 +12,27 @@ in {
     NIXOS_OZONE_WL = "1";
   };
 
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      font-awesome
+      powerline-fonts
+      powerline-symbols
+      nerdfonts
+    ];
+    fontconfig = {
+      localConf = '''';  # xml
+      defaultFonts = {
+        serif = [ "Mononoki Nerd Font Mono" ];
+        sansSerif = [ "Mononoki Nerd Font Mono" ];
+        monospace = [ "Mononoki Nerd Font Mono" ];
+      };
+    };
+  };
+
   # create /var/cache/tuigreet for tuigreet cache
   systemd.tmpfiles.rules = [
     "d /var/cache/tuigreet 0755 greeter greeter"
@@ -32,6 +53,10 @@ in {
   programs.zsh = {
     enable = true;
   };
+  programs.nm-applet = {
+    enable = true;
+  };
+  
  # programs.dolphin = {
  #   enable = true;
  # };
@@ -49,6 +74,10 @@ in {
     zsh
 
     pipewire
+    libinput
+
+    libappindicator-gtk3
+    libdbusmenu-gtk3
   ];
   nix = {
     package = pkgs.nixFlakes;
@@ -61,6 +90,8 @@ in {
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  services.blueman.enable = true;
 
   users.users.john.shell = pkgs.zsh;
 }

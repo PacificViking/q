@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    apps/waybar.nix
+  ];
+  
   home.username = "john";
   home.homeDirectory = "/home/john";
 
@@ -20,14 +24,25 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.nerdfonts
     pkgs.dolphin
+    pkgs.nerdfonts
     pkgs.git
     pkgs.nodejs
     pkgs.firefox-devedition
     pkgs.wofi
+    pkgs.wl-clipboard
+
+    pkgs.xfce.thunar
+    pkgs.xfce.xfce4-icon-theme
+    pkgs.xfce.thunar-volman
+    pkgs.networkmanagerapplet
+    pkgs.gvfs
+    pkgs.polkit_gnome
     
     pkgs.neofetch
+    pkgs.phinger-cursors
+    pkgs.catppuccin-kde
+    pkgs.font-awesome
   ];
 
   home.file = {
@@ -60,6 +75,7 @@
       "j_nixSearch" = "nix-env -qa";
       "j_manNix" = "man configuration.nix";
       "j_manHNix" = "man home-configuration.nix";
+      "j_gitDiff" = "git diff HEAD~1";
     };
 
     enable = true;
@@ -109,7 +125,12 @@
       user.email = "johnhaoallwood@gmail.com";
     };
   };
-  
+
+  services.blueman-applet = {
+    enable = true;
+  };
+  services.network-manager-applet.enable = true;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

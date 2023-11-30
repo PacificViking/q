@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Mononoki Nerd Font Mono, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Noto", "Mononoki Nerd Font Mono", Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
