@@ -2,6 +2,8 @@
 {
   imports = [
     apps/waybar.nix
+    apps/nvim.nix
+    apps/python3.nix
   ];
   
   home.username = "john";
@@ -10,16 +12,6 @@
   home.stateVersion = "23.05"; # don't change
 
   home.packages = [
-    # pkgs.hello
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
@@ -31,7 +23,13 @@
     pkgs.firefox-devedition
     pkgs.wofi
     pkgs.wl-clipboard
-
+    pkgs.wl-clip-persist
+    pkgs.hyprpaper
+    pkgs.udiskie
+    
+    pkgs.grim
+    pkgs.slurp
+    pkgs.hyprpicker
     pkgs.findutils
     pkgs.ripgrep
 
@@ -57,6 +55,14 @@
   home.file = {
     ".config/waybar" = {
       source = ./config/waybar;
+      recursive = true;
+    };
+    ".config/neofetch" = {
+      source = ./config/neofetch;
+      recursive = true;
+    };
+    ".config/xdg-desktop-portal" = {
+      source = ./config/xdg-desktop-portal;
       recursive = true;
     };
     ".config/hypr" = {

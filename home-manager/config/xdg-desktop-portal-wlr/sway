@@ -1,0 +1,13 @@
+[preferred]
+# use xdg-desktop-portal-gtk for every portal interface
+#default=wlr;kde;gtk
+default=kde;wlr
+# except for the xdg-desktop-portal-wlr supplied interfaces
+org.freedesktop.impl.portal.Screencast=wlr
+org.freedesktop.impl.portal.Screenshot=wlr 
+
+[screencast]
+output_name=HDMI-A-1
+max_fps=30
+chooser_type=simple
+chooser_cmd=slurp -f %o -or

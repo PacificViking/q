@@ -122,56 +122,6 @@ noremap <C-x> :call ToggleMouse()<CR>
 "jenkinsfile highlight
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
-"plugins
-call plug#begin('~/.vim/plugged')
-"Plug 'davidhalter/jedi-vim'
-Plug 'mbbill/undotree'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'preservim/nerdtree'
-Plug 'arcticicestudio/nord-vim'
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-Plug 'morhetz/gruvbox'
-Plug 'preservim/nerdcommenter'
-Plug 'majutsushi/tagbar'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'w0rp/ale'
-Plug 'tpope/vim-fugitive'
-Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-Plug 'urbainvaes/fzf-marks'
-"Plug 'scrooloose/syntastic'
-"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-Plug 'wfxr/minimap.vim'
-Plug 'junegunn/vim-peekaboo'
-"Plug 'Yilin-Yang/vim-markbar'
-"Plug 'wincent/command-t', {'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'}
-Plug 'Yggdroot/indentLine'
-"Plug 'rust-lang/rust.vim'
-Plug 'mattn/webapi-vim'
-Plug 'jiangmiao/auto-pairs'
-"Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'phaazon/hop.nvim'
-Plug 'liuchengxu/vim-which-key'
-"Plug 'uiiaoo/java-syntax.vim'
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
-"Plug 'mhinz/vim-signify'
-Plug 'airblade/vim-gitgutter'
-Plug 'hkupty/iron.nvim'
-"Plug 'godlygeek/tabular'
-"Plug 'plasticboy/vim-markdown'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'tpope/vim-repeat'
-Plug 'lambdalisue/suda.vim'
-Plug 'ryanoasis/vim-devicons' "this goes last!!!
-Plug 'daeyun/vim-matlab', { 'do': ':UpdateRemotePlugins' }
-call plug#end()
 
 "alefixers
 let b:ale_fixers = {'python': ['black', 'autopep8', 'autoflake', 'reorder-python-imports', 'yapf', 'remove_trailing_lines', 'trim_whitespace']}
@@ -346,6 +296,7 @@ hi semshiSelected cterm=bold ctermbg=none ctermfg=none
 
 "open nerdtree automatically
 autocmd VimEnter * NERDTree | wincmd p
+nnoremap <Leader>a :NERDTreeToggle \| MinimapToggle<CR><C-w>l
 " Close the tab if NERDTree and tagbar are there
 "autocmd BufEnter * if winnr('$') <= 2 && exists('b:NERDTree') && b:NERDTree.isTabTree() && exists('b:tagbar') && b:tagbar.IsOpen() | quit | endif
 "autocmd BufEnter * if winnr('$') <= 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -527,4 +478,4 @@ nmap <silent> [fzf-p]t     :<C-u>FzfPreviewBufferTagsRpc<CR>
 nmap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFixRpc<CR>
 nmap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationListRpc<CR>
 
-source ~/.config/nvim/coc.vim
+"source ~/.config/nvim/coc.vim

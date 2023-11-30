@@ -71,10 +71,13 @@ in {
   environment.systemPackages = with pkgs; [
     nix
     kitty
+    mako
     greetd.tuigreet
+    polkit
     zsh
 
     pipewire
+    wireplumber
     libinput
     libinput-gestures
 
@@ -82,6 +85,9 @@ in {
     libdbusmenu-gtk3
 
     tlp
+    
+    qt5-wayland
+    qt6-wayland
   ];
   nix = {
     package = pkgs.nixFlakes;
