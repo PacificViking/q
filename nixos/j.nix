@@ -76,6 +76,7 @@ in {
 
     pipewire
     libinput
+    libinput-gestures
 
     libappindicator-gtk3  # are these two really necessary?
     libdbusmenu-gtk3
@@ -111,6 +112,34 @@ in {
       pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-hyprland
     ];
+  };
+
+  time.hardwareClockInLocalTime = true;
+
+  services.xserver = {
+    layout = "us,us";
+    xkbVariant = ",colemak";
+    xkbOptions = "grp:win_space_toggle";
+  };
+  
+  i18n.supportedLocales = [
+    "en_US.UTF-8/UTF-8"
+    "zh_CN.UTF-8/UTF-8"
+    "ja_JP.UTF-8/UTF-8"
+  ];
+  
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
   users.users.john.shell = pkgs.zsh;

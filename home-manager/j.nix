@@ -48,6 +48,10 @@
     pkgs.networkmanagerapplet
     pkgs.bluez
     pkgs.bluez-tools
+
+    pkgs.xorg.setxkbmap
+    pkgs.xkb-switch
+    pkgs.xkblayout-state
   ];
 
   home.file = {
@@ -85,7 +89,7 @@
       "j_nixSearch" = "nix-env -qa";
       "j_manNix" = "man configuration.nix";
       "j_manHNix" = "man home-configuration.nix";
-      "j_gitDiff" = "git diff HEAD~1";
+      "j_gitDiff" = "git diff HEAD";
     };
 
     enable = true;
