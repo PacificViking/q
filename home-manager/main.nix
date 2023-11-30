@@ -25,6 +25,8 @@
     pkgs.git
     pkgs.nodejs
     pkgs.firefox-devedition
+    
+    pkgs.neofetch
   ];
 
   home.file = {
@@ -65,6 +67,7 @@
     autocd = true;
     envExtra = "";
     initExtra = ''
+      neofetch;
       source .config/p10k.zsh;
     '';
     
