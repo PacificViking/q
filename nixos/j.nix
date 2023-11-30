@@ -10,6 +10,7 @@ in {
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   fonts = {
@@ -76,8 +77,10 @@ in {
     pipewire
     libinput
 
-    libappindicator-gtk3
+    libappindicator-gtk3  # are these two really necessary?
     libdbusmenu-gtk3
+
+    tlp
   ];
   nix = {
     package = pkgs.nixFlakes;
@@ -91,7 +94,25 @@ in {
     pulse.enable = true;
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
   services.blueman.enable = true;
 
+  hardware.opengl.enable = true;  # https://www.youtube.com/watch?v=61wGzIv12Ds
+  # nvidia.modesetting.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-hyprland
+    ];
+  };
+
   users.users.john.shell = pkgs.zsh;
+
 }

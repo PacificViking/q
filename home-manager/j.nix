@@ -32,17 +32,22 @@
     pkgs.wofi
     pkgs.wl-clipboard
 
+    pkgs.findutils
+    pkgs.ripgrep
+
     pkgs.xfce.thunar
     pkgs.xfce.xfce4-icon-theme
     pkgs.xfce.thunar-volman
-    pkgs.networkmanagerapplet
     pkgs.gvfs
     pkgs.polkit_gnome
     
     pkgs.neofetch
-    pkgs.phinger-cursors
     pkgs.catppuccin-kde
     pkgs.font-awesome
+
+    pkgs.networkmanagerapplet
+    pkgs.bluez
+    pkgs.bluez-tools
   ];
 
   home.file = {
@@ -66,6 +71,11 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+  };
+
+  xsession = {
+    enable = true;
+    windowManager.command = "emacs";
   };
 
   programs.zsh = {
@@ -130,6 +140,19 @@
     enable = true;
   };
   services.network-manager-applet.enable = true;
+
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "phinger-cursors-light";
+    package = pkgs.phinger-cursors;
+    size = 36;
+  };
+
+  gtk = {
+    enable = true;
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
