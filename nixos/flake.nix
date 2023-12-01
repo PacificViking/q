@@ -8,7 +8,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
   outputs = { self, nixpkgs, home-manager, hyprland, ...}: {
-    nixosConfigurations.johnnixos= nixpkgs.lib.nixosSystem {
+    nixosConfigurations.johnnixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [ ./configuration.nix ];
     };

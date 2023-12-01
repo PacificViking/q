@@ -4,6 +4,7 @@
     apps/waybar.nix
     apps/nvim.nix
     apps/python3.nix
+    apps/sway.nix
   ];
   
   home.username = "john";
@@ -96,6 +97,7 @@
       "j_manNix" = "man configuration.nix";
       "j_manHNix" = "man home-configuration.nix";
       "j_gitDiff" = "git diff HEAD";
+      "j_listDevices" = "lspci -v";
     };
 
     enable = true;
@@ -146,10 +148,10 @@
     };
   };
 
-  services.blueman-applet = {
-    enable = true;
-  };
-  services.network-manager-applet.enable = true;
+  #services.blueman-applet = {
+  #  enable = true;
+  #};
+  #services.network-manager-applet.enable = true;
 
 
   home.pointerCursor = {

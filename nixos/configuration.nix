@@ -33,10 +33,11 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Mononoki Nerd Font Mono";
-    useXkbConfig = true; # use xkbOptions in tty.
-  };
+  # this fails because fonts are not yet loaded?
+  #console = {
+  #  font = "Mononoki Nerd Font Mono";
+  #  useXkbConfig = true; # use xkbOptions in tty.
+  #};
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -50,7 +51,7 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  #hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;

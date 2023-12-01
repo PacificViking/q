@@ -4,6 +4,10 @@ let
   nix2305 = import <23.05> {};
   unstable = import <unstable> {};
 in {
+  imports = [
+    ./apps/sway.nix
+  ];
+  
   nixpkgs.config.allowUnfree = true;
 
   environment.pathsToLink = [ "/share/zsh" ];
@@ -70,35 +74,43 @@ in {
   
   environment.systemPackages = with pkgs; [
     nix
+    #hyprland
     kitty
     mako
     greetd.tuigreet
     polkit
     zsh
+    nerdfonts
 
     pipewire
+    pw-volume
     wireplumber
     libinput
     libinput-gestures
+    #xorg.xorgserver
+    #xorg.xinput
 
     libappindicator-gtk3  # are these two really necessary?
     libdbusmenu-gtk3
 
     tlp
+    #xorg.xf86videonouveau
+    mesa
     
-    qt5-wayland
-    qt6-wayland
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland
   ];
+
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
   };
 
   services.pipewire = {
-    enable = false;
+    enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable = true;
+    #pulse.enable = false;
   };
 
   hardware.bluetooth = {
@@ -106,8 +118,13 @@ in {
     powerOnBoot = true;
   };
   services.blueman.enable = true;
+  programs.light.enable = true;
 
-  hardware.opengl.enable = true;  # https://www.youtube.com/watch?v=61wGzIv12Ds
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  };
+  # https://www.youtube.com/watch?v=61wGzIv12Ds
   # nvidia.modesetting.enable = true;
 
   xdg.portal = {
@@ -122,11 +139,12 @@ in {
 
   time.hardwareClockInLocalTime = true;
 
-  services.xserver = {
-    layout = "us,us";
-    xkbVariant = ",colemak";
-    xkbOptions = "grp:win_space_toggle";
-  };
+  #services.xserver = {
+  #  layout = "us,fr";
+  #  xkbVariant = ",";
+  #  xkbOptions = "grp:win_space_toggle";
+  #};
+  #services.xserver.exportConfiguration = true;
   
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
@@ -150,4 +168,5 @@ in {
 
   users.users.john.shell = pkgs.zsh;
 
+  security.polkit.enable = true;
 }
