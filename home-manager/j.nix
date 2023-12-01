@@ -30,6 +30,7 @@
     
     pkgs.grim
     pkgs.slurp
+    pkgs.libnotify
     pkgs.hyprpicker
     pkgs.findutils
     pkgs.ripgrep
