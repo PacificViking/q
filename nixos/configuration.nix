@@ -59,7 +59,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.john = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "networkmanager" "video" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       firefox
       tree

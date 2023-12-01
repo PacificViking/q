@@ -81,6 +81,7 @@ in {
     polkit
     zsh
     nerdfonts
+    light
 
     pipewire
     pw-volume
