@@ -5,11 +5,11 @@
   home.file = {
     ".config/fcitx5" = {
       source = ../config/fcitx5;
-      recursive = true;
+      #recursive = true;
     };
     ".config/fcitx" = {
       source = ../config/fcitx;
-      recursive = true;
+      #recursive = true;
     };
   };
   home.packages = [

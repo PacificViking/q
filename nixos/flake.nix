@@ -6,19 +6,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    fenix.url = "path:apps/fenix";
   };
-  outputs = { self, nixpkgs, home-manager, hyprland, ...}: {
+  outputs = { self, nixpkgs, home-manager, hyprland, ...}@attrs: {
     nixosConfigurations.johnnixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = attrs;
       modules = [ ./configuration.nix ];
     };
 
     homeConfigurations."john@johnnixos" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      #pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
       modules = [
         hyprland.homeManagerModules.default
-        {wayland.windowManager.hyprland.enable = true;}
+	{wayland.windowManager.hyprland.enable = true;}
         # ...
       ];
     };

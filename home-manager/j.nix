@@ -118,6 +118,7 @@
       "j_manHNix" = "man home-configuration.nix";
       "j_gitDiff" = "git diff HEAD";
       "j_listDevices" = "lspci -v";
+      "j_chown" = "sudo chown john:users";
     };
 
     enable = true;

@@ -1,29 +1,21 @@
-{ fetchgit, gawk, socat, jq, lib, makeWrapper, slurp, stdenv, hyprland, bash }:
+{ fetchgit, gawk, socat, jq, lib, makeWrapper, slurp, stdenv, hyprland, bash, make }:
 
 stdenv.mkDerivation rec {
   pname = "hyprevents";
-  version = "unstable-2023-12-02";
+  version = "unstable-2023-12-03";
 
   src = fetchgit {
-    url = "";
+    url = "https://github.com/vilari-mickopf/hyprevents.git";
     rev = "";
     sha256 = "";
   };
 
   strictDeps = true;
   nativeBuildInputs = [ makeWrapper ];
-  buildInputs = [ bash ];
+  buildInputs = [ make ];
 
-  dontBuild = true;
-  installPhase = ''
-    runHook preInstall
+  #dontBuild = true;
 
-    install -Dm755 wlprop.sh $out/bin/wlprop
-    wrapProgram "$out/bin/wlprop" \
-      --prefix PATH : "$out/bin:${lib.makeBinPath [ gawk jq slurp sway ]}"
-
-    runHook postInstall
-  '';
   passthru.scriptName = "hyprevents";
 
   meta = with lib; {
