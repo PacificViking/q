@@ -5,6 +5,7 @@
     apps/nvim.nix
     apps/python3.nix
     apps/sway.nix
+    apps/fcitx.nix
   ];
   
   home.username = "john";
