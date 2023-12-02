@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, fenix, ... }:
 {
   imports = [
     apps/waybar.nix
@@ -12,6 +12,10 @@
   home.homeDirectory = "/home/john";
 
   home.stateVersion = "23.05"; # don't change
+
+  nixpkgs.overlays = [
+    fenix.overlays.default
+  ];
 
   home.packages = [
     # # environment:
@@ -61,6 +65,15 @@
 
     pkgs.mpd
     pkgs.mpdevil
+
+    (pkgs.fenix.latest.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ])
+    pkgs.rust-analyzer-nightly
   ];
 
   home.file = {
