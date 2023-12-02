@@ -80,15 +80,16 @@ autocmd Filetype json,dockerfile
 
 "easy configure initvim
 "don't use :e because :tabnew takes argument
-command Ivim :tabnew ~/.config/nvim/init.vim
-command Bash :tabnew ~/.bash_profile
-command Prof :tabnew ~/.profile
-command Cocc :tabnew ~/.config/nvim/coc.vim
-command Zshrc :tabnew ~/.zshrc
-command Javahi :tabnew ~/.config/nvim/syntax/java.vim
-command Hconf :tabnew ~/.config/home-manager/home.nix
-command Irc :tabnew ~/.initrc
-command Mime :tabnew ~/.config/mimeapps.list
+command Ivim :tabnew ~/dotconf/nvim/init.vim
+"command Ivim :tabnew ~/.config/nvim/init.vim
+"command Bash :tabnew ~/.bash_profile
+"command Prof :tabnew ~/.profile
+"command Cocc :tabnew ~/.config/nvim/coc.vim
+"command Zshrc :tabnew ~/.zshrc
+"command Javahi :tabnew ~/.config/nvim/syntax/java.vim
+"command Hconf :tabnew ~/.config/home-manager/home.nix
+"command Irc :tabnew ~/.initrc
+"command Mime :tabnew ~/.config/mimeapps.list
 "automatically reload vim after editing
 "autocmd BufWinLeave init.vim source ~/init.vim
 
@@ -136,7 +137,8 @@ let b:ale_fixers = {'python': ['black', 'autopep8', 'autoflake', 'reorder-python
 "highlight etc environment properly
 au BufReadPost /etc/environment set syntax=sh
 au BufReadPost ~/.initrc set syntax=sh
-au BufReadPost *.conf set filetype=conf
+au BufReadPost *.conf set filetype=config
+au BufReadPost config set filetype=config
 
 function! DefaultConfHi()
 	if !exists("b:current_syntax")

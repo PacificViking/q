@@ -82,6 +82,7 @@ in {
     zsh
     nerdfonts
     light
+    #fprintd
 
     pipewire
     pw-volume
@@ -91,8 +92,9 @@ in {
     #xorg.xorgserver
     #xorg.xinput
 
-    libappindicator-gtk3  # are these two really necessary?
-    libdbusmenu-gtk3
+    #libappindicator-gtk3  # are these two really necessary?
+    #libdbusmenu-gtk3
+    dex
 
     tlp
     #xorg.xf86videonouveau
@@ -120,6 +122,16 @@ in {
   };
   services.blueman.enable = true;
   programs.light.enable = true;
+
+  services.udisks2.enable = true;
+
+  #services.fprintd = {
+  #  enable = true;
+  #  tod = {
+  #    enable = true;
+  #    driver = pkgs.libfprint-2-tod1-vfs0090;
+  #  };
+  #};
 
   hardware.opengl = {
     enable = true;

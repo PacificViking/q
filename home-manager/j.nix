@@ -26,20 +26,25 @@
     pkgs.wl-clipboard
     pkgs.wl-clip-persist
     pkgs.hyprpaper
+    pkgs.udisks
+    pkgs.udisks2
     pkgs.udiskie
     
+    pkgs.ffmpeg
     pkgs.grim
     pkgs.slurp
     pkgs.libnotify
     pkgs.hyprpicker
     pkgs.findutils
     pkgs.ripgrep
+    pkgs.killall
 
     pkgs.xfce.thunar
     pkgs.xfce.xfce4-icon-theme
     pkgs.xfce.thunar-volman
     pkgs.gvfs
     pkgs.polkit_gnome
+    pkgs.xdg-utils
     
     pkgs.neofetch
     pkgs.catppuccin-kde
@@ -52,6 +57,9 @@
     pkgs.xorg.setxkbmap
     pkgs.xkb-switch
     pkgs.xkblayout-state
+
+    pkgs.mpd
+    pkgs.mpdevil
   ];
 
   home.file = {
@@ -79,6 +87,16 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "application/html" = [ "${pkgs.firefox-devedition}/share/applications/firefox.desktop" ];
+    };
+    defaultApplications = {
+      "application/html" = [ "${pkgs.firefox-devedition}/share/applications/firefox.desktop" ];
+    };
   };
 
   home.sessionVariables = {
@@ -149,6 +167,13 @@
     };
   };
 
+  services.mpd = {
+    enable = true;
+    musicDirectory = "~/Music";
+  };
+
+  #services.udisks.enable = true;
+  #services.blueman-manager.enable = true;
   #services.blueman-applet = {
   #  enable = true;
   #};
