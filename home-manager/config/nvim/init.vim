@@ -480,4 +480,4 @@ nmap <silent> [fzf-p]t     :<C-u>FzfPreviewBufferTagsRpc<CR>
 nmap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFixRpc<CR>
 nmap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationListRpc<CR>
 
-"source ~/.config/nvim/coc.vim
+source ~/.config/nvim/coc.vim

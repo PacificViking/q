@@ -47,6 +47,8 @@
       nvim-treesitter.withAllGrammars
       vim-devicons
       # (fromGitHub "HEAD" "elihunter173/dirbuf.nvim")
+      coc-nvim
+      coc-rust-analyzer
     ];
   };
 }

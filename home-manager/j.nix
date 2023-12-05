@@ -74,6 +74,7 @@
       "rustfmt"
     ])
     pkgs.rust-analyzer-nightly
+    pkgs.gcc
   ];
 
   home.file = {
@@ -163,6 +164,9 @@
     enable = true;
     font = {
       name = "Mononoki Nerd Font Mono";
+    };
+    keybindings = {
+      "ctrl+tab" = "send_text normal,application \\x1b[9;5u";
     };
   };
 
