@@ -82,7 +82,7 @@ in {
     zsh
     nerdfonts
     light
-    #fprintd
+    #fprintd-tod
 
     pipewire
     pw-volume
@@ -127,9 +127,10 @@ in {
 
   #services.fprintd = {
   #  enable = true;
+  #  package = pkgs.fprintd-tod;
   #  tod = {
   #    enable = true;
-  #    driver = pkgs.libfprint-2-tod1-vfs0090;
+  #    driver = pkgs.libfprint-2-tod1-goodix-550a;
   #  };
   #};
 
@@ -182,4 +183,7 @@ in {
   users.users.john.shell = pkgs.zsh;
 
   security.polkit.enable = true;
+  #security.pam = {
+  #  enable = true;
+  #};
 }

@@ -75,6 +75,8 @@
     ])
     pkgs.rust-analyzer-nightly
     pkgs.gcc
+
+    pkgs.webcord-vencord
   ];
 
   home.file = {
@@ -90,10 +92,11 @@
       source = ./config/xdg-desktop-portal;
       recursive = true;
     };
-    ".config/hypr" = {
-      source = ./config/hypr;
-      recursive = true;
-    };
+    ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/hypr";
+    #".config/hypr" = {
+    #  source = ./config/hypr;
+    #  recursive = true;
+    #};
     ".config/p10k.zsh" = {
       source = ./config/p10k.zsh;
     };
@@ -167,6 +170,9 @@
     };
     keybindings = {
       "ctrl+tab" = "send_text normal,application \\x1b[9;5u";
+    };
+    settings = {
+      enable_audio_bell = false;
     };
   };
 
