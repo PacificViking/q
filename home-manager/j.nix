@@ -189,6 +189,7 @@
     extraConfig = {
       user.name = "John Hao";
       user.email = "johnhaoallwood@gmail.com";
+      advice.addIgnoredFile = "false";
     };
   };
 

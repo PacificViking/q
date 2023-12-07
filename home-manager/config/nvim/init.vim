@@ -84,7 +84,7 @@ command Ivim :tabnew ~/dotconf/nvim/init.vim
 "command Ivim :tabnew ~/.config/nvim/init.vim
 "command Bash :tabnew ~/.bash_profile
 "command Prof :tabnew ~/.profile
-"command Cocc :tabnew ~/.config/nvim/coc.vim
+command Cocc :tabnew ~/dotconf/nvim/coc.vim
 "command Zshrc :tabnew ~/.zshrc
 "command Javahi :tabnew ~/.config/nvim/syntax/java.vim
 "command Hconf :tabnew ~/.config/home-manager/home.nix
