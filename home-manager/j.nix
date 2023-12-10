@@ -22,7 +22,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.dolphin
     pkgs.nerdfonts
     pkgs.git
     pkgs.nodejs
@@ -44,6 +43,7 @@
     pkgs.findutils
     pkgs.ripgrep
     pkgs.killall
+    pkgs.bat
 
     pkgs.xfce.thunar
     pkgs.xfce.xfce4-icon-theme
@@ -80,11 +80,20 @@
     pkgs.libreoffice-fresh
     pkgs.ardour
 
+    pkgs.qt5.full
     pkgs.libsForQt5.qt5ct
     pkgs.libsForQt5.qt5.qtwayland
+    pkgs.libsForQt5.plasma-wayland-protocols
+    pkgs.libsForQt5.dolphin
+    pkgs.libsForQt5.kwayland
+    pkgs.libsForQt5.kwayland-integration
+    #pkgs.libsForQt5.qtstyleplugin-kvantum
+    (pkgs.catppuccin-kvantum.override {accent = "Yellow"; variant = "Mocha";})
+    pkgs.libsForQt5.breeze-icons
+
     #pkgs.qt6.qtwayland
-    pkgs.qt5.full
     #pkgs.qt6.full
+    #pkgs.qt6Packages.qt6ct
   ];
 
   home.file = {
@@ -101,10 +110,7 @@
       recursive = true;
     };
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/hypr";
-    #".config/hypr" = {
-    #  source = ./config/hypr;
-    #  recursive = true;
-    #};
+
     ".config/p10k.zsh" = {
       source = ./config/p10k.zsh;
     };
@@ -138,9 +144,10 @@
 
   qt = {
     enable = true;
-    platformTheme = "gtk";
-    style.package = pkgs.catppuccin-kde;
+    platformTheme = "qtct";
+    #style.name = "kvantum";
   };
+
 
   programs.zsh = {
     shellAliases = {  # shellGlobalAliases for replace anywhere
