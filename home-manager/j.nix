@@ -44,6 +44,7 @@
     pkgs.ripgrep
     pkgs.killall
     pkgs.bat
+    pkgs.curl.dev
 
     pkgs.xfce.thunar
     pkgs.xfce.xfce4-icon-theme
@@ -51,6 +52,8 @@
     pkgs.gvfs
     pkgs.polkit_gnome
     pkgs.xdg-utils
+
+    pkgs.egl-wayland
     
     pkgs.neofetch
     pkgs.font-awesome
@@ -80,6 +83,8 @@
     pkgs.libreoffice-fresh
     pkgs.ardour
 
+    pkgs.gnome.dconf-editor
+
     pkgs.qt5.full
     pkgs.libsForQt5.qt5ct
     pkgs.libsForQt5.qt5.qtwayland
@@ -97,10 +102,8 @@
   ];
 
   home.file = {
-    ".config/waybar" = {
-      source = ./config/waybar;
-      recursive = true;
-    };
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/waybar";
+
     ".config/neofetch" = {
       source = ./config/neofetch;
       recursive = true;
@@ -190,6 +193,7 @@
 
   programs.kitty = {
     enable = true;
+    package = pkgs.kitty;
     font = {
       name = "Mononoki Nerd Font Mono";
     };
@@ -199,6 +203,8 @@
     settings = {
       enable_audio_bell = false;
     };
+    theme = "Rosé Pine Moon";
+    shellIntegration.enableZshIntegration = true;
   };
 
   programs.waybar = {
@@ -241,6 +247,14 @@
 
   gtk = {
     enable = true;
+    iconTheme = {
+      package = pkgs.rose-pine-icon-theme;
+      name = "rose-pine-moon";
+    };
+    theme = {
+      package = pkgs.rose-pine-gtk-theme;
+      name = "rose-pine-moon";
+    };
   };
 
   # Let Home Manager install and manage itself.

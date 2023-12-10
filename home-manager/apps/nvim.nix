@@ -5,10 +5,8 @@
     code-minimap
   ];
   home.file = {
-    ".config/nvim" = {
-      source = ../config/nvim;  # its in the apps directory
-      recursive = true;
-    };
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/nvim";
+
   };
   programs.neovim = {
     enable = true;
@@ -45,10 +43,12 @@
       tagbar
       vim-fugitive
       nvim-treesitter.withAllGrammars
-      vim-devicons
       # (fromGitHub "HEAD" "elihunter173/dirbuf.nvim")
       coc-nvim
       coc-rust-analyzer
+      jsonc-vim
+
+      vim-devicons
     ];
   };
 }

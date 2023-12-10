@@ -1,3 +1,4 @@
+# https://nixos.wiki/wiki/Sway
 { config, pkgs, lib, ... }:
 let
   # bash script to let dbus know about important env variables and

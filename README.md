@@ -1,3 +1,5 @@
+some configs inspired from https://github.com/XNM1/linux-nixos-hyprland-config-dotfile
+
 fcitx5-configtool to configure mozc and pinyin is required
 (or you can use my configurations, which are already symlinked)
 

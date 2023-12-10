@@ -138,7 +138,7 @@ let b:ale_fixers = {'python': ['black', 'autopep8', 'autoflake', 'reorder-python
 au BufReadPost /etc/environment set syntax=sh
 au BufReadPost ~/.initrc set syntax=sh
 au BufReadPost *.conf set filetype=config
-au BufReadPost config set filetype=config
+au BufReadPost config set filetype=jsonc
 
 function! DefaultConfHi()
 	if !exists("b:current_syntax")
