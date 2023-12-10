@@ -34,6 +34,7 @@
     pkgs.udisks
     pkgs.udisks2
     pkgs.udiskie
+    pkgs.swaylock
     
     pkgs.ffmpeg
     pkgs.grim
@@ -52,7 +53,6 @@
     pkgs.xdg-utils
     
     pkgs.neofetch
-    pkgs.catppuccin-kde
     pkgs.font-awesome
 
     pkgs.networkmanagerapplet
@@ -77,6 +77,14 @@
     pkgs.gcc
 
     pkgs.webcord-vencord
+    pkgs.libreoffice-fresh
+    pkgs.ardour
+
+    pkgs.libsForQt5.qt5ct
+    pkgs.libsForQt5.qt5.qtwayland
+    #pkgs.qt6.qtwayland
+    pkgs.qt5.full
+    #pkgs.qt6.full
   ];
 
   home.file = {
@@ -110,15 +118,17 @@
   xdg.mimeApps = {
     enable = true;
     associations.added = {
-      "application/html" = [ "${pkgs.firefox-devedition}/share/applications/firefox.desktop" ];
+      #"application/html" = [ "${pkgs.firefox-devedition}/share/applications/firefox.desktop" ];
     };
     defaultApplications = {
       "application/html" = [ "${pkgs.firefox-devedition}/share/applications/firefox.desktop" ];
+      "application/pdf" = [ "${pkgs.firefox-devedition}/share/applications/firefox.desktop" ];
     };
   };
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    TESTHOME = "1";
   };
 
   xsession = {
@@ -126,8 +136,16 @@
     windowManager.command = "emacs";
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style.package = pkgs.catppuccin-kde;
+  };
+
   programs.zsh = {
     shellAliases = {  # shellGlobalAliases for replace anywhere
+      "open" = "xdg-open";
+
       "j_listInputs" = "sudo libinput list-devices";
       "j_listHyprDevices" = "hyprctl devices";
       "j_nixSearch" = "nix-env -qa";

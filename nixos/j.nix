@@ -13,8 +13,12 @@ in {
   environment.pathsToLink = [ "/share/zsh" ];
 
   environment.sessionVariables = {
+    # some of these could be moved to home-manager
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
+    QT_QPA_PLATFORM = "wayland";
+    #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
+    TESTNIXJ = "1";
   };
 
   fonts = {
@@ -52,9 +56,13 @@ in {
     };
   };
 
+  programs.dconf.enable = true;
+
+  # hyprland-related wayland config
   programs.hyprland = {
     enable = true;
   };
+
   programs.zsh = {
     enable = true;
   };
@@ -62,10 +70,6 @@ in {
     enable = true;
   };
   
- # programs.dolphin = {
- #   enable = true;
- # };
-
  # programs.git = {
  #   enable = true;
  #   userName = "John Hao";
@@ -82,7 +86,6 @@ in {
     zsh
     nerdfonts
     light
-    #fprintd-tod
 
     pipewire
     pw-volume
@@ -125,14 +128,14 @@ in {
 
   services.udisks2.enable = true;
 
-  #services.fprintd = {
-  #  enable = true;
-  #  package = pkgs.fprintd-tod;
-  #  tod = {
-  #    enable = true;
-  #    driver = pkgs.libfprint-2-tod1-goodix-550a;
-  #  };
-  #};
+  services.fprintd = {
+    enable = true;
+    package = pkgs.fprintd;
+    #tod = {
+      #enable = true;
+      #driver = pkgs.libfprint-2-tod1-goodix-550a;
+    #};
+  };
 
   hardware.opengl = {
     enable = true;

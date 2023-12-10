@@ -3,6 +3,7 @@ let
   python-packages = ps: with ps; [
     pynvim
     numpy
+    parse
   ];
 in {
   home.packages = [
