@@ -47,6 +47,7 @@
       coc-nvim
       coc-rust-analyzer
       jsonc-vim
+      rose-pine
 
       vim-devicons
     ];

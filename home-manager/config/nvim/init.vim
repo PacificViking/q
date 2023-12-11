@@ -249,11 +249,11 @@ nmap 3# i-----  -----<esc><Plug>NERDCommenterCommentBhi
 "use nord colorscheme
 "colorscheme gruvbox
 "set background=dark
-colorscheme nord
+colorscheme rose-pine-moon
 "colorscheme material
 "use colorscheme on lightline
 "let g:lightline = { 'colorscheme': 'gruvbox'}
-let g:lightline = { 'colorscheme': 'nord'}
+let g:lightline = { 'colorscheme': 'rosepine_moon'}
 "custom semshi highlights
 "includes minimap highlights
 function MyCustomHighlights()
