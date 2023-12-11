@@ -141,7 +141,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    TESTHOME = "1";
+    TESTHOME = "2";
   };
 
   xsession = {
