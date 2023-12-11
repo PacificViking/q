@@ -107,10 +107,10 @@
   display: none;
 }
 tab.tabbrowser-tab .tab-label {
-  color: #9893A5 !important;
+  color: #E0DEF4 !important;
 }
 tab.tabbrowser-tab[selected="true"] .tab-label {
-  color: #E0DEF4 !important;
+  color: #EBBCBA !important;
 }
       '';
     };
