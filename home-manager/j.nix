@@ -6,6 +6,7 @@
     apps/python3.nix
     apps/sway.nix
     apps/fcitx.nix
+    apps/firefox.nix
   ];
   
   home.username = "john";
@@ -25,7 +26,7 @@
     pkgs.nerdfonts
     pkgs.git
     pkgs.nodejs
-    pkgs.firefox-devedition
+    #pkgs.firefox-devedition
     pkgs.wofi
     pkgs.wl-clipboard
     pkgs.wl-clip-persist
@@ -49,9 +50,11 @@
     pkgs.xfce.thunar
     pkgs.xfce.xfce4-icon-theme
     pkgs.xfce.thunar-volman
+    pkgs.xfce.tumbler
     pkgs.gvfs
     pkgs.polkit_gnome
     pkgs.xdg-utils
+    pkgs.easyeffects
 
     pkgs.egl-wayland
     
@@ -65,6 +68,7 @@
     pkgs.xorg.setxkbmap
     pkgs.xkb-switch
     pkgs.xkblayout-state
+    pkgs.perl538Packages.FileMimeInfo
 
     pkgs.mpd
     pkgs.mpdevil
@@ -127,11 +131,11 @@
   xdg.mimeApps = {
     enable = true;
     associations.added = {
-      #"application/html" = [ "${pkgs.firefox-devedition}/share/applications/firefox.desktop" ];
     };
     defaultApplications = {
-      "application/html" = [ "${pkgs.firefox-devedition}/share/applications/firefox.desktop" ];
-      "application/pdf" = [ "${pkgs.firefox-devedition}/share/applications/firefox.desktop" ];
+      "application/html" = [ "firefox.desktop" ];
+      "application/pdf" = [ "firefox.desktop" ];
+      "inode/directory" = [ "thunar.desktop" ];
     };
   };
 

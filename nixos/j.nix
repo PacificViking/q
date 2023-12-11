@@ -15,7 +15,7 @@ in {
   environment.sessionVariables = {
     # some of these could be moved to home-manager
     NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_NO_HARDWARE_CURSORS = "0";
     QT_QPA_PLATFORM = "wayland";
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
     TESTNIXJ = "1";
@@ -116,7 +116,7 @@ in {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    #pulse.enable = false;
+    pulse.enable = true;
   };
 
   hardware.bluetooth = {
