@@ -6,7 +6,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    fenix.url = "path:apps/fenix";
   };
   outputs = { self, nixpkgs, home-manager, hyprland, ...}@attrs: {
     nixosConfigurations.johnnixos = nixpkgs.lib.nixosSystem {

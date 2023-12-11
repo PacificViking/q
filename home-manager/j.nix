@@ -86,6 +86,8 @@
     pkgs.webcord-vencord
     pkgs.libreoffice-fresh
     pkgs.ardour
+    pkgs.zrythm
+    pkgs.muse
 
     pkgs.gnome.dconf-editor
 

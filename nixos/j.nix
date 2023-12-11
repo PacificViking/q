@@ -17,6 +17,7 @@ in {
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "0";
     QT_QPA_PLATFORM = "wayland";
+    GDK_BACKEND = "wayland";
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
     TESTNIXJ = "1";
   };

@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./j.nix
     ];
+  nix.settings.sandbox = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
