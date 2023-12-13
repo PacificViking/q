@@ -129,11 +129,11 @@
       source = ./config/xdg-desktop-portal;
       recursive = true;
     };
-    ".config/hypr" = {
-      source = ./config/hypr;
-      recursive = true;
-    };
-    #".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/hypr";
+    #".config/hypr" = {
+    #  source = ./config/hypr;
+    #  recursive = true;
+    #};
+    ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${builtins.toString ./.}/config/hypr";
 
     ".config/p10k.zsh" = {
       source = ./config/p10k.zsh;

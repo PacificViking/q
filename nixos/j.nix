@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, home-manager, ... }:
+{ config, pkgs, nixpkgs, inputs, ... }:
 let
   #nix1903 = import <19.03> {};
   #nix2305 = import <23.05> {};
@@ -58,9 +58,9 @@ in {
   programs.dconf.enable = true;
 
   # hyprland-related wayland config
-  #programs.hyprland = {
-  #  enable = true;
-  #};
+  programs.hyprland = {
+    enable = true;
+  };
 
   programs.zsh = {
     enable = true;
@@ -77,7 +77,7 @@ in {
   
   environment.systemPackages = with pkgs; [
     nix
-    home-manager
+    #home-manager
     #hyprland
     kitty
     mako
