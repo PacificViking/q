@@ -1,4 +1,4 @@
-{ config, pkgs, fenix, ... }:
+{ config, pkgs, inputs, ... }:
 {
   imports = [
     apps/waybar.nix
@@ -14,8 +14,12 @@
 
   home.stateVersion = "23.05"; # don't change
 
+  #wayland.windowManager.hyprland = {
+  #  enable = true;
+  #};
+
   nixpkgs.overlays = [
-    fenix.overlays.default
+    inputs.fenix.overlays.default
   ];
 
   home.packages = [
@@ -114,9 +118,8 @@
   ];
 
   home.file = {
-    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/waybar";
-
-    ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/mpd";
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${builtins.toString ./.}/config/waybar";
+    ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${builtins.toString ./.}/config/mpd";
 
     ".config/neofetch" = {
       source = ./config/neofetch;
@@ -126,7 +129,11 @@
       source = ./config/xdg-desktop-portal;
       recursive = true;
     };
-    ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/hypr";
+    ".config/hypr" = {
+      source = ./config/hypr;
+      recursive = true;
+    };
+    #".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/hypr";
 
     ".config/p10k.zsh" = {
       source = ./config/p10k.zsh;
@@ -169,6 +176,8 @@
   programs.zsh = {
     shellAliases = {  # shellGlobalAliases for replace anywhere
       "open" = "xdg-open";
+      "jj_hm" = "home-manager switch --flake ~/q";
+      "jj_nix" = "sudo nixos-rebuild switch --flake /home/john/q";
 
       "j_listInputs" = "sudo libinput list-devices";
       "j_listHyprDevices" = "hyprctl devices";

@@ -8,8 +8,6 @@ in {
     ./apps/sway.nix
   ];
   
-  nixpkgs.config.allowUnfree = true;
-
   environment.pathsToLink = [ "/share/zsh" ];
 
   environment.sessionVariables = {
@@ -60,9 +58,9 @@ in {
   programs.dconf.enable = true;
 
   # hyprland-related wayland config
-  programs.hyprland = {
-    enable = true;
-  };
+  #programs.hyprland = {
+  #  enable = true;
+  #};
 
   programs.zsh = {
     enable = true;
@@ -79,6 +77,7 @@ in {
   
   environment.systemPackages = with pkgs; [
     nix
+    home-manager
     #hyprland
     kitty
     mako

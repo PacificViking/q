@@ -5,7 +5,7 @@
     code-minimap
   ];
   home.file = {
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/nvim";
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${builtins.toString ./.}/../config/nvim";
 
   };
   programs.neovim = {

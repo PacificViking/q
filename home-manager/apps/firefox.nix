@@ -1,4 +1,4 @@
-{ config, pkgs, flake-firefox-nightly, ... }:
+{ config, pkgs, inputs, ... }:
 {
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
@@ -8,7 +8,7 @@
   programs.firefox = {
     enable = true;
     #package = pkgs.firefox-devedition;
-    package = flake-firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
+    package = inputs.flake-firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
     policies = {};
 
     profiles.nightly-default = {
