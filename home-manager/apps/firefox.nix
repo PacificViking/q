@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, flake-firefox-nightly, ... }:
 {
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
@@ -7,10 +7,12 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-devedition;
+    #package = pkgs.firefox-devedition;
+    package = flake-firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
     policies = {};
 
-    profiles.dev-edition-default = {
+    profiles.nightly-default = {
+      path = "my1.nightly-default";
       settings = {
         "browser.search.region" = "CA"; 
 	"doh-rollout.home-region" = "CA";
@@ -22,7 +24,7 @@
 	"widget.use-xdg-desktop-portal.settings" = 1;
 
 	"browser.theme.toolbar-theme" = 1;
-	"extensions.activeThemeID" = "";
+	"extensions.activeThemeID" = "default-theme@mozilla.org";
 
         "xpinstall.signatures.required" = false;
         "extensions.experiments.enabled" = true;
@@ -66,7 +68,7 @@
 
 	"toolkit.telemetry.reportingpolicy.firstRun" = false;
       };
-      path = "my1.dev-edition-default";
+
       extraConfig = "";
 
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -105,9 +107,6 @@
       userChrome = ''
 .titlebar-buttonbox-container {
   display: none;
-}
-tab.tabbrowser-tab .tab-label {
-  color: #E0DEF4 !important;
 }
 tab.tabbrowser-tab[selected="true"] .tab-label {
   color: #EBBCBA !important;

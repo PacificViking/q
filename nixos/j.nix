@@ -101,8 +101,9 @@ in {
     dex
 
     tlp
-    #xorg.xf86videonouveau
     mesa
+    lm_sensors
+    glxinfo
     
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
@@ -141,6 +142,7 @@ in {
   hardware.opengl = {
     enable = true;
     driSupport = true;
+    driSupport32Bit = true;
   };
   # https://www.youtube.com/watch?v=61wGzIv12Ds
   # nvidia.modesetting.enable = true;

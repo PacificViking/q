@@ -35,6 +35,7 @@
     pkgs.udisks2
     pkgs.udiskie
     pkgs.swaylock
+    pkgs.inxi
     
     pkgs.ffmpeg
     pkgs.grim
@@ -69,9 +70,12 @@
     pkgs.xkb-switch
     pkgs.xkblayout-state
     pkgs.perl538Packages.FileMimeInfo
+    pkgs.xorg.xdpyinfo
 
     pkgs.mpd
     pkgs.mpdevil
+    pkgs.mpc-cli
+    pkgs.pms
 
     (pkgs.fenix.latest.withComponents [
       "cargo"
@@ -82,12 +86,14 @@
     ])
     pkgs.rust-analyzer-nightly
     pkgs.gcc
+    pkgs.nil
 
     pkgs.webcord-vencord
     pkgs.libreoffice-fresh
     pkgs.ardour
     pkgs.zrythm
     pkgs.muse
+    pkgs.netsurf.browser
 
     pkgs.gnome.dconf-editor
 
@@ -109,6 +115,8 @@
 
   home.file = {
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/waybar";
+
+    ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/home-manager/config/mpd";
 
     ".config/neofetch" = {
       source = ./config/neofetch;
@@ -169,6 +177,7 @@
       "j_manHNix" = "man home-configuration.nix";
       "j_gitDiff" = "git diff HEAD";
       "j_listDevices" = "lspci -v";
+      "j_systemInfo" = "inxi -Fzxx";
       "j_chown" = "sudo chown john:users";
     };
 
