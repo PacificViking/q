@@ -1,8 +1,8 @@
 { config, pkgs, nixpkgs, home-manager, ... }:
 let
-  nix1903 = import <19.03> {};
-  nix2305 = import <23.05> {};
-  unstable = import <unstable> {};
+  #nix1903 = import <19.03> {};
+  #nix2305 = import <23.05> {};
+  #unstable = import <unstable> {};
 in {
   imports = [
     ./apps/sway.nix

@@ -14,6 +14,8 @@
     profiles.nightly-default = {
       path = "my1.nightly-default";
       settings = {
+        "widget.wayland.vsync.enabled" = false;
+
         "browser.search.region" = "CA"; 
 	"doh-rollout.home-region" = "CA";
 
