@@ -20,20 +20,27 @@
   };
   outputs = { self, nixpkgs, home-manager, hyprland, ...}@inputs:
   let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
-  in {
+    pkgs = import nixpkgs { system = settings.systemtype; config.allowUnfree = true; };
+    settings = {
+      #set these settings for your system information
+      hostname = "johnnixos";
+      username = "john";
+      confpath = "/home/john/q/";
+      systemtype = "x86_64-linux";
+    };
 
+  in {
+    #separate nixosConfigurations and homeConfigurations to separate the flake.nixes
     nixosConfigurations.johnnixos = nixpkgs.lib.nixosSystem {
       inherit pkgs;
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs settings; };
       modules = [ nixos/configuration.nix ];
     };
 
 
-    homeConfigurations."john@johnnixos" = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."${settings.username}@${settings.hostname}" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = { inherit inputs settings; };
 
       modules = [
 	#hyprland.homeManagerModules.default

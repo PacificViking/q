@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
+{ config, pkgs, settings, ... }:
 
 {
   imports =
@@ -20,7 +20,7 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "johnnixos"; # Define your hostname.
+  networking.hostName = settings.hostname; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -59,7 +59,7 @@
   services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.john = {
+  users.users."${settings.username}"= {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "networkmanager" "video" "input" "audio" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [

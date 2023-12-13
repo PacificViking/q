@@ -1,9 +1,5 @@
-{ config, pkgs, nixpkgs, inputs, ... }:
-let
-  #nix1903 = import <19.03> {};
-  #nix2305 = import <23.05> {};
-  #unstable = import <unstable> {};
-in {
+{ config, pkgs, nixpkgs, inputs, settings, ... }:
+{
   imports = [
     ./apps/sway.nix
   ];
@@ -148,6 +144,7 @@ in {
 
   xdg.portal = {
     enable = true;
+    wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-kde
@@ -185,7 +182,7 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
-  users.users.john.shell = pkgs.zsh;
+  users.users.${settings.username}.shell = pkgs.zsh;
 
   security.polkit.enable = true;
   #security.pam = {

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, settings, ... }:
 {
   imports = [
     apps/waybar.nix
@@ -9,8 +9,8 @@
     apps/firefox.nix
   ];
   
-  home.username = "john";
-  home.homeDirectory = "/home/john";
+  home.username = settings.username;
+  home.homeDirectory = "/home/${settings.username}";
 
   home.stateVersion = "23.05"; # don't change
 
@@ -176,8 +176,8 @@
   programs.zsh = {
     shellAliases = {  # shellGlobalAliases for replace anywhere
       "open" = "xdg-open";
-      "jj_hm" = "home-manager switch --flake ~/q";
-      "jj_nix" = "sudo nixos-rebuild switch --flake /home/john/q";
+      "jj_hm" = "home-manager switch --flake ${settings.confpath}";
+      "jj_nix" = "sudo nixos-rebuild switch --flake ${settings.confpath}";
 
       "j_listInputs" = "sudo libinput list-devices";
       "j_listHyprDevices" = "hyprctl devices";

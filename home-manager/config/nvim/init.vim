@@ -1,3 +1,4 @@
+"test
 "turn on syntax
 syntax on
 set ignorecase  "ignore case
@@ -26,6 +27,13 @@ set noshowmode
 "persistent undo
 set undofile
 set undodir=~/.vim/undodir
+
+"for rust?
+syntax enable
+filetype on
+filetype plugin on
+filetype plugin indent on
+
 "shortcut for window
 noremap e <C-w>
 "quick up down scroll
@@ -145,11 +153,9 @@ function! DefaultConfHi()
 		set syntax=c
 	endif
 endfunc
-au BufReadPost /home/john/.config/* call DefaultConfHi()
+au BufReadPost ~/.config/* call DefaultConfHi()
 
-"for rust
-syntax enable
-filetype plugin indent on
+autocmd FileType nix set expandtab shiftwidth=2
 
 "deoplete autocomplete fast
 "call deoplete#custom#option('candidate_marks',
