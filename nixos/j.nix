@@ -144,7 +144,27 @@
 
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    wlr = {
+      enable = true;
+      settings.screencast = {
+        output_name = "HDMI-A-1";
+        max_fps = 30;
+        chooser_type = "simple";
+        chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+      };
+    };
+    config = {
+      common = {
+        default = [
+          "gtk"
+        ];
+        #"org.freedesktop.impl.portal.AppChooser"=["kde"];
+        # this doesn't work
+        #"org.freedesktop.impl.portal.FileChooser"=["kde"];
+        "org.freedesktop.impl.portal.ScreenCast"=["hyprland"];
+        "org.freedesktop.impl.portal.Screenshot"=["hyprland"];
+      };
+    };
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-kde

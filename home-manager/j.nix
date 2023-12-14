@@ -62,6 +62,10 @@
     pkgs.easyeffects
 
     pkgs.egl-wayland
+    #pkgs.opentabletdriver
+    #pkgs.wacomtablet
+    #pkgs.xf86_input_wacom
+    #pkgs.libwacom
     
     pkgs.neofetch
     pkgs.font-awesome
@@ -98,6 +102,7 @@
     pkgs.zrythm
     pkgs.muse
     pkgs.netsurf.browser
+    pkgs.xournalpp
 
     pkgs.gnome.dconf-editor
 
@@ -125,10 +130,12 @@
       source = ./config/neofetch;
       recursive = true;
     };
-    ".config/xdg-desktop-portal" = {
-      source = ./config/xdg-desktop-portal;
-      recursive = true;
-    };
+
+    #".config/xdg-desktop-portal" = {
+    #  source = ./config/xdg-desktop-portal;
+    #  recursive = true;
+    #};
+
     #".config/hypr" = {
     #  source = ./config/hypr;
     #  recursive = true;
