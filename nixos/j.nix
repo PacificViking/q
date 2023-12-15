@@ -155,7 +155,7 @@
     };
     config = {
       common = {
-        default = [
+        Hyprland = [
           "gtk"
         ];
         #"org.freedesktop.impl.portal.AppChooser"=["kde"];

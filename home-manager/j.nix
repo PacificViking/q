@@ -103,6 +103,7 @@
     pkgs.muse
     pkgs.netsurf.browser
     pkgs.xournalpp
+    pkgs.gparted
 
     pkgs.gnome.dconf-editor
 
@@ -195,6 +196,7 @@
       "j_listDevices" = "lspci -v";
       "j_systemInfo" = "inxi -Fzxx";
       "j_chown" = "sudo chown john:users";
+      "j_buildFlakeVM" = "nixos-rebuild build-vm --flake";
     };
 
     enable = true;
