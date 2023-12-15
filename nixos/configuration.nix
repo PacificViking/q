@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./user-hardware.nix
       ./j.nix
     ];
   nix.settings.sandbox = true;

@@ -31,7 +31,7 @@
 
   in {
     #separate nixosConfigurations and homeConfigurations to separate the flake.nixes
-    nixosConfigurations.johnnixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."${settings.hostname}" = nixpkgs.lib.nixosSystem {
       inherit pkgs;
       specialArgs = { inherit inputs settings; };
       modules = [ nixos/configuration.nix ];

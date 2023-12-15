@@ -1,7 +1,7 @@
 { config, pkgs, nixpkgs, inputs, settings, ... }:
 {
   imports = [
-    ./apps/sway.nix
+    #./apps/sway.nix
   ];
   
   environment.pathsToLink = [ "/share/zsh" ];
@@ -91,9 +91,8 @@
     #xorg.xorgserver
     #xorg.xinput
 
-    #libappindicator-gtk3  # are these two really necessary?
-    #libdbusmenu-gtk3
-    dex
+    dex  # desktop autoentries
+    btrfs-progs
 
     tlp
     mesa
@@ -204,7 +203,9 @@
 
   users.users.${settings.username}.shell = pkgs.zsh;
 
-  security.polkit.enable = true;
+  security.polkit = {
+    enable = true;
+  };
   #security.pam = {
   #  enable = true;
   #};

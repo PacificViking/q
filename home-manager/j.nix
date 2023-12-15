@@ -4,7 +4,7 @@
     apps/waybar.nix
     apps/nvim.nix
     apps/python3.nix
-    apps/sway.nix
+    #apps/sway.nix
     apps/fcitx.nix
     apps/firefox.nix
   ];
@@ -104,6 +104,7 @@
     pkgs.netsurf.browser
     pkgs.xournalpp
     pkgs.gparted
+    #pkgs.isoimagewriter
 
     pkgs.gnome.dconf-editor
 
@@ -184,6 +185,7 @@
   programs.zsh = {
     shellAliases = {  # shellGlobalAliases for replace anywhere
       "open" = "xdg-open";
+      "gparted" = "sudo env WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR gparted";
       "jj_hm" = "home-manager switch --flake ${settings.confpath}";
       "jj_nix" = "sudo nixos-rebuild switch --flake ${settings.confpath}";
 
