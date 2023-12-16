@@ -7,6 +7,7 @@
     #apps/sway.nix
     apps/fcitx.nix
     apps/firefox.nix
+    apps/OpenTabletDriver.nix
   ];
   
   home.username = settings.username;

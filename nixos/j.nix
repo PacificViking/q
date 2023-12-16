@@ -1,6 +1,7 @@
 { config, pkgs, nixpkgs, inputs, settings, ... }:
 {
   imports = [
+    ./apps/OpenTabletDriver.nix
     #./apps/sway.nix
   ];
   
