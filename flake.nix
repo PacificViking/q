@@ -26,7 +26,7 @@
       hostname = "johnnixos";
       username = "john";
       confpath = "/home/john/q/";
-      systemtype = "x86_64-linux";
+      systemtype = "x86_64-linux";  # this doesn't change the system type in hardware-configuration
     };
 
   in {

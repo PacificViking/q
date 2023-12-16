@@ -203,6 +203,8 @@
 
   users.users.${settings.username}.shell = pkgs.zsh;
 
+  services.dbus.enable = true;
+
   security.polkit = {
     enable = true;
   };
