@@ -3,6 +3,8 @@
   imports = [
     ./apps/OpenTabletDriver.nix
     ./apps/sway.nix
+    ./apps/docker.nix
+    ./apps/mysql.nix
   ];
   
   environment.pathsToLink = [ "/share/zsh" ];
