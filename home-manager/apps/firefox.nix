@@ -11,7 +11,9 @@
     package = inputs.flake-firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
     policies = {};
 
+    #profiles.dev-edition-default = {
     profiles.nightly-default = {
+      #path = "my1.firefox-dev-edition-default";
       path = "my1.nightly-default";
       settings = {
         "widget.wayland.vsync.enabled" = false;

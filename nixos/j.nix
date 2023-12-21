@@ -2,7 +2,7 @@
 {
   imports = [
     ./apps/OpenTabletDriver.nix
-    #./apps/sway.nix
+    ./apps/sway.nix
   ];
   
   environment.pathsToLink = [ "/share/zsh" ];
