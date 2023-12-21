@@ -129,6 +129,8 @@
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${builtins.toString ./.}/config/waybar";
     ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${builtins.toString ./.}/config/mpd";
 
+    ".config/gtk-3.0/bookmarks".source = ./config/gtk-3.0/bookmarks;
+
     ".config/neofetch" = {
       source = ./config/neofetch;
       recursive = true;

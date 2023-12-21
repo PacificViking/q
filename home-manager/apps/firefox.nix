@@ -26,7 +26,7 @@
 	"widget.use-xdg-desktop-portal.settings" = 1;
 
 	"browser.theme.toolbar-theme" = 1;
-	"extensions.activeThemeID" = "default-theme@mozilla.org";
+        "extensions.activeThemeID" = "default-theme@mozilla.org";  # this can be disabled to make it "work"ish
 
         "xpinstall.signatures.required" = false;
         "extensions.experiments.enabled" = true;
@@ -42,6 +42,8 @@
 	"browser.safebrowsing.downloads.remote.block_uncommon" = false;
 	"browser.safebrowsing.malware.enabled" = false;
 	"browser.safebrowsing.phishing.enabled" = false;
+        
+        "general.autoScroll" = true;
 
         "browser.startup.couldRestoreSession.count" = 3;
 	"browser.urlbar.showSearchSuggestionsFirst" = false;
