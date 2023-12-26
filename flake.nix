@@ -17,6 +17,10 @@
       url = "github:nix-community/flake-firefox-nightly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    musnix = {
+      url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { self, nixpkgs, home-manager, hyprland, ...}@inputs:
   let
@@ -34,7 +38,10 @@
     nixosConfigurations."${settings.hostname}" = nixpkgs.lib.nixosSystem {
       inherit pkgs;
       specialArgs = { inherit inputs settings; };
-      modules = [ nixos/configuration.nix ];
+      modules = [
+        nixos/configuration.nix
+        inputs.musnix.nixosModules.musnix
+      ];
     };
 
 

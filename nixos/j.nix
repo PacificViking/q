@@ -86,7 +86,6 @@
     nerdfonts
     light
 
-    pipewire
     pw-volume
     wireplumber
     libinput
@@ -111,11 +110,13 @@
     extraOptions = "experimental-features = nix-command flakes";
   };
 
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true;
   };
 
   hardware.bluetooth = {
@@ -212,6 +213,17 @@
     enable = true;
   };
   #security.pam = {
-  #  enable = true;
+  #  loginLimits = [
+  #    { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
+  #    { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
+  #    { domain = "@audio"; item = "nofile"; type = "soft"; value = "99999"; }
+  #    { domain = "@audio"; item = "nofile"; type = "hard"; value = "99999"; }
+  #  ];
   #};
+
+  musnix = {
+    enable = true;
+    alsaSeq.enable = true;
+    soundcardPciId = "00:1f.3";
+  };
 }

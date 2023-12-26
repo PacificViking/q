@@ -4,6 +4,7 @@ let
     pynvim
     numpy
     parse
+    requests
   ];
 in {
   home.packages = [

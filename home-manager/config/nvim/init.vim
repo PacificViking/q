@@ -1,4 +1,3 @@
-"test
 "turn on syntax
 syntax on
 set ignorecase  "ignore case
@@ -156,6 +155,7 @@ endfunc
 au BufReadPost ~/.config/* call DefaultConfHi()
 
 autocmd FileType nix set expandtab shiftwidth=2
+autocmd FileType javascript set expandtab shiftwidth=4
 
 "deoplete autocomplete fast
 "call deoplete#custom#option('candidate_marks',

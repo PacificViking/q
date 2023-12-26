@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, settings, ... }:
 {
   home.packages = with pkgs; [
     fzf
     code-minimap
   ];
   home.file = {
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${builtins.toString ./.}/../config/nvim";
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/nvim";
 
   };
   programs.neovim = {

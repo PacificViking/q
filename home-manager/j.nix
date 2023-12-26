@@ -53,6 +53,8 @@
     pkgs.bat
     pkgs.curl.dev
 
+    pkgs.nodejs_21
+
     pkgs.xfce.thunar
     pkgs.xfce.xfce4-icon-theme
     pkgs.xfce.thunar-volman
@@ -85,6 +87,12 @@
     pkgs.mpdevil
     pkgs.mpc-cli
     pkgs.pms
+    pkgs.hydrogen  # drum synthesizer
+    #pkgs.vcv-rack
+    pkgs.freepats
+    pkgs.ChowKick
+    pkgs.drumkv1
+    pkgs.drumgizmo
 
     (pkgs.fenix.latest.withComponents [
       "cargo"
@@ -99,8 +107,8 @@
 
     pkgs.webcord-vencord
     pkgs.libreoffice-fresh
-    pkgs.ardour
     pkgs.zrythm
+    pkgs.reaper
     pkgs.muse
     pkgs.netsurf.browser
     pkgs.xournalpp
@@ -126,8 +134,8 @@
   ];
 
   home.file = {
-    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${builtins.toString ./.}/config/waybar";
-    ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${builtins.toString ./.}/config/mpd";
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/waybar";
+    ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/mpd";
 
     ".config/gtk-3.0/bookmarks".source = ./config/gtk-3.0/bookmarks;
 
@@ -145,7 +153,7 @@
     #  source = ./config/hypr;
     #  recursive = true;
     #};
-    ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${builtins.toString ./.}/config/hypr";
+    ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/hypr";
 
     ".config/p10k.zsh" = {
       source = ./config/p10k.zsh;
@@ -182,6 +190,11 @@
     enable = true;
     platformTheme = "qtct";
     #style.name = "kvantum";
+  };
+
+  services.swayosd = {
+    enable = true;
+    maxVolume = 120;
   };
 
 
