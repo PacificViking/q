@@ -46,6 +46,7 @@
 	"browser.safebrowsing.phishing.enabled" = false;
         
         "general.autoScroll" = true;
+        "media.autoplay.default" = 5;
 
         "browser.startup.couldRestoreSession.count" = 3;
 	"browser.urlbar.showSearchSuggestionsFirst" = false;

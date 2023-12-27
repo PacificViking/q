@@ -39,7 +39,8 @@
     pkgs.udisks
     pkgs.udisks2
     pkgs.udiskie
-    pkgs.swaylock
+    #pkgs.swaylock
+    pkgs.swaylock-effects
     pkgs.inxi
     
     pkgs.ffmpeg

@@ -207,6 +207,11 @@
 
   users.users.${settings.username}.shell = pkgs.zsh;
 
+    #HandlePowerKey=ignore
+  services.logind.extraConfig = ''
+    HandlePowerKeyLongPress=poweroff
+  '';
+
   services.dbus.enable = true;
 
   security.polkit = {
