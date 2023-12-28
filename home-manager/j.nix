@@ -218,6 +218,7 @@
       "j_systemInfo" = "inxi -Fzxx";
       "j_chown" = "sudo chown john:users";
       "j_buildFlakeVM" = "nixos-rebuild build-vm --flake";
+      "j_colorPicker" = "grim -g \"$(slurp -p)\" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-";
     };
 
     enable = true;
