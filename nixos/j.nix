@@ -85,6 +85,9 @@
     zsh
     nerdfonts
     light
+    #swaylock
+    #swaylock-effects
+    gtklock
 
     pw-volume
     wireplumber
@@ -207,7 +210,9 @@
 
   users.users.${settings.username}.shell = pkgs.zsh;
 
-    #HandlePowerKey=ignore
+  #HandlePowerKey=ignore
+  #HandleLidSwitch=ignore
+  #HandleLidSwitchExternalPower=ignore
   services.logind.extraConfig = ''
     HandlePowerKeyLongPress=poweroff
   '';
@@ -217,6 +222,9 @@
   security.polkit = {
     enable = true;
   };
+  #security.pam.services.swaylock = {};
+  #security.pam.services.waylock = {};
+  security.pam.services.gtklock = {};
   #security.pam = {
   #  loginLimits = [
   #    { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }

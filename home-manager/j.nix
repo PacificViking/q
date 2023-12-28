@@ -24,6 +24,7 @@
   ];
 
   home.packages = [
+    inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
@@ -39,8 +40,6 @@
     pkgs.udisks
     pkgs.udisks2
     pkgs.udiskie
-    #pkgs.swaylock
-    pkgs.swaylock-effects
     pkgs.inxi
     
     pkgs.ffmpeg
@@ -136,7 +135,10 @@
 
   home.file = {
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/waybar";
+
     ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/mpd";
+
+    ".config/gtklock".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtklock";
 
     ".config/gtk-3.0/bookmarks".source = ./config/gtk-3.0/bookmarks;
 

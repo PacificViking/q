@@ -21,6 +21,10 @@
       url = "github:musnix/musnix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprprop-rust = {
+      url = "github:PacificViking/hyprprop-rust";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { self, nixpkgs, home-manager, hyprland, ...}@inputs:
   let
