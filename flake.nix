@@ -1,6 +1,10 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    localnixpkgs = {
+      type = "path";
+      path = "/home/john/opensource/nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,9 +30,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, home-manager, hyprland, ...}@inputs:
+  outputs = { self, nixpkgs, localnixpkgs, home-manager, hyprland, ...}@inputs:
   let
     pkgs = import nixpkgs { system = settings.systemtype; config.allowUnfree = true; };
+
+    localpkgs = import localnixpkgs { system = settings.systemtype; config.allowUnfree = true; };
+
     settings = {
       #set these settings for your system information
       hostname = "johnnixos";
@@ -41,7 +48,7 @@
     #separate nixosConfigurations and homeConfigurations to separate the flake.nixes
     nixosConfigurations."${settings.hostname}" = nixpkgs.lib.nixosSystem {
       inherit pkgs;
-      specialArgs = { inherit inputs settings; };
+      specialArgs = { inherit inputs settings localpkgs; };
       modules = [
         nixos/configuration.nix
         inputs.musnix.nixosModules.musnix

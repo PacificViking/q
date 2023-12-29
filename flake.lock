@@ -202,6 +202,18 @@
         "type": "github"
       }
     },
+    "localnixpkgs": {
+      "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-Do9PVWfzdhYjznQWwSRsaRtM1zYag0nEzoYe5vSp8nM=",
+        "path": "/home/john/opensource/nixpkgs",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/john/opensource/nixpkgs",
+        "type": "path"
+      }
+    },
     "mozilla": {
       "flake": false,
       "locked": {
@@ -276,6 +288,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprprop-rust": "hyprprop-rust",
+        "localnixpkgs": "localnixpkgs",
         "musnix": "musnix",
         "nixpkgs": "nixpkgs"
       }
