@@ -5,6 +5,7 @@
     ./apps/sway.nix
     ./apps/docker.nix
     ./apps/mysql.nix
+    ./apps/miraclecast.nix
   ];
   
   environment.pathsToLink = [ "/share/zsh" ];
