@@ -115,7 +115,8 @@
     pkgs.netsurf.browser
     pkgs.xournalpp
     pkgs.gparted
-    #pkgs.isoimagewriter
+    pkgs.isoimagewriter
+    pkgs.qbittorrent
 
     pkgs.gnome.dconf-editor
 
