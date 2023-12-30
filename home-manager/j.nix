@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, settings, ... }:
+{ config, pkgs, inputs, settings, localpkgs, ... }:
 {
   imports = [
     apps/waybar.nix
@@ -25,6 +25,8 @@
 
   home.packages = [
     inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
+    #localpkgs.hyprprop-rust
+
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"

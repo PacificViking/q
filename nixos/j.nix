@@ -55,6 +55,10 @@
     };
   };
 
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
   programs.dconf.enable = true;
 
   # hyprland-related wayland config
@@ -107,6 +111,8 @@
     
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
+
+    gnome-network-displays
   ];
 
   nix = {

@@ -58,7 +58,7 @@
 
     homeConfigurations."${settings.username}@${settings.hostname}" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = { inherit inputs settings; };
+      extraSpecialArgs = { inherit inputs settings localpkgs; };
 
       modules = [
 	#hyprland.homeManagerModules.default

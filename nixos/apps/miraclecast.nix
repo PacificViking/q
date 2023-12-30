@@ -1,6 +1,9 @@
 { config, lib, pkgs, modulesPath, inputs, settings, localpkgs, ... }:
 {
-  services.dbus.packages = [ pkgs.miraclecast ];
+  services.dbus.packages = [ 
+    pkgs.miraclecast
+    #localpkgs.miraclecast
+  ];
   environment.systemPackages = with pkgs; [
     iw
     gst_all_1.gstreamer
@@ -11,7 +14,7 @@
     gst_all_1.gst-libav
     gst_all_1.gst-vaapi
   ] ++ [
-    #pkgs.miraclecast
-    localpkgs.miraclecast
+    pkgs.miraclecast
+    #localpkgs.miraclecast
   ];
 }
