@@ -13,7 +13,8 @@
   environment.sessionVariables = {
     # some of these could be moved to home-manager
     NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "0";
+    #WLR_NO_HARDWARE_CURSORS = "0";
+    WLR_NO_HARDWARE_CURSORS = "1";  # nvidia fuckery
     QT_QPA_PLATFORM = "wayland";
     GDK_BACKEND = "wayland";
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
@@ -170,12 +171,15 @@
       common = {
         Hyprland = [
           "gtk"
+          "wlr"
         ];
         #"org.freedesktop.impl.portal.AppChooser"=["kde"];
         # this doesn't work
         #"org.freedesktop.impl.portal.FileChooser"=["kde"];
-        "org.freedesktop.impl.portal.ScreenCast"=["hyprland"];
-        "org.freedesktop.impl.portal.Screenshot"=["hyprland"];
+        "org.freedesktop.impl.portal.ScreenCast"=["wlr"];
+        "org.freedesktop.impl.portal.Screenshot"=["wlr"];
+        #"org.freedesktop.impl.portal.ScreenCast"=["hyprland"];
+        #"org.freedesktop.impl.portal.Screenshot"=["hyprland"];
       };
     };
     extraPortals = [

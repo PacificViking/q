@@ -117,6 +117,7 @@
     pkgs.gparted
     pkgs.isoimagewriter
     pkgs.qbittorrent
+    pkgs.lutris
 
     pkgs.gnome.dconf-editor
 
@@ -280,6 +281,12 @@
       user.email = "johnhaoallwood@gmail.com";
       advice.addIgnoredFile = "false";
     };
+  };
+
+  dconf.settings = {
+    #"org/gnome/desktop/interface" = {
+    #  color-scheme = "prefer-dark";
+    #};
   };
 
   services.mpd = {
