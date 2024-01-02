@@ -8,6 +8,7 @@
     apps/fcitx.nix
     apps/firefox.nix
     apps/OpenTabletDriver.nix
+    apps/dolphin.nix
   ];
   
   home.username = settings.username;
@@ -55,14 +56,17 @@
     pkgs.killall
     pkgs.bat
     pkgs.curl.dev
+    pkgs.dfeet
+    pkgs.d-spy
+    pkgs.pqiv
 
     pkgs.nodejs_21
 
-    pkgs.xfce.thunar
+    #pkgs.gnome.nautilus
     pkgs.xfce.xfce4-icon-theme
-    pkgs.xfce.thunar-volman
-    pkgs.xfce.tumbler
-    pkgs.gvfs
+    #pkgs.xfce.thunar-volman
+    #pkgs.xfce.tumbler
+    #pkgs.gvfs
     pkgs.polkit_gnome
     pkgs.xdg-utils
     pkgs.easyeffects
@@ -88,6 +92,7 @@
 
     pkgs.mpd
     pkgs.mpdevil
+    pkgs.ncmpcpp
     pkgs.mpc-cli
     pkgs.pms
     pkgs.hydrogen  # drum synthesizer
@@ -127,7 +132,7 @@
     pkgs.libsForQt5.qt5ct
     pkgs.libsForQt5.qt5.qtwayland
     pkgs.libsForQt5.plasma-wayland-protocols
-    pkgs.libsForQt5.dolphin
+    #pkgs.libsForQt5.dolphin
     pkgs.libsForQt5.kwayland
     pkgs.libsForQt5.kwayland-integration
     #pkgs.libsForQt5.qtstyleplugin-kvantum
@@ -180,6 +185,15 @@
       "inode/directory" = [ "thunar.desktop" ];
     };
     defaultApplications = {
+      "application/vnd.mozilla.xul+xml" = [ "firefox.desktop" ];
+      "application/xhtml+xml" = [ "firefox.desktop" ];
+      "text/html" = [ "firefox.desktop" ];
+      "text/xml" = [ "firefox.desktop" ];
+      "x-scheme-handler/http" = [ "firefox.desktop" ];
+      "x-scheme-handler/https" = [ "firefox.desktop" ];
+      "x-scheme-handler/about" = [ "firefox.desktop" ];
+      "x-scheme-handler/unknown" = [ "firefox.desktop" ];
+
       "application/html" = [ "firefox.desktop" ];
       "application/pdf" = [ "firefox.desktop" ];
       "inode/directory" = [ "thunar.desktop" ];
@@ -207,7 +221,6 @@
     maxVolume = 120;
   };
 
-
   programs.zsh = {
     shellAliases = {  # shellGlobalAliases for replace anywhere
       "open" = "xdg-open";
@@ -215,6 +228,7 @@
       "jj_hm" = "home-manager switch --flake ${settings.confpath}";
       "jj_nix" = "sudo nixos-rebuild switch --flake ${settings.confpath}";
 
+      "j_nixTree" = "nix-store -q --tree /run/current-system";
       "j_listInputs" = "sudo libinput list-devices";
       "j_listHyprDevices" = "hyprctl devices";
       "j_nixSearch" = "nix-env -qa";

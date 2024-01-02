@@ -30,6 +30,10 @@
       url = "github:PacificViking/hyprprop-rust";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xdg-desktop-portal-hyprland = {
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { self, nixpkgs, localnixpkgs, home-manager, hyprland, ...}@inputs:
   let

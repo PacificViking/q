@@ -179,6 +179,7 @@
         #"org.freedesktop.impl.portal.FileChooser"=["kde"];
         "org.freedesktop.impl.portal.ScreenCast"=["wlr"];
         #"org.freedesktop.impl.portal.Screenshot"=["wlr"];
+
         #"org.freedesktop.impl.portal.ScreenCast"=["hyprland"];
         "org.freedesktop.impl.portal.Screenshot"=["hyprland"];
       };
@@ -187,7 +188,8 @@
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-kde
       pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-hyprland
+      #pkgs.xdg-desktop-portal-hyprland
+      inputs.xdg-desktop-portal-hyprland
     ];
   };
 
@@ -229,7 +231,24 @@
     HandlePowerKeyLongPress=poweroff
   '';
 
-  services.dbus.enable = true;
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+  programs.xfconf.enable = true;
+  services.gvfs.enable = true; # Mount, trash, and other functionalities
+  services.tumbler.enable = true; # Thumbnail support for images
+
+  services.dbus = {
+    enable = true;
+    packages = [
+      pkgs.xfce.thunar
+      #pkgs.libsForQt5.dolphin
+    ];
+  };
 
   security.polkit = {
     enable = true;
