@@ -125,6 +125,7 @@
     pkgs.isoimagewriter
     pkgs.qbittorrent
     pkgs.lutris
+    pkgs.obs-studio
 
     pkgs.gnome.dconf-editor
 

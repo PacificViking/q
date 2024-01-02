@@ -5,7 +5,7 @@
     ./apps/sway.nix
     ./apps/docker.nix
     ./apps/mysql.nix
-    ./apps/miraclecast.nix
+    ./apps/miracast.nix
   ];
   
   environment.pathsToLink = [ "/share/zsh" ];
@@ -112,8 +112,6 @@
     
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
-
-    gnome-network-displays
   ];
 
   nix = {
@@ -177,10 +175,10 @@
         #"org.freedesktop.impl.portal.AppChooser"=["kde"];
         # this doesn't work
         #"org.freedesktop.impl.portal.FileChooser"=["kde"];
-        "org.freedesktop.impl.portal.ScreenCast"=["wlr"];
+        #"org.freedesktop.impl.portal.ScreenCast"=["wlr"];
         #"org.freedesktop.impl.portal.Screenshot"=["wlr"];
 
-        #"org.freedesktop.impl.portal.ScreenCast"=["hyprland"];
+        "org.freedesktop.impl.portal.ScreenCast"=["hyprland"];
         "org.freedesktop.impl.portal.Screenshot"=["hyprland"];
       };
     };

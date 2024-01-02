@@ -1,7 +1,12 @@
 { config, lib, pkgs, modulesPath, inputs, settings, localpkgs, ... }:
 {
+  # this config also hosts gnome-network-displays and its variables
+  environment.sessionVariables = {
+    NETWORK_DISPLAYS_H264_ENC = "openh264enc";
+  };
   services.dbus.packages = [ 
     pkgs.miraclecast
+    pkgs.gnome-network-displays
     #localpkgs.miraclecast
   ];
   environment.systemPackages = with pkgs; [
