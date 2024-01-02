@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #localnixpkgs = nixpkgs;
     localnixpkgs = {
       type = "path";
       path = "/home/john/opensource/nixpkgs";

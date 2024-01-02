@@ -171,15 +171,16 @@
       common = {
         Hyprland = [
           "gtk"
+          "hyprland"
           "wlr"
         ];
         #"org.freedesktop.impl.portal.AppChooser"=["kde"];
         # this doesn't work
         #"org.freedesktop.impl.portal.FileChooser"=["kde"];
         "org.freedesktop.impl.portal.ScreenCast"=["wlr"];
-        "org.freedesktop.impl.portal.Screenshot"=["wlr"];
+        #"org.freedesktop.impl.portal.Screenshot"=["wlr"];
         #"org.freedesktop.impl.portal.ScreenCast"=["hyprland"];
-        #"org.freedesktop.impl.portal.Screenshot"=["hyprland"];
+        "org.freedesktop.impl.portal.Screenshot"=["hyprland"];
       };
     };
     extraPortals = [

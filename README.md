@@ -13,3 +13,8 @@ I installed hyprprop using nix-env because it's not replicable
 
 qt5ct has to be run to configure: config files have permanant links
 kvantummanager has to be run to select qt5 theme
+
+To reproduce:
+In flake.nix:
+set localnixpkgs to nixpkgs (to avoid using nonexistent local packages)
+change hostname, where the directory would be placed etc >> let settings = {}

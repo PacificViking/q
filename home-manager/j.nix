@@ -43,6 +43,7 @@
     pkgs.udisks2
     pkgs.udiskie
     pkgs.inxi
+    pkgs.mercurialFull
     
     pkgs.ffmpeg
     pkgs.grim
@@ -95,6 +96,7 @@
     pkgs.ChowKick
     pkgs.drumkv1
     pkgs.drumgizmo
+    pkgs.bitwig-studio
 
     (pkgs.fenix.latest.withComponents [
       "cargo"
@@ -175,6 +177,7 @@
   xdg.mimeApps = {
     enable = true;
     associations.added = {
+      "inode/directory" = [ "thunar.desktop" ];
     };
     defaultApplications = {
       "application/html" = [ "firefox.desktop" ];
