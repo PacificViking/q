@@ -6,7 +6,6 @@
   };
   services.dbus.packages = [ 
     pkgs.miraclecast
-    pkgs.gnome-network-displays
     #localpkgs.miraclecast
   ];
   environment.systemPackages = with pkgs; [
@@ -22,6 +21,7 @@
     avahi.dev
   ] ++ [
     pkgs.miraclecast
+    pkgs.gnome-network-displays
     #localpkgs.miraclecast
   ];
 }
