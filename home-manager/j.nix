@@ -9,6 +9,7 @@
     apps/firefox.nix
     apps/OpenTabletDriver.nix
     apps/dolphin.nix
+    apps/ags.nix
   ];
   
   home.username = settings.username;
@@ -114,7 +115,13 @@
     pkgs.gcc
     pkgs.nil
 
-    pkgs.webcord-vencord
+    (pkgs.discord-canary.override {
+      # remove any overrides that you don't want
+      #withOpenASAR = true;
+      #withVencord = true;
+    })
+    pkgs.vesktop
+
     pkgs.libreoffice-fresh
     pkgs.zrythm
     pkgs.reaper
@@ -156,6 +163,8 @@
     ".config/gtklock".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtklock";
 
     ".config/gtk-3.0/bookmarks".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtk-3.0/bookmarks";
+
+    ".config/discord".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/discord";
 
     ".config/neofetch" = {
       source = ./config/neofetch;
