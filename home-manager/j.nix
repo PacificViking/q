@@ -230,6 +230,8 @@
     shellAliases = {  # shellGlobalAliases for replace anywhere
       "open" = "xdg-open";
       "gparted" = "sudo env WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR gparted";
+      "sudodisp" = "sudo env WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR";
+
       "jj_hm" = "home-manager switch --flake ${settings.confpath}";
       "jj_nix" = "sudo nixos-rebuild switch --flake ${settings.confpath}";
 

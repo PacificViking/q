@@ -47,6 +47,7 @@
       username = "john";
       confpath = "/home/john/q/";
       systemtype = "x86_64-linux";  # this doesn't change the system type in hardware-configuration
+      hashedPassword = "$y$j9T$F6E.RndEt7cBNaGQWJtp41$A8VWWC4yzeJKCdimX4EhM7V8h0qbj0jfBme0QVEeTP5";
     };
 
   in {
