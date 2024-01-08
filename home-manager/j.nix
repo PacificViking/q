@@ -189,17 +189,17 @@
       "inode/directory" = [ "thunar.desktop" ];
     };
     defaultApplications = {
-      "application/vnd.mozilla.xul+xml" = [ "firefox.desktop" ];
-      "application/xhtml+xml" = [ "firefox.desktop" ];
-      "text/html" = [ "firefox.desktop" ];
-      "text/xml" = [ "firefox.desktop" ];
-      "x-scheme-handler/http" = [ "firefox.desktop" ];
-      "x-scheme-handler/https" = [ "firefox.desktop" ];
-      "x-scheme-handler/about" = [ "firefox.desktop" ];
-      "x-scheme-handler/unknown" = [ "firefox.desktop" ];
+      "application/vnd.mozilla.xul+xml" = [ "firefox-nightly.desktop" ];
+      "application/xhtml+xml" = [ "firefox-nightly.desktop" ];
+      "text/html" = [ "firefox-nightly.desktop" ];
+      "text/xml" = [ "firefox-nightly.desktop" ];
+      "x-scheme-handler/http" = [ "firefox-nightly.desktop" ];
+      "x-scheme-handler/https" = [ "firefox-nightly.desktop" ];
+      "x-scheme-handler/about" = [ "firefox-nightly.desktop" ];
+      "x-scheme-handler/unknown" = [ "firefox-nightly.desktop" ];
 
-      "application/html" = [ "firefox.desktop" ];
-      "application/pdf" = [ "firefox.desktop" ];
+      "application/html" = [ "firefox-nightly.desktop" ];
+      "application/pdf" = [ "firefox-nightly.desktop" ];
       "inode/directory" = [ "thunar.desktop" ];
       "video/mp4" = [ "vlc.desktop" ];
     };
