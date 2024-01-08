@@ -11,5 +11,6 @@
 	 }
        }
     }
-  }
+  },
+  "python.linting.pylintPath": "/home/john/.nix-profile/bin/pylint"
 }

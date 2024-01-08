@@ -46,6 +46,7 @@
       # (fromGitHub "HEAD" "elihunter173/dirbuf.nvim")
       coc-nvim
       coc-rust-analyzer
+      coc-pyright
       jsonc-vim
       rose-pine
 

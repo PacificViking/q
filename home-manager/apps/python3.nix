@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 let
   python-packages = ps: with ps; [
+    pylint
     pynvim
+    jedi
+
     numpy
     parse
     requests

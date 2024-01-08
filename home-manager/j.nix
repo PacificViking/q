@@ -126,6 +126,9 @@
     pkgs.qbittorrent
     pkgs.lutris
     pkgs.obs-studio
+    pkgs.vlc
+    pkgs.archiver
+    pkgs.gnome.file-roller
 
     pkgs.gnome.dconf-editor
 
@@ -152,7 +155,7 @@
 
     ".config/gtklock".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtklock";
 
-    ".config/gtk-3.0/bookmarks".source = ./config/gtk-3.0/bookmarks;
+    ".config/gtk-3.0/bookmarks".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtk-3.0/bookmarks";
 
     ".config/neofetch" = {
       source = ./config/neofetch;
@@ -198,6 +201,7 @@
       "application/html" = [ "firefox.desktop" ];
       "application/pdf" = [ "firefox.desktop" ];
       "inode/directory" = [ "thunar.desktop" ];
+      "video/mp4" = [ "vlc.desktop" ];
     };
   };
 
