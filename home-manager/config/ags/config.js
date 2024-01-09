@@ -1,19 +1,21 @@
 "use strict";
 // Import
-const { GLib } = imports.gi;
+//const { GLib } = imports.gi;
 import { App, Utils } from './imports.js';
 // Widgets
-import Bar from './widgets/bar/main.js';
-import Cheatsheet from './widgets/cheatsheet/main.js';
+//import Bar from './widgets/bar/main.js';
+//import Cheatsheet from './widgets/cheatsheet/main.js';
 // import DesktopBackground from './widgets/desktopbackground/main.js';
 // import Dock from './widgets/dock/main.js';
-import { CornerTopleft, CornerTopright, CornerBottomleft, CornerBottomright } from './widgets/screencorners/main.js';
-import Indicator from './widgets/indicators/main.js';
-import Osk from './widgets/onscreenkeyboard/main.js';
-import Overview from './widgets/overview/main.js';
-import Session from './widgets/session/main.js';
+//import { CornerTopleft, CornerTopright, CornerBottomleft, CornerBottomright } from './widgets/screencorners/main.js';
+//import Indicator from './widgets/indicators/main.js';
+//import Osk from './widgets/onscreenkeyboard/main.js';
+//import Overview from './widgets/overview/main.js';
+//import Session from './widgets/session/main.js';
 import SideLeft from './widgets/sideleft/main.js';
-import SideRight from './widgets/sideright/main.js';
+//import SideRight from './widgets/sideright/main.js';
+
+console.log("asdf");
 
 const CLOSE_ANIM_TIME = 210; // Longer than actual anim time (see styles) to make sure widgets animate fully
 
@@ -38,19 +40,19 @@ export default {
         'osk': CLOSE_ANIM_TIME,
     },
     windows: [
-        CornerTopleft(),
-        CornerTopright(),
-        CornerBottomleft(),
-        CornerBottomright(),
+        //CornerTopleft(),
+        //CornerTopright(),
+        //CornerBottomleft(),
+        //CornerBottomright(),
         // DesktopBackground(),   // If you're going to uncomment these,
         // Dock(), // Buggy       // uncomment the import statement too.
-        Overview(),
-        Indicator(),
-        Cheatsheet(),
+        //Overview(),
+        //Indicator(),
+        //Cheatsheet(),
         SideLeft(),
-        SideRight(),
-        Osk(), // On-screen keyboard
-        Session(), // Power menu, if that's what you like to call it
+        //SideRight(),
+        //Osk(), // On-screen keyboard
+        //Session(), // Power menu, if that's what you like to call it
         Bar(),
     ],
 };

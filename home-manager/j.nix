@@ -115,12 +115,15 @@
     pkgs.gcc
     pkgs.nil
 
-    (pkgs.discord-canary.override {
-      # remove any overrides that you don't want
-      #withOpenASAR = true;
-      #withVencord = true;
-    })
-    pkgs.vesktop
+    #(pkgs.discord-canary.override {
+    #  # remove any overrides that you don't want
+    #  withOpenASAR = true;
+    #  withVencord = true;
+    #})
+    #pkgs.vesktop
+
+    # using gtkcord until nvidia+wayland+electron gets fixed
+    pkgs.gtkcord4
 
     pkgs.libreoffice-fresh
     pkgs.zrythm
@@ -155,6 +158,16 @@
     #pkgs.qt6Packages.qt6ct
   ];
 
+  xdg.desktopEntries.gtkcord = {
+    name = "gtkcord";
+    genericName = "discord";
+    exec = "gtkcord4";
+    terminal = false;
+    categories = [ "GNOME" "GTK" "Network" "Chat" ];
+    icon = "gtkcord4";
+    startupNotify = true;
+  };
+
   home.file = {
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/waybar";
 
@@ -162,9 +175,9 @@
 
     ".config/gtklock".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtklock";
 
-    ".config/gtk-3.0/bookmarks".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtk-3.0/bookmarks";
+    ".config/wofi".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/wofi";
 
-    ".config/discord".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/discord";
+    ".config/gtk-3.0/bookmarks".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtk-3.0/bookmarks";
 
     ".config/neofetch" = {
       source = ./config/neofetch;
