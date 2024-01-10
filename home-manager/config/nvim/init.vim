@@ -155,8 +155,8 @@ endfunc
 au BufReadPost ~/.config/* call DefaultConfHi()
 
 "prettier tabs
-autocmd FileType * set tabstop=1
-" apparently tabstop=1 means 4 spaces for me?
+autocmd FileType * set tabstop=4 shiftwidth=0
+" https://stackoverflow.com/questions/51995128/setting-autoindentation-to-spaces-in-neovim
 
 " set indent tabs to spaces
 autocmd FileType nix set expandtab shiftwidth=2
@@ -229,6 +229,10 @@ nmap <F3> <Plug>ToggleMarkbar
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" html folds
+autocmd FileType html set foldmethod=indent
+autocmd FileType html normal zR
 
 "automatic folding and spacebar unfolding
 "autocmd filetype python setlocal foldmethod=indent

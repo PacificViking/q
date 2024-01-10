@@ -31,6 +31,8 @@
       powerline-fonts
       powerline-symbols
       nerdfonts
+      wine64Packages.fonts
+      corefonts
     ];
     fontconfig = {
       localConf = '''';  # xml

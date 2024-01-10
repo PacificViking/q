@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, settings, localpkgs, ... }:
+{ config, pkgs, inputs, settings, localpkgs, masterpkgs, ... }:
 {
   imports = [
     apps/waybar.nix
@@ -171,6 +171,8 @@
   home.file = {
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/waybar";
 
+    ".config/Thunar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/Thunar";
+
     ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/mpd";
 
     ".config/gtklock".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtklock";
@@ -294,6 +296,31 @@
       }
     ];
 
+  };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      window = {
+        padding = {
+          x = 3;
+          y = 3;
+        };
+      };
+      font = {
+        normal = {
+          family = "Mononoki Nerd Font Mono";
+          style = "Regular";
+        };
+        size = 11;
+        offset = {
+          y = -1;
+        };
+      };
+      import = [
+        "${masterpkgs.alacritty-theme}/rose-pine-moon.toml"
+      ];
+    };
   };
 
   programs.kitty = {

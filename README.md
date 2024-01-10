@@ -6,8 +6,11 @@ you would probabl have to rm .config/hypr beforehand
 
 some configs inspired from https://github.com/XNM1/linux-nixos-hyprland-config-dotfile
 
+ags config tried to take from https://github.com/end-4/dots-hyprland/tree/illogical-impulse
+
 fcitx5-configtool to configure mozc and pinyin is required
-(or you can use my configurations, which are already symlinked)
+you'll also need to configure Thunar yourself
+And home-manager/config/gtk3.0 has my own locations, which may need changing
 
 I installed hyprprop using nix-env because it's not replicable
 

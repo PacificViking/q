@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    masternixpkgs.url = "github:NixOS/nixpkgs/master";
     #localnixpkgs = nixpkgs;
     localnixpkgs = {
       type = "path";
@@ -39,9 +40,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, localnixpkgs, home-manager, hyprland, ...}@inputs:
+  outputs = { self, nixpkgs, masternixpkgs, localnixpkgs, home-manager, hyprland, ...}@inputs:
   let
     pkgs = import nixpkgs { system = settings.systemtype; config.allowUnfree = true; };
+
+    masterpkgs = import masternixpkgs { system = settings.systemtype; config.allowUnfree = true; };
 
     localpkgs = import localnixpkgs { system = settings.systemtype; config.allowUnfree = true; };
 
@@ -58,7 +61,7 @@
     #separate nixosConfigurations and homeConfigurations to separate the flake.nixes
     nixosConfigurations."${settings.hostname}" = nixpkgs.lib.nixosSystem {
       inherit pkgs;
-      specialArgs = { inherit inputs settings localpkgs; };
+      specialArgs = { inherit inputs settings localpkgs masterpkgs; };
       modules = [
         nixos/configuration.nix
         inputs.musnix.nixosModules.musnix
@@ -68,7 +71,7 @@
 
     homeConfigurations."${settings.username}@${settings.hostname}" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = { inherit inputs settings localpkgs; };
+      extraSpecialArgs = { inherit inputs settings localpkgs masterpkgs; };
 
       modules = [
 	#hyprland.homeManagerModules.default

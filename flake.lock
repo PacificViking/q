@@ -298,6 +298,22 @@
         "type": "path"
       }
     },
+    "masternixpkgs": {
+      "locked": {
+        "lastModified": 1704857134,
+        "narHash": "sha256-tNgmHIoFuotP1902CwakE57pchFieZpGZ7KO2AeZbzU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "78a70bef2fb1039ef64fe011a2816f6400b23739",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "mozilla": {
       "flake": false,
       "locked": {
@@ -390,6 +406,7 @@
         "hyprland": "hyprland",
         "hyprprop-rust": "hyprprop-rust",
         "localnixpkgs": "localnixpkgs",
+        "masternixpkgs": "masternixpkgs",
         "musnix": "musnix",
         "nixpkgs": "nixpkgs_2",
         "xdg-desktop-portal-hyprland": "xdg-desktop-portal-hyprland"
