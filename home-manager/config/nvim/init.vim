@@ -154,6 +154,11 @@ function! DefaultConfHi()
 endfunc
 au BufReadPost ~/.config/* call DefaultConfHi()
 
+"prettier tabs
+autocmd FileType * set tabstop=1
+" apparently tabstop=1 means 4 spaces for me?
+
+" set indent tabs to spaces
 autocmd FileType nix set expandtab shiftwidth=2
 autocmd FileType javascript set expandtab shiftwidth=4
 
@@ -255,7 +260,6 @@ nmap 3# i-----  -----<esc><Plug>NERDCommenterCommentBhi
 "use nord colorscheme
 "colorscheme gruvbox
 "set background=dark
-colorscheme rose-pine-moon
 "colorscheme material
 "use colorscheme on lightline
 "let g:lightline = { 'colorscheme': 'gruvbox'}
@@ -285,8 +289,9 @@ function MyCustomHighlights()
 
 	hi tagbarHighlight guifg=#d8dee9 cterm=bold
 endfunction
-autocmd FileType python call MyCustomHighlights()
+"autocmd FileType python call MyCustomHighlights()
 
+"let g:python_highlight_all = 1
 
 "highlights for search results
 hi IncSearch guifg=#d8dee9 guibg=#5e81ac
@@ -298,9 +303,9 @@ hi IncSearchOnCursor guifg=#d8dee9 guibg=#5e81ac
 let g:deoplete#enable_at_startup = 1
 
 "update semshi because easymotion changes stuff
-let g:semshi#always_update_all_highlights = v:true
+"let g:semshi#always_update_all_highlights = v:true
 "semshi different highlight for selected
-hi semshiSelected cterm=bold ctermbg=none ctermfg=none
+"hi semshiSelected cterm=bold ctermbg=none ctermfg=none
 
 "open nerdtree automatically
 autocmd VimEnter * NERDTree | wincmd p
@@ -316,32 +321,50 @@ let NERDTreeMapQuit='\q'
 "autocmd BufWinLeave *.* mkview
 "autocmd BufWinEnter *.* silent loadview 
 "
-"treesitter stuff
 
-"lua <<EOF
-"require'nvim-treesitter.configs'.setup {
-"  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-"  -- don't because nix
-"  -- ensure_installed = "maintained",
-"
-"  -- Install languages synchronously (only applied to `ensure_installed`)
-"  sync_install = true,
-"
-"  highlight = {
-"    -- `false` will disable the whole extension
-"    enable = true,
-"
-"    --disabled languages
-"    disable = {"python", "java", "vim"},
-"
-"    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-"    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-"    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-"    -- Instead of true it can also be a list of languages
-"    additional_vim_regex_highlighting = false,
-"  },
-"}
-"EOF
+lua <<EOF
+require('gitsigns').setup()
+
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  -- don't because nix
+  -- ensure_installed = "maintained",
+
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = true,
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    --disabled languages
+    -- disable = {"python", "java", "vim"},
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+
+-- disable italics for neovim rose pine
+require('rose-pine').setup({
+    disable_italics = true,
+    styles = {
+      bold = true,
+      italic = false,
+      transparency = false
+    },
+
+    highlight_groups = {
+       Comment = { italic = true }
+    }
+})
+
+EOF
+
+colorscheme rose-pine-moon
 
 "syntastic stuff
 function Startsyntastic()

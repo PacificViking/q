@@ -8,6 +8,8 @@ let
     numpy
     parse
     requests
+
+    fabric
   ];
 in {
   home.packages = [
