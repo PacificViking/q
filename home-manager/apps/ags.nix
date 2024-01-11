@@ -18,6 +18,7 @@ agsconfig = pkgs.fetchFromGitHub {
 #  rev = "1dafc61b7dfe2eab4eed102c879c9e37cb11062f";
 #  hash = "sha256-j8ydMT02KmGB6nqO7SMHT4tCA8dC26QqK9T/z3TQnvg=";
 #};
+ppkgs = import inputs.ags.inputs.nixpkgs { system = settings.systemtype; };
 in
 {
   imports = [ inputs.ags.homeManagerModules.default ];
@@ -31,13 +32,17 @@ in
     #configDir = "${agsconfig.outPath}/example/media-widget";
     #configDir = "${agsconfig.outPath}/ags";
     extraPackages = [
-      pkgs.gtksourceview
-      pkgs.sassc
+      ppkgs.gtksourceview
+      ppkgs.sassc
+      ppkgs.glibc
+      # ppkgs.fcitx5-with-addons
     ];
   };
   home.packages = [
     pkgs.ydotool
     pkgs.gtksourceview
     pkgs.sassc
+    pkgs.brightnessctl
+    pkgs.glibc
   ];
 }

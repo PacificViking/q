@@ -13,7 +13,8 @@ const BATTERY_LOW = 20;
 
 const BatBatteryProgress = () => {
     const _updateProgress = (circprog) => { // Set circular progress value
-        circprog.css = `font-size: ${Battery.percent}px;`
+        // circprog.css = `font-size: ${Battery.percent}px;`
+        circprog.css = `font-size: 40px;`
 
         circprog.toggleClassName('bar-batt-circprog-low', Battery.percent <= BATTERY_LOW);
         circprog.toggleClassName('bar-batt-circprog-full', Battery.charged);

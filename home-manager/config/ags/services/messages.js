@@ -1,4 +1,4 @@
-const { Notify, GLib, Gio } = imports.gi;
+const { GLib, Gio } = imports.gi;
 import { Utils } from '../imports.js';
 import Battery from 'resource:///com/github/Aylur/ags/service/battery.js';
 

@@ -22,7 +22,9 @@ vim.cmd("colorscheme rose-pine-moon")  -- has to go after setup
 -- hop.nvim
 --
 local hop = require('hop')
-hop.setup()
+hop.setup({
+    keys = "sdfjklghzcvbnmweruioqa "
+})
 -- normal, operator pending, visual mode: g<direction> to go
 keymap({"n","o","v"}, "gh", "<cmd>HopWordCurrentLineBC<CR>", opts)
 keymap({"n","o","v"}, "gj", "<cmd>HopVerticalAC<CR>", opts)

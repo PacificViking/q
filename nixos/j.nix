@@ -34,6 +34,9 @@
       wine64Packages.fonts
       corefonts
       cabin
+      
+      lexend
+      material-symbols
     ];
     fontconfig = {
       localConf = '''';  # xml

@@ -1,4 +1,4 @@
-{ config, pkgs, settings, ... }:
+{ config, pkgs, settings, masterpkgs, ... }:
 let
   rose-pine = pkgs.vimUtils.buildVimPlugin {
     name = "rose-pine";

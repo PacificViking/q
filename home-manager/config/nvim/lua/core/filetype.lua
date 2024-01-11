@@ -10,6 +10,14 @@ vim.api.nvim_create_autocmd({"BufNewFile","BufRead"}, {
     end,
 })
 
+-- files containing config have filetype config
+vim.api.nvim_create_autocmd({"BufNewFile","BufRead"}, {
+    pattern = {"*config"},
+    callback = function()
+        vim.cmd("setf config")
+    end,
+})
+
 -- shift width 2 for nix
 vim.api.nvim_create_autocmd("FileType", {
     pattern = {"nix"},
@@ -26,5 +34,14 @@ vim.api.nvim_create_autocmd("FileType", {
         require('Comment').setup({
             padding = false,
         })
+    end,
+})
+
+-- html folds
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"html"},
+    callback = function()
+        vim.opt["foldmethod"] = "indent"
+        vim.cmd("normal zR")
     end,
 })

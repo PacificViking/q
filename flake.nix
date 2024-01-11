@@ -36,8 +36,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Aylur/ags/d1835cad79868cab3154d673e6d37b6b46624611";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs = { self, nixpkgs, masternixpkgs, localnixpkgs, home-manager, hyprland, ...}@inputs:

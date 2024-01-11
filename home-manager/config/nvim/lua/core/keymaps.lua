@@ -17,12 +17,17 @@ keymap({"n","v"}, "<Down>", "15<C-e>", opts)
 keymap({"n","v"}, "=", "5<C-y>", opts)  -- short scroll
 keymap({"n","v"}, "-", "5<C-e>", opts)
 
-keymap({"n","v"}, "H", "^", opts)
+-- tagbar?
+-- line 228: identify syntax highlighting group (inspect?)
+
+keymap("n", "<space>", "za", opts)
+
+keymap({"n","v"}, "H", "^", opts)  -- HJKL fast moving
 keymap({"n","v"}, "J", "3j", opts)
 keymap({"n","v"}, "K", "3k", opts)
 keymap({"n","v"}, "L", "$", opts)
 
-keymap({"n","v"}, "(", "<C-o>", opts)
+keymap({"n","v"}, "(", "<C-o>", opts)  -- next and previous position
 keymap({"n","v"}, ")", "<C-i>", opts)
 
 keymap("n", "d-", "O<esc>jddk", opts)  -- delete without erasing
@@ -32,3 +37,6 @@ keymap("o", "l", "$", opts)  -- make dh, dl useful (all the way over) in operato
 keymap("o", "h", "^", opts)
 
 keymap("n", "U", "<C-r>", opts)  -- U to redo
+
+keymap("n", "j", "gj", opts)  -- move displayed lines instead of real lines
+keymap("n", "k", "gk", opts)  -- move displayed lines instead of real lines

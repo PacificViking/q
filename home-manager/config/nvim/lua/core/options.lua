@@ -10,7 +10,8 @@ local options = {
     undodir = vim.fn.expand("~/.vim/undodir"),  -- expand ~ to $HOME
 
     termguicolors = true,
-    signcolumn = "auto:1-2",
+    -- signcolumn = "yes:2",
+    signcolumn = "yes:1",
 
     mouse = "a",
 
