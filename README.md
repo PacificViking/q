@@ -5,7 +5,7 @@ install home-manager and point to the flake in this very directory (this flake s
 you would probabl have to rm .config/hypr beforehand
 
 some configs inspired from https://github.com/XNM1/linux-nixos-hyprland-config-dotfile
-
+nvim transition to lua read from https://github.com/LunarVim/Neovim-from-scratch/tree/master
 ags config tried to take from https://github.com/end-4/dots-hyprland/tree/illogical-impulse
 
 fcitx5-configtool to configure mozc and pinyin is required

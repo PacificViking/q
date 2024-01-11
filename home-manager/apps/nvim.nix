@@ -15,6 +15,13 @@ in
     fzf
     code-minimap
     tree-sitter
+    python311Packages.python-lsp-server
+    python311Packages.pyls-isort
+    python311Packages.python-lsp-black
+    python311Packages.pyls-memestra
+    python311Packages.pylsp-rope
+    python311Packages.python-lsp-ruff
+    pyright
   ];
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/nvim";
@@ -27,47 +34,54 @@ in
     vimAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+
       undotree
-      fzfWrapper
-      vim-easymotion
-      incsearch-vim
-      incsearch-easymotion-vim
-      lightline-vim
-      minimap-vim
+      fzf-lua
+      #incsearch-vim
+      # lightline-vim
+      # minimap-vim
+      lualine-nvim
+      lualine-lsp-progress
+      mini-nvim
       vim-peekaboo
       indentLine
-      webapi-vim
-      auto-pairs
+
+      nvim-hlslens
+      nvim-scrollbar
+      # webapi-vim
+      # auto-pairs
+      nvim-autopairs
       hop-nvim
-      vim-which-key
-      #semshi
-      python-syntax
-      #vim-gitgutter
+      flash-nvim
+      which-key-nvim
+      # semshi
+      # python-syntax
       gitsigns-nvim
-      iron-nvim
+      # iron-nvim
       vim-visual-multi
       vim-repeat
       suda-vim
-      vim-git
-      nerdtree
-      nord-nvim
-      material-vim
-      gruvbox
-      nerdcommenter
-      tagbar
-      vim-fugitive
+      # vim-git
+      # nerdtree
+      nvim-tree-lua
+      comment-nvim
+      # tagbar
+      # vim-fugitive
       nvim-treesitter.withAllGrammars
+      nvim-lastplace
 
-      coc-nvim
-      coc-rust-analyzer
-      coc-pyright
-      jsonc-vim
+      # jsonc-vim
 
       colorbuddy-nvim
       material-nvim
       nightfox-nvim
+      nord-nvim
+      material-vim
+      gruvbox
 
-      vim-devicons
+      # vim-devicons
+      nvim-web-devicons
     ] ++ [
       rose-pine
     ];

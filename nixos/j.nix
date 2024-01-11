@@ -33,6 +33,7 @@
       nerdfonts
       wine64Packages.fonts
       corefonts
+      cabin
     ];
     fontconfig = {
       localConf = '''';  # xml
