@@ -24,7 +24,7 @@ kvantummanager has to be run to select qt5 theme
 
 ## Local Changes
 I installed hyprprop using nix-env because it's not replicable
-(also )
+(also pyfa)
 ripgrep localpkgs and localnixpkgs
 
 ## TODO
