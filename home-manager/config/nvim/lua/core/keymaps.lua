@@ -38,5 +38,7 @@ keymap("o", "h", "^", opts)
 
 keymap("n", "U", "<C-r>", opts)  -- U to redo
 
-keymap("n", "j", "gj", opts)  -- move displayed lines instead of real lines
-keymap("n", "k", "gk", opts)  -- move displayed lines instead of real lines
+keymap({"n","v"}, "j", "gj", opts)  -- move displayed lines instead of real lines
+keymap({"n","v"}, "k", "gk", opts)  -- move displayed lines instead of real lines
+
+keymap("n", "?", vim.lsp.buf.hover, opts)  -- move displayed lines instead of real lines

@@ -8,7 +8,6 @@ let
     numpy
     parse
     requests
-
     fabric
   ];
 in {

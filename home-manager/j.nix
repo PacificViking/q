@@ -1,6 +1,7 @@
 { config, pkgs, inputs, settings, localpkgs, masterpkgs, ... }:
 {
   imports = [
+    apps/misc.nix
     apps/waybar.nix
     apps/nvim.nix
     apps/python3.nix
@@ -28,6 +29,7 @@
   home.packages = [
     inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
     #localpkgs.hyprprop-rust
+    localpkgs.pyfa
 
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
@@ -50,7 +52,6 @@
     pkgs.ffmpeg
     pkgs.grim
     pkgs.slurp
-    pkgs.libnotify
     pkgs.hyprpicker
     pkgs.findutils
     pkgs.ripgrep
@@ -139,6 +140,9 @@
     pkgs.vlc
     pkgs.archiver
     pkgs.gnome.file-roller
+    pkgs.tor
+    pkgs.tor-browser
+    pkgs.teamspeak_client
 
     pkgs.gnome.dconf-editor
 

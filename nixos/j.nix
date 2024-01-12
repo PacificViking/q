@@ -100,6 +100,7 @@
     #swaylock
     #swaylock-effects
     gtklock
+    appimage-run
 
     pw-volume
     wireplumber
@@ -118,6 +119,9 @@
     
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
+
+    pkg-config
+    libnotify
   ];
 
   nix = {

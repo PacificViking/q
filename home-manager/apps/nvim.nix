@@ -22,6 +22,7 @@ in
     python311Packages.pylsp-rope
     python311Packages.python-lsp-ruff
     pyright
+    lua-language-server
   ];
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/nvim";
@@ -38,9 +39,6 @@ in
 
       undotree
       fzf-lua
-      #incsearch-vim
-      # lightline-vim
-      # minimap-vim
       lualine-nvim
       lualine-lsp-progress
       mini-nvim
@@ -49,29 +47,32 @@ in
 
       nvim-hlslens
       nvim-scrollbar
-      # webapi-vim
-      # auto-pairs
       nvim-autopairs
       hop-nvim
       flash-nvim
       which-key-nvim
-      # semshi
-      # python-syntax
       gitsigns-nvim
-      # iron-nvim
       vim-visual-multi
       vim-repeat
       suda-vim
-      # vim-git
-      # nerdtree
       nvim-tree-lua
       comment-nvim
-      # tagbar
-      # vim-fugitive
       nvim-treesitter.withAllGrammars
       nvim-lastplace
+      lsp_signature-nvim
+      markdown-preview-nvim
 
-      # jsonc-vim
+      nvim-cmp
+      cmp-nvim-lsp
+      cmp-nvim-lsp-document-symbol
+      cmp-buffer
+      cmp-path
+      cmp-cmdline
+      cmp-zsh
+      cmp-git
+      ultisnips
+      cmp-nvim-ultisnips
+      cmp-nvim-lsp-signature-help
 
       colorbuddy-nvim
       material-nvim
@@ -80,7 +81,6 @@ in
       material-vim
       gruvbox
 
-      # vim-devicons
       nvim-web-devicons
     ] ++ [
       rose-pine
