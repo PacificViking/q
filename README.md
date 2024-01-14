@@ -11,9 +11,9 @@ set localnixpkgs to nixpkgs (to avoid using nonexistent local packages)
 change hostname, where the directory would be placed etc >> let settings = {}
 
 ## Inspirations
-some configs inspired from https://github.com/XNM1/linux-nixos-hyprland-config-dotfile
-nvim transition to lua read from https://github.com/LunarVim/Neovim-from-scratch/tree/master
-ags config tried to take from https://github.com/end-4/dots-hyprland/tree/illogical-impulse
+- some configs inspired from https://github.com/XNM1/linux-nixos-hyprland-config-dotfile
+- nvim transition to lua read from https://github.com/LunarVim/Neovim-from-scratch/tree/master
+- ags config tried to take from https://github.com/end-4/dots-hyprland/tree/illogical-impulse
 
 ## Extra Configurations Needed
 fcitx5-configtool to configure mozc and pinyin is required
