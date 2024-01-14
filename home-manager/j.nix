@@ -11,6 +11,7 @@
     apps/OpenTabletDriver.nix
     apps/dolphin.nix
     apps/ags.nix
+    apps/texlive.nix
   ];
   
   home.username = settings.username;
@@ -282,8 +283,8 @@
     enableCompletion = true;
     autocd = true;
     envExtra = "";
+      # neofetch;
     initExtra = ''
-      neofetch;
       source .config/p10k.zsh;
     '';
     

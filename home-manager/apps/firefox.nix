@@ -81,6 +81,7 @@
 	"privacy.trackingprotection.emailtracking.enabled" = true;
 	"privacy.trackingprotection.enabled" = true;
 	"privacy.trackingprotection.socialtracking.enabled" = true;
+    "services.sync.prefs.sync-seen.privacy.trackingprotection.enabled" = true;
 
 	"toolkit.telemetry.reportingpolicy.firstRun" = false;
 

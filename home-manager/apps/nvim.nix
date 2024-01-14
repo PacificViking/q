@@ -36,7 +36,7 @@ in
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       nvim-lspconfig
-
+      
       undotree
       fzf-lua
       lualine-nvim
@@ -44,7 +44,7 @@ in
       mini-nvim
       vim-peekaboo
       indentLine
-
+      
       nvim-hlslens
       nvim-scrollbar
       nvim-autopairs

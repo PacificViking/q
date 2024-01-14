@@ -32,3 +32,4 @@ ripgrep localpkgs and localnixpkgs
 - Separate my-filesystem-specific stuff like localnixpkgs
 - - Provide separate flake config for other users
 - Backup /q/ and .mozilla
+- Pick and choose latex libraries: they're very large
