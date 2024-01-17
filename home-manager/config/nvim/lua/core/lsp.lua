@@ -11,7 +11,7 @@ local lspsetup = {
     capabilities = capabilities,
 }
 
-require'lspconfig'.nil_ls.setup(lspsetup)
+require'lspconfig'.nil_ls.setup(lspsetup)  -- theres a bug that come from using capabilites? not sure
 require'lspconfig'.rust_analyzer.setup(lspsetup)
 -- require'lspconfig'.pylsp.setup{
 --   capabilities = capabilities,
@@ -41,11 +41,11 @@ vim.api.nvim_set_hl(0, "CmpCursorLine", {
 local cmp = require('cmp')
 cmp.setup({
     native_menu = true;
-    snippet = {
-      expand = function(args)
-        vim.fn["UltiSnips#Anon"](args.body)
-      end,
-    },
+    -- snippet = {
+    --   expand = function(args)
+    --     vim.fn["UltiSnips#Anon"](args.body)
+    --   end,
+    -- },
     window = {
         completion = {
             winhighlight = "Normal:CmpNormal,CursorLine:CmpCursorLine"
@@ -62,7 +62,6 @@ cmp.setup({
         { name = 'nvim_lsp' },
         { name = 'buffer' },
         { name = 'path' },
-        { name = 'cmdline' },
         -- { name = 'zsh' },
         -- { name = 'ultisnips' },
     }, {

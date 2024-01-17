@@ -66,7 +66,7 @@
     createHome = true;
     extraGroups = [ "wheel" "networkmanager" "video" "input" "audio" "docker" "wireshark" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-      firefox
+      # firefox
       tree
     ];
     hashedPassword = settings.hashedPassword;

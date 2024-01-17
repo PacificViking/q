@@ -12,6 +12,7 @@
     apps/dolphin.nix
     apps/ags.nix
     apps/texlive.nix
+    apps/clipboard.nix
   ];
   
   home.username = settings.username;
@@ -42,6 +43,7 @@
     #pkgs.firefox-devedition
     pkgs.wofi
     pkgs.wl-clipboard
+    pkgs.wl-clipboard-x11
     pkgs.wl-clip-persist
     pkgs.hyprpaper
     pkgs.udisks
@@ -49,6 +51,7 @@
     pkgs.udiskie
     pkgs.inxi
     pkgs.mercurialFull
+    pkgs.dos2unix
     
     pkgs.ffmpeg
     pkgs.grim

@@ -34,6 +34,9 @@
       wine64Packages.fonts
       corefonts
       cabin
+
+      wqy_zenhei
+      wqy_microhei
       
       lexend
       material-symbols

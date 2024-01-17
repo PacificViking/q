@@ -5,6 +5,7 @@ let
     pynvim
     jedi
 
+    sympy
     numpy
     parse
     requests
