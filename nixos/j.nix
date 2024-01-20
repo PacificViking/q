@@ -14,7 +14,7 @@
     # some of these could be moved to home-manager
     NIXOS_OZONE_WL = "1";
     #WLR_NO_HARDWARE_CURSORS = "0";
-    WLR_NO_HARDWARE_CURSORS = "1";  # nvidia fuckery
+    WLR_NO_HARDWARE_CURSORS = "1";  # nvidia problems
     QT_QPA_PLATFORM = "wayland";
     GDK_BACKEND = "wayland";
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
