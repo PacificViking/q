@@ -40,6 +40,7 @@
     pkgs.nerdfonts
     pkgs.git
     pkgs.nodejs
+    pkgs.ghc
     #pkgs.firefox-devedition
     pkgs.wofi
     pkgs.wl-clipboard
@@ -52,6 +53,7 @@
     pkgs.inxi
     pkgs.mercurialFull
     pkgs.dos2unix
+    pkgs.powertop
     
     pkgs.ffmpeg
     pkgs.grim
@@ -205,6 +207,8 @@
     #};
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/hypr";
 
+    ".local/bin/programs".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/programs/";
+
     ".config/p10k.zsh" = {
       source = ./config/p10k.zsh;
     };
@@ -219,6 +223,7 @@
     enable = true;
     associations.added = {
       "inode/directory" = [ "thunar.desktop" ];
+      "image/png" = [ "firefox-nightly.desktop" ];
     };
     defaultApplications = {
       "application/vnd.mozilla.xul+xml" = [ "firefox-nightly.desktop" ];

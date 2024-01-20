@@ -9,9 +9,20 @@ let
       hash = "sha256-TebsOqFF5bgkRddgz3viaMQXAagM0c0depkLXr0BcNU=";
     };
   };
+
+  neovimFixedWrapper = pkgs.neovim-unwrapped.overrideAttrs (old: {
+    # name = "neovimFixedWrapper";
+    postInstall = ''
+      ${pkgs.gnused}/bin/sed -i 's/Exec=nvim %F/Exec=alacritty -e nvim %F/g' $out/share/applications/nvim.desktop
+      ${pkgs.gnused}/bin/sed -i 's/Terminal=true/Terminal=false/g' $out/share/applications/nvim.desktop
+    '';
+  });
+
 in
 {
   home.packages = with pkgs; [
+    alacritty
+
     fzf
     code-minimap
     tree-sitter
@@ -85,5 +96,7 @@ in
     ] ++ [
       rose-pine
     ];
+    package = neovimFixedWrapper;
   };
+
 }
