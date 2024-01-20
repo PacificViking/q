@@ -58,6 +58,7 @@
     pkgs.ffmpeg
     pkgs.grim
     pkgs.slurp
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     pkgs.hyprpicker
     pkgs.findutils
     pkgs.ripgrep
