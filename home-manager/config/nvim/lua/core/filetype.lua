@@ -10,6 +10,14 @@ vim.api.nvim_create_autocmd({"BufNewFile","BufRead"}, {
     end,
 })
 
+-- flake.lock
+vim.api.nvim_create_autocmd({"BufNewFile","BufRead"}, {
+    pattern = {"flake.lock"},
+    callback = function()
+        vim.cmd("setf json")
+    end,
+})
+
 -- add config filetype for conf
 vim.filetype.add({ extension = { conf = "config" } })
 
