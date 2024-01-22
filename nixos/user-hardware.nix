@@ -5,6 +5,16 @@
 {
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    # LIBVA_DRIVER_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "iHD";  # https://github.com/intel/libva/issues/575; nvidia-vaapi-driver doesn't work with my optimus laptop
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    WLR_NO_HARDWARE_CURSORS = "1";  # nvidia problems
+    # WLR_NO_HARDWARE_CURSORS = "0";
+    GBM_BACKEND = "nvidia-drm";  # this makes Hyprland crash
+  };
+
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
@@ -22,16 +32,21 @@
     open = false;
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+    # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   boot.kernelParams = [
     "nvidia_drm.modeset=1"
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+    # "module_blacklist=i915" 
   ];
   boot.extraModprobeConfig = ''
     options nvidia-drm modeset=1
     options nvidia-drm fbdev=1
   '';
+
+  boot.initrd.kernelModules = [ "nvidia" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 }
 

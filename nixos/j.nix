@@ -15,12 +15,6 @@ in
 
   environment.sessionVariables = {
     # some of these could be moved to home-manager
-    NIXOS_OZONE_WL = "1";
-    LIBVA_DRIVER_NAME = "iHD";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    WLR_NO_HARDWARE_CURSORS = "1";  # nvidia problems
-
-    # WLR_NO_HARDWARE_CURSORS = "0";
     QT_QPA_PLATFORM = "wayland";
     GDK_BACKEND = "wayland";
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
@@ -176,7 +170,7 @@ in
     driSupport32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntelHybrid  # LIBVA_DRIVER_NAME=i965
+      # vaapiIntelHybrid  # LIBVA_DRIVER_NAME=i965
       vaapiVdpau
       libvdpau-va-gl
       nvidia-vaapi-driver  # LIBVA_DRIVER_NAME=nvidia
