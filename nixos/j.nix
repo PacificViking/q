@@ -1,4 +1,7 @@
 { config, pkgs, nixpkgs, inputs, settings, ... }:
+let
+  vaapiIntelHybrid = pkgs.vaapiIntel.overrideAttrs { enableHybridCodec = true; };
+in
 {
   imports = [
     ./apps/OpenTabletDriver.nix
@@ -7,14 +10,17 @@
     ./apps/mysql.nix
     ./apps/miracast.nix
   ];
-  
+
   environment.pathsToLink = [ "/share/zsh" ];
 
   environment.sessionVariables = {
     # some of these could be moved to home-manager
     NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "0";
-    # WLR_NO_HARDWARE_CURSORS = "1";  # nvidia problems
+    LIBVA_DRIVER_NAME = "iHD";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    WLR_NO_HARDWARE_CURSORS = "1";  # nvidia problems
+
+    # WLR_NO_HARDWARE_CURSORS = "0";
     QT_QPA_PLATFORM = "wayland";
     GDK_BACKEND = "wayland";
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
@@ -74,6 +80,7 @@
   # hyprland-related wayland config
   programs.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${settings.systemtype}.hyprland;
   };
 
   programs.zsh = {
@@ -104,6 +111,10 @@
     #swaylock-effects
     gtklock
     appimage-run
+
+    libsForQt5.qt5.qtwayland
+    libsForQt5.qt5ct
+    libva
 
     pw-volume
     wireplumber
@@ -163,6 +174,13 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntelHybrid  # LIBVA_DRIVER_NAME=i965
+      vaapiVdpau
+      libvdpau-va-gl
+      nvidia-vaapi-driver  # LIBVA_DRIVER_NAME=nvidia
+    ];
   };
   # https://www.youtube.com/watch?v=61wGzIv12Ds
   # nvidia.modesetting.enable = true;

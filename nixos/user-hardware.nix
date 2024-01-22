@@ -8,7 +8,8 @@
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = false;
+    # powerManagement.enable = false;
+    powerManagement.enable = true;
     powerManagement.finegrained = false;
 
     prime = {
@@ -26,6 +27,7 @@
 
   boot.kernelParams = [
     "nvidia_drm.modeset=1"
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
   ];
   boot.extraModprobeConfig = ''
     options nvidia-drm modeset=1

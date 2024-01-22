@@ -17,39 +17,40 @@
       path = "my1.nightly-default";
       settings = {
         "widget.wayland.vsync.enabled" = false;
+        "media.ffmpeg.vaapi.enabled" = true;
 
         "browser.search.region" = "CA"; 
-	"doh-rollout.home-region" = "CA";
+        "doh-rollout.home-region" = "CA";
 
         "widget.use-xdg-desktop-portal.file-picker" = 1;
-	"widget.use-xdg-desktop-portal.location" = 1;
+        "widget.use-xdg-desktop-portal.location" = 1;
         "widget.use-xdg-desktop-portal.mime-handler" = 1;
-	"widget.use-xdg-desktop-portal.open-uri" = 1;
-	"widget.use-xdg-desktop-portal.settings" = 1;
+        "widget.use-xdg-desktop-portal.open-uri" = 1;
+        "widget.use-xdg-desktop-portal.settings" = 1;
 
-	"browser.tabs.closeWindowWithLastTab" = false;
-	"middlemouse.paste" = false;
+        "browser.tabs.closeWindowWithLastTab" = false;
+        "middlemouse.paste" = false;
         "browser.uidensity" = 1;
-	"browser.compactmode.show" = true;
+        "browser.compactmode.show" = true;
 
-	"browser.theme.toolbar-theme" = 1;
+        "browser.theme.toolbar-theme" = 1;
         #"extensions.activeThemeID" = "default-theme@mozilla.org";  # this can be disabled to make it "work"ish
         "extensions.activeThemeID" = "{a046d296-3ec9-40f8-a15c-db401fb7d8e7}";  # rose pine moon
 
         "xpinstall.signatures.required" = false;
         "extensions.experiments.enabled" = true;
-	"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
-	"browser.aboutConfig.showWarning" = false;
-	"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
-	"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
-	"browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-	"browser.newtabpage.activity-stream.feeds.topsites" = false;
-	"browser.safebrowsing.downloads.enabled" = false;
-	"browser.safebrowsing.downloads.remote.block_potentially_unwanted" = false;
-	"browser.safebrowsing.downloads.remote.block_uncommon" = false;
-	"browser.safebrowsing.malware.enabled" = false;
-	"browser.safebrowsing.phishing.enabled" = false;
+        "browser.aboutConfig.showWarning" = false;
+        "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
+        "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        "browser.newtabpage.activity-stream.feeds.topsites" = false;
+        "browser.safebrowsing.downloads.enabled" = false;
+        "browser.safebrowsing.downloads.remote.block_potentially_unwanted" = false;
+        "browser.safebrowsing.downloads.remote.block_uncommon" = false;
+        "browser.safebrowsing.malware.enabled" = false;
+        "browser.safebrowsing.phishing.enabled" = false;
         
         "general.autoScroll" = true;
         "media.autoplay.default" = 5;
@@ -58,32 +59,32 @@
         "media.block-play-until-visible" = true;
 
         "browser.startup.couldRestoreSession.count" = 3;
-	"browser.urlbar.showSearchSuggestionsFirst" = false;
-	"browser.urlbar.suggest.trending" = false;
-	"datareporting.healthreport.uploadEnabled" = false;
+        "browser.urlbar.showSearchSuggestionsFirst" = false;
+        "browser.urlbar.suggest.trending" = false;
+        "datareporting.healthreport.uploadEnabled" = false;
         "browser.urlbar.quicksuggest.scenario" = "history";
-	"browser.shell.checkDefaultBrowser" = false;
-	"browser.shell.didSkipDefaultBrowserCheckOnFirstRun" = true;
+        "browser.shell.checkDefaultBrowser" = false;
+        "browser.shell.didSkipDefaultBrowserCheckOnFirstRun" = true;
 
         "dom.forms.autocomplete.formautofill" = true;
-	"dom.security.https_only_mode" = true;
-	"dom.security.https_only_mode_ever_enabled" = true;
-	"network.trr.mode" = 3;
-	"network.trr.uri" = "https://mozilla.cloudflare-dns.com/dns-query";
-
-	"media.eme.enabled" = true;
-	"privacy.donottrackheader.enabled" = true;
-	"privacy.fingerprintingProtection" = true;
-	"privacy.globalprivacycontrol.enabled" = true;
-	"privacy.globalprivacycontrol.was_ever_enabled" = true;
-	"privacy.query_stripping.enabled" = true;
-	"privacy.query_stripping.enabled.pbmode" = true;
-	"privacy.trackingprotection.emailtracking.enabled" = true;
-	"privacy.trackingprotection.enabled" = true;
-	"privacy.trackingprotection.socialtracking.enabled" = true;
-    "services.sync.prefs.sync-seen.privacy.trackingprotection.enabled" = true;
-
-	"toolkit.telemetry.reportingpolicy.firstRun" = false;
+        "dom.security.https_only_mode" = true;
+        "dom.security.https_only_mode_ever_enabled" = true;
+        "network.trr.mode" = 3;
+        "network.trr.uri" = "https://mozilla.cloudflare-dns.com/dns-query";
+        
+        "media.eme.enabled" = true;
+        "privacy.donottrackheader.enabled" = true;
+        "privacy.fingerprintingProtection" = true;
+        "privacy.globalprivacycontrol.enabled" = true;
+        "privacy.globalprivacycontrol.was_ever_enabled" = true;
+        "privacy.query_stripping.enabled" = true;
+        "privacy.query_stripping.enabled.pbmode" = true;
+        "privacy.trackingprotection.emailtracking.enabled" = true;
+        "privacy.trackingprotection.enabled" = true;
+        "privacy.trackingprotection.socialtracking.enabled" = true;
+        "services.sync.prefs.sync-seen.privacy.trackingprotection.enabled" = true;
+        
+        "toolkit.telemetry.reportingpolicy.firstRun" = false;
 
         "toolkit.cosmeticAnimations.enabled" = false;
         "ui.prefersReducedMotion" = 1;
