@@ -16,7 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      # url = "github:hyprwm/Hyprland";
+
+      type = "path";
+      path = "/home/john/opensource/Hyprland";
+
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {

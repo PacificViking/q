@@ -144,17 +144,14 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1705913207,
-        "narHash": "sha256-donM5hUaCylML0xwRZtH3SBSTBfdo7Ea3hJ+eiGZ/cI=",
-        "owner": "hyprwm",
-        "repo": "Hyprland",
-        "rev": "02b4a9bdede8ab0336e2e7ac52b39cab36208bb4",
-        "type": "github"
+        "lastModified": 1706028726,
+        "narHash": "sha256-m7uvItYjKJn26X6TNrahKf7ekza2KMHXgFmDswC8EqM=",
+        "path": "/home/john/opensource/Hyprland",
+        "type": "path"
       },
       "original": {
-        "owner": "hyprwm",
-        "repo": "Hyprland",
-        "type": "github"
+        "path": "/home/john/opensource/Hyprland",
+        "type": "path"
       }
     },
     "hyprland-contrib": {
@@ -311,8 +308,8 @@
     },
     "localnixpkgs": {
       "locked": {
-        "lastModified": 1705422874,
-        "narHash": "sha256-sWhHxB90v510HLLmXjjNeLb5kZ46tHbOjZ3C10Td1cg=",
+        "lastModified": 1706025458,
+        "narHash": "sha256-NkfXRP4zbW3TNNvpeuS84V2QVaZ6fEjTHjG+LmeXaGk=",
         "path": "/home/john/opensource/nixpkgs",
         "type": "path"
       },

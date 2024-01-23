@@ -74,7 +74,7 @@ in
   # hyprland-related wayland config
   programs.hyprland = {
     enable = true;
-    # package = inputs.hyprland.packages.${settings.systemtype}.hyprland;
+    package = inputs.hyprland.packages.${settings.systemtype}.hyprland;
   };
 
   programs.zsh = {
