@@ -134,7 +134,7 @@
     pkgs.gtkcord4
 
     pkgs.libreoffice-fresh
-    pkgs.zrythm
+    # pkgs.zrythm
     pkgs.reaper
     pkgs.muse
     pkgs.netsurf.browser
