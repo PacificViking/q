@@ -44,6 +44,7 @@ in
     pyright
     lua-language-server
     marksman
+    glow
   ];
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/nvim";
@@ -80,9 +81,13 @@ in
       nvim-tree-lua
       comment-nvim
       nvim-treesitter.withAllGrammars
+      # nvim-treesitter-parsers.markdown
+      # nvim-treesitter-parsers.markdown_inline
       nvim-lastplace
       lsp_signature-nvim
       markdown-preview-nvim
+      glow-nvim
+      vim-markdown
 
       nvim-cmp
       cmp-nvim-lsp
@@ -102,6 +107,7 @@ in
       nord-nvim
       material-vim
       gruvbox
+      dracula-nvim
 
       nvim-web-devicons
     ] ++ [

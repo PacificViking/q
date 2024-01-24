@@ -54,6 +54,7 @@
     pkgs.mercurialFull
     pkgs.dos2unix
     pkgs.powertop
+    pkgs.yt-dlp
     
     pkgs.ffmpeg
     pkgs.grim

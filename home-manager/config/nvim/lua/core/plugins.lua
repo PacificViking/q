@@ -123,11 +123,14 @@ require'nvim-treesitter.configs'.setup {
         enable = true,
 
         -- disable = {"python", "java", "vim"},
+        disable = {"markdown_inline"},
 
-        additional_vim_regex_highlighting = false,
+        -- additional_vim_regex_highlighting = false,
     },
 }
 
+-- glow markdown preview
+require('glow').setup()
 
 
 -- Comment.nvim

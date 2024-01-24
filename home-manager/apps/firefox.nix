@@ -3,6 +3,7 @@
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
     MOZ_ENABLE_WAYLAND="1";
+    MOZ_DISABLE_RDD_SANDBOX="1";
   };
 
   programs.firefox = {
@@ -153,6 +154,14 @@
           updateInterval = 24 * 60 * 60 * 1000; # every day
           definedAliases = [ "@nw" ];
         };
+
+        "GitHub" = {
+          urls = [{ template = "https://github.com/search?q={searchTerms}&type=repositories"; }];
+          iconUpdateURL = "https://github.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [ "@gh" ];
+        };
+
 	"eBay".metaData.hidden = true;
 	"Amazon.ca".metaData.hidden = true;
 	"Bing".metaData.hidden = true;
