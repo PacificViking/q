@@ -2,6 +2,15 @@ local opts = { noremap = true, silent = true }
 local remapopts = { noremap = false, silent = true }
 local keymap = vim.keymap.set
 
+-- indent blankline (indent indicator)
+require('ibl').setup({
+    indent = {
+        char = "╎",
+    },
+    scope = {
+        enabled = false,
+    },
+})
 
 -- disable italics for neovim rose pine
 require('rose-pine').setup({

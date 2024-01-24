@@ -8,6 +8,7 @@ local options = {
     showmode = false,
     undofile = true,
     undodir = vim.fn.expand("~/.vim/undodir"),  -- expand ~ to $HOME
+    conceallevel = 1,
 
     termguicolors = true,
     -- signcolumn = "yes:2",

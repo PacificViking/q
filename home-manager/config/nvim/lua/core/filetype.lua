@@ -19,7 +19,13 @@ vim.api.nvim_create_autocmd({"BufNewFile","BufRead"}, {
 })
 
 -- add config filetype for conf
-vim.filetype.add({ extension = { conf = "config" } })
+vim.filetype.add({
+    extension = {
+        -- suffix = filetype
+        conf = "config",
+        md = "markdown",
+    }
+})
 
 -- files containing config have filetype config
 vim.api.nvim_create_autocmd({"BufNewFile","BufRead"}, {

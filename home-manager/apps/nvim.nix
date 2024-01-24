@@ -9,6 +9,15 @@ let
       hash = "sha256-TebsOqFF5bgkRddgz3viaMQXAagM0c0depkLXr0BcNU=";
     };
   };
+  rasmus = pkgs.vimUtils.buildVimPlugin {
+    name = "rasmus";
+    src = pkgs.fetchFromGitHub {
+      owner = "kvrohit";
+      repo = "rasmus.nvim";
+      rev = "f824de95d446686e479781c0c2b778c177da528f";
+      hash = "sha256-KrONLw++ITBP5YKDlRiaHqCHKlbjDlECcERB0fQeBc0=";
+    };
+  };
 
   neovimFixedWrapper = pkgs.neovim-unwrapped.overrideAttrs (old: {
     # name = "neovimFixedWrapper";
@@ -34,6 +43,7 @@ in
     python311Packages.python-lsp-ruff
     pyright
     lua-language-server
+    marksman
   ];
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/nvim";
@@ -47,6 +57,7 @@ in
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       nvim-lspconfig
+      nvim-lsputils
       
       undotree
       fzf-lua
@@ -54,7 +65,7 @@ in
       lualine-lsp-progress
       mini-nvim
       vim-peekaboo
-      indentLine
+      indent-blankline-nvim
       
       nvim-hlslens
       nvim-scrollbar
@@ -95,6 +106,7 @@ in
       nvim-web-devicons
     ] ++ [
       rose-pine
+      rasmus
     ];
     package = neovimFixedWrapper;
   };

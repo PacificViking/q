@@ -12,7 +12,11 @@
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";  # nvidia problems
     # WLR_NO_HARDWARE_CURSORS = "0";
-    GBM_BACKEND = "nvidia-drm";  # this makes Hyprland crash
+
+    # GBM_BACKEND = "nvidia-drm";
+    # using nvidia 545 drivers, this no longer crashes Hyprland
+    # but it crashes Firefox instead... when it opens a pdf (through the .application file)
+    # apparently this is documented in https://wiki.hyprland.org/Nvidia/
   };
 
   services.xserver.videoDrivers = ["nvidia"];
@@ -34,6 +38,7 @@
 
     # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
+    # package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   boot.kernelParams = [

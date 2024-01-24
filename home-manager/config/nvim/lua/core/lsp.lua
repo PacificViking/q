@@ -29,6 +29,7 @@ require'lspconfig'.rust_analyzer.setup(lspsetup)
 -- require'lspconfig'.pylsp.setup{}
 require'lspconfig'.pyright.setup(lspsetup)
 require'lspconfig'.luau_lsp.setup(lspsetup)
+require'lspconfig'.marksman.setup(lspsetup)
 
 
 vim.api.nvim_set_hl(0, "CmpNormal", {

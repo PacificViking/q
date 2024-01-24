@@ -11,6 +11,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+    };
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,6 +76,7 @@
       modules = [
         nixos/configuration.nix
         inputs.musnix.nixosModules.musnix
+        inputs.nur.nixosModules.nur
       ];
     };
 
@@ -82,9 +86,10 @@
       extraSpecialArgs = { inherit inputs settings localpkgs masterpkgs; };
 
       modules = [
-	#hyprland.homeManagerModules.default
-	#{wayland.windowManager.hyprland.enable = true;}
-	home-manager/j.nix
+        #hyprland.homeManagerModules.default
+        #{wayland.windowManager.hyprland.enable = true;}
+        home-manager/j.nix
+        inputs.nur.nixosModules.nur
         # ...
       ];
     };
