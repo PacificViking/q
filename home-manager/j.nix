@@ -165,6 +165,9 @@
     (pkgs.catppuccin-kvantum.override {accent = "Yellow"; variant = "Mocha";})
     pkgs.libsForQt5.breeze-icons
 
+    localpkgs.cudaPackages.cudatoolkit
+    # pkgs.gcc12
+
     #pkgs.qt6.qtwayland
     #pkgs.qt6.full
     #pkgs.qt6Packages.qt6ct

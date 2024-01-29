@@ -9,7 +9,13 @@ let
     numpy
     parse
     requests
-    fabric
+    fabric  # ssh library
+
+    pycuda
+    # tensorflow
+    # torch  # conflicts with tensorflow in many paths
+    keras
+    scikit-learn
   ];
 in {
   home.packages = [

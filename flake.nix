@@ -53,11 +53,11 @@
   };
   outputs = { self, nixpkgs, masternixpkgs, localnixpkgs, home-manager, hyprland, ...}@inputs:
   let
-    pkgs = import nixpkgs { system = settings.systemtype; config.allowUnfree = true; };
+    pkgs = import nixpkgs { system = settings.systemtype; config.allowUnfree = true; config.cudaSupport = true;};
 
-    masterpkgs = import masternixpkgs { system = settings.systemtype; config.allowUnfree = true; };
+    masterpkgs = import masternixpkgs { system = settings.systemtype; config.allowUnfree = true; config.cudaSupport = true;};
 
-    localpkgs = import localnixpkgs { system = settings.systemtype; config.allowUnfree = true; };
+    localpkgs = import localnixpkgs { system = settings.systemtype; config.allowUnfree = true; config.cudaSupport = true;};
 
     settings = {
       #set these settings for your system information

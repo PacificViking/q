@@ -308,8 +308,8 @@
     },
     "localnixpkgs": {
       "locked": {
-        "lastModified": 1706025458,
-        "narHash": "sha256-NkfXRP4zbW3TNNvpeuS84V2QVaZ6fEjTHjG+LmeXaGk=",
+        "lastModified": 1706304782,
+        "narHash": "sha256-s0JQUVzfAYNHejg3L/Xc6VW6+XlCcat7G1QpgljQOyU=",
         "path": "/home/john/opensource/nixpkgs",
         "type": "path"
       },

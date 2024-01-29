@@ -22,6 +22,9 @@ And home-manager/config/gtk3.0 has my own locations, which may need changing
 qt5ct has to be run to configure: config files have permanant links
 kvantummanager has to be run to select qt5 theme
 
+### Possible Extra Configurations
+- python uses packages (torch, pycuda, tensorflow) that has dependency cuda, so cuda-toolkit might be needed
+
 ## Local Changes
 I installed hyprprop using nix-env because it's not replicable
 (also pyfa)
