@@ -7,20 +7,20 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    LIBVA_DRIVER_NAME = "nvidia";
+    # LIBVA_DRIVER_NAME = "nvidia";
     # LIBVA_DRIVER_NAME = "iHD";  # https://github.com/intel/libva/issues/575; nvidia-vaapi-driver doesn't work with my optimus laptop
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";  # nvidia problems
     # WLR_NO_HARDWARE_CURSORS = "0";
 
-    NVD_BACKEND = "direct";
+    # NVD_BACKEND = "direct";
     # GBM_BACKEND = "nvidia-drm";
     # using nvidia 545 drivers, this no longer crashes Hyprland
     # but it crashes Firefox instead... when it opens a pdf (through the .application file)
     # apparently this is documented in https://wiki.hyprland.org/Nvidia/
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  # services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
     # powerManagement.enable = false;
@@ -54,7 +54,7 @@
     options thinkpad_acpi fan_control=1
   '';
 
-  boot.initrd.kernelModules = [ "nvidia" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  # boot.initrd.kernelModules = [ "nvidia" ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 }
 

@@ -133,6 +133,8 @@
 
     # using gtkcord until nvidia+wayland+electron gets fixed
     pkgs.gtkcord4
+    pkgs.discord
+    pkgs.webcord-vencord
 
     pkgs.libreoffice-fresh
     # pkgs.zrythm
