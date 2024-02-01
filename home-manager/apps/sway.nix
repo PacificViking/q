@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, settings, lib, ... }:
 {
 #  home.file = {
 #    # You can also set the file content immediately.
@@ -25,14 +25,24 @@
 
   wayland.windowManager.sway = {
     enable = true;
+    systemd.enable = true;
     config = rec {
       modifier = "Mod4";
       # Use kitty as default terminal
-      terminal = "kitty"; 
+      terminal = "alacritty"; 
       startup = [
 	# Launch Firefox on start
 	# {command = "firefox";}
       ];
+      keybindings = lib.mkOptionDefault {
+        "${modifier}+x" = "exec firefox-nightly";
+      };
+      input = {
+        "*" = {
+          natural_scroll = "enabled";
+        };
+      };
+
     };
   };
 }

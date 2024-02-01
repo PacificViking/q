@@ -2,25 +2,44 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, inputs, settings, ... }:
-{
+let
+  nvidia-offload = pkgs.writeTextFile {
+   name = "nvidia-offload";
+   destination = "/bin/nvidia-offload";
+   executable = true;
+
+   text = ''
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __VK_LAYER_NV_optimus=NVIDIA_only
+exec "$@"
+   '';
+  };
+in {
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    # LIBVA_DRIVER_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
     # LIBVA_DRIVER_NAME = "iHD";  # https://github.com/intel/libva/issues/575; nvidia-vaapi-driver doesn't work with my optimus laptop
-    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";  # nvidia problems
     # WLR_NO_HARDWARE_CURSORS = "0";
 
-    # NVD_BACKEND = "direct";
-    # GBM_BACKEND = "nvidia-drm";
+    NVD_BACKEND = "direct";
+    GBM_BACKEND = "nvidia-drm";
     # using nvidia 545 drivers, this no longer crashes Hyprland
     # but it crashes Firefox instead... when it opens a pdf (through the .application file)
     # apparently this is documented in https://wiki.hyprland.org/Nvidia/
   };
 
-  # services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["nvidia"];
+
+  environment.systemPackages = [
+    nvidia-offload
+  ];
+
   hardware.nvidia = {
     modesetting.enable = true;
     # powerManagement.enable = false;
@@ -28,7 +47,11 @@
     powerManagement.finegrained = false;
 
     prime = {
-      sync.enable = true;
+      # sync.enable = true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
 
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
@@ -54,7 +77,7 @@
     options thinkpad_acpi fan_control=1
   '';
 
-  # boot.initrd.kernelModules = [ "nvidia" ];
-  # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  boot.initrd.kernelModules = [ "nvidia" ];
 }
 

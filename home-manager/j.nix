@@ -155,6 +155,7 @@
     pkgs.teamspeak_client
 
     pkgs.gnome.dconf-editor
+    pkgs.nvtop-nvidia
 
     pkgs.qt5.full
     pkgs.libsForQt5.qt5ct
@@ -186,6 +187,8 @@
   };
 
   home.file = {
+    ".config/zshcompletions".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/zshcompletions";
+
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/waybar";
 
     ".config/Thunar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/Thunar";
@@ -252,6 +255,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     TESTHOME = "2";
+    XCURSOR_SIZE = 36;
   };
 
   xsession = {
@@ -294,12 +298,18 @@
     };
 
     enable = true;
+    syntaxHighlighting.enable = true;
     enableAutosuggestions = false;
     enableCompletion = true;
     autocd = true;
     envExtra = "";
-      # neofetch;
+    # neofetch;
+    completionInit = "";
     initExtra = ''
+      fpath=($HOME/.config/zshcompletions $fpath);
+      autoload -U compinit && compinit;
+      compdef nvidia-offload=exec;
+
       source .config/p10k.zsh;
     '';
     
@@ -312,7 +322,7 @@
       {
         name = "powerlevel10k";
         src = pkgs.zsh-powerlevel10k;
-	file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
     ];
 

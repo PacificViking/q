@@ -21,6 +21,7 @@ you'll also need to configure Thunar yourself
 And home-manager/config/gtk3.0 has my own locations, which may need changing
 qt5ct has to be run to configure: config files have permanant links
 kvantummanager has to be run to select qt5 theme
+vscode and vscodium's window -> title bar style needs to be set to custom, or else it crashes (needs NIXOS_OZONE_WL set to 0 to use xwayland to actually start the program)
 
 ### Possible Extra Configurations
 - python uses packages (torch, pycuda, tensorflow) that has dependency cuda, so cuda-toolkit might be needed
