@@ -75,6 +75,7 @@ in
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${settings.systemtype}.hyprland;
+    # package = pkgs.hyprland;
   };
 
   programs.zsh = {

@@ -124,17 +124,17 @@
     pkgs.gcc
     pkgs.nil
 
-    #(pkgs.discord-canary.override {
-    #  # remove any overrides that you don't want
-    #  withOpenASAR = true;
-    #  withVencord = true;
-    #})
+    (pkgs.discord-canary.override {
+     # remove any overrides that you don't want
+     withOpenASAR = true;
+     withVencord = true;
+    })
     #pkgs.vesktop
 
     # using gtkcord until nvidia+wayland+electron gets fixed
     pkgs.gtkcord4
-    pkgs.discord
-    pkgs.webcord-vencord
+    # pkgs.discord
+    # pkgs.webcord-vencord
 
     pkgs.libreoffice-fresh
     # pkgs.zrythm

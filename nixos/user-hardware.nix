@@ -57,7 +57,8 @@ in {
       nvidiaBusId = "PCI:1:0:0";
     };
 
-    open = false;
+    # open = false;
+    open = true;
     nvidiaSettings = true;
 
     # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
@@ -67,7 +68,7 @@ in {
 
   boot.kernelParams = [
     "nvidia_drm.modeset=1"
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+    # "nvidia.NVreg_PreserveVideoMemoryAllocations=1"  # https://github.com/NVIDIA/open-gpu-kernel-modules/issues/472
     # "module_blacklist=i915" 
   ];
   boot.extraModprobeConfig = ''

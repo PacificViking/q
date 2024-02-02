@@ -1,4 +1,7 @@
 { config, pkgs, inputs, ... }:
+let
+firefox-package = inputs.flake-firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
+in
 {
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
@@ -9,7 +12,7 @@
   programs.firefox = {
     enable = true;
     #package = pkgs.firefox-devedition;
-    package = inputs.flake-firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
+    package = firefox-package;
     policies = {};
 
     #profiles.dev-edition-default = {
@@ -161,6 +164,12 @@
           iconUpdateURL = "https://github.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [ "@gh" ];
+        };
+        "zKillBoard" = {
+          urls = [{ template = "https://zkillboard.com/search/{searchTerms}"; }];
+          iconUpdateURL = "https://zkillboard.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [ "@zk" ];
         };
 
 	"eBay".metaData.hidden = true;
