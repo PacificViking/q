@@ -42,9 +42,6 @@ in {
 
   hardware.nvidia = {
     modesetting.enable = true;
-    # powerManagement.enable = false;
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
 
     prime = {
       # sync.enable = true;
@@ -66,9 +63,11 @@ in {
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  powerManagement.enable = false;  # this makes NVreg_PreserveVideoMemoryAllocations = 1, which causes problems with open source driver, so unset
   boot.kernelParams = [
     "nvidia_drm.modeset=1"
     # "nvidia.NVreg_PreserveVideoMemoryAllocations=1"  # https://github.com/NVIDIA/open-gpu-kernel-modules/issues/472
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=0"  # this fixes it
     # "module_blacklist=i915" 
   ];
   boot.extraModprobeConfig = ''

@@ -30,10 +30,6 @@
       modifier = "Mod4";
       # Use kitty as default terminal
       terminal = "alacritty"; 
-      startup = [
-	# Launch Firefox on start
-	# {command = "firefox";}
-      ];
       keybindings = lib.mkOptionDefault {
         "${modifier}+x" = "exec firefox-nightly";
       };
@@ -42,7 +38,18 @@
           natural_scroll = "enabled";
         };
       };
-
+      # waybar doesn't work with sway yet
+      # bars = [];
+      startup = [
+      # {"command" = "waybar"; "always" = true;}
+      ];
     };
+    extraOptions = [
+      "--unsupported-gpu"
+    ];
+    extraConfig = ''
+set $lock 'swaylock -f --screenshots --effect-blur 10x10'
+bindswitch --reload --locked lid:on exec $lock
+    '';
   };
 }

@@ -102,9 +102,10 @@ in
     zsh
     nerdfonts
     light
-    #swaylock
-    #swaylock-effects
+    # swaylock
+    swaylock-effects
     gtklock
+    waylock
     appimage-run
 
     libsForQt5.qt5.qtwayland
@@ -277,8 +278,8 @@ in
   security.polkit = {
     enable = true;
   };
-  #security.pam.services.swaylock = {};
-  #security.pam.services.waylock = {};
+  security.pam.services.swaylock = {};
+  security.pam.services.waylock = {};
   security.pam.services.gtklock = {};
   #security.pam = {
   #  loginLimits = [
