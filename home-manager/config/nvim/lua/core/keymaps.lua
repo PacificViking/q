@@ -38,6 +38,9 @@ keymap("o", "h", "^", opts)
 
 keymap("n", "U", "<C-r>", opts)  -- U to redo
 
+keymap("n", "g-", "<C-o>", opts)  -- g- to go to last
+keymap("n", "g=", "<C-i>", opts)  -- g- to go to previous
+
 keymap({"n","v"}, "j", "gj", opts)  -- move displayed lines instead of real lines
 keymap({"n","v"}, "k", "gk", opts)  -- move displayed lines instead of real lines
 

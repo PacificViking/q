@@ -218,6 +218,10 @@ in
     ];
   };
 
+  programs.gnupg = {
+    agent.enable = true;
+  };
+
   time.hardwareClockInLocalTime = true;
 
   #services.xserver = {

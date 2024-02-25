@@ -170,6 +170,7 @@
 
     localpkgs.cudaPackages.cudatoolkit
     # pkgs.gcc12
+    pkgs.gdb
 
     #pkgs.qt6.qtwayland
     #pkgs.qt6.full
@@ -310,7 +311,7 @@
       autoload -U compinit && compinit;
       compdef nvidia-offload=exec;
 
-      source .config/p10k.zsh;
+      source ~/.config/p10k.zsh;
     '';
     
     oh-my-zsh = {
@@ -369,6 +370,17 @@
     shellIntegration.enableZshIntegration = true;
   };
 
+  programs.foot = {
+    enable = true;
+    settings = {
+      main = {
+        term = "xterm-256color";
+        font = "Mononoki Nerd Font Mono:size=11";
+        # dpi-aware = "yes";
+      };
+    };
+  };
+
   programs.waybar = {
     enable = true;
   };
@@ -383,6 +395,7 @@
       user.name = "John Hao";
       user.email = "johnhaoallwood@gmail.com";
       advice.addIgnoredFile = "false";
+      push.autoSetupRemote = "true";
     };
   };
 
