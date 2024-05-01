@@ -9,6 +9,7 @@ local options = {
     undofile = true,
     undodir = vim.fn.expand("~/.vim/undodir"),  -- expand ~ to $HOME
     conceallevel = 0,
+    -- fixendofline = false,
 
     termguicolors = true,
     -- signcolumn = "yes:2",

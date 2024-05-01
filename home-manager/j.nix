@@ -22,6 +22,7 @@ in
     apps/texlive.nix
     apps/clipboard.nix
     apps/pyfa.nix
+    apps/element.nix
   ];
   
   home.username = settings.username;
@@ -205,6 +206,7 @@ in
   };
 
   home.file = {
+    "p".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/programs";
     ".config/zshcompletions".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/zshcompletions";
 
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/waybar";
