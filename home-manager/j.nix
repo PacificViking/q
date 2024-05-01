@@ -1,4 +1,12 @@
 { config, pkgs, inputs, settings, localpkgs, masterpkgs, ... }:
+let
+  nvidiaDiscord = pkgs.discord-canary.overrideAttrs (old: {
+    name = "nvidiaDiscordCanary";
+    postInstall = ''
+sed -i '2 i\export __NV_PRIME_RENDER_OFFLOAD=1\nexport __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0\nexport __GLX_VENDOR_LIBRARY_NAME=nvidia\nexport __VK_LAYER_NV_optimus=NVIDIA_only' $out/opt/DiscordCanary/DiscordCanary
+    '';
+  });
+in
 {
   imports = [
     apps/misc.nix
@@ -13,6 +21,7 @@
     apps/ags.nix
     apps/texlive.nix
     apps/clipboard.nix
+    apps/pyfa.nix
   ];
   
   home.username = settings.username;
@@ -31,7 +40,7 @@
   home.packages = [
     inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
     #localpkgs.hyprprop-rust
-    localpkgs.pyfa
+    # localpkgs.pyfa
 
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
@@ -55,6 +64,10 @@
     pkgs.dos2unix
     pkgs.powertop
     pkgs.yt-dlp
+    pkgs.valgrind
+    pkgs.gnumake
+    # pkgs.cutter
+    pkgs.ghidra
     
     pkgs.ffmpeg
     pkgs.grim
@@ -66,11 +79,12 @@
     pkgs.killall
     pkgs.bat
     pkgs.curl.dev
-    pkgs.dfeet
+    # pkgs.dfeet
     pkgs.d-spy
     pkgs.pqiv
+    pkgs.tmux
 
-    pkgs.nodejs_21
+    pkgs.nodejs_22
 
     #pkgs.gnome.nautilus
     pkgs.xfce.xfce4-icon-theme
@@ -124,12 +138,15 @@
     pkgs.gcc
     pkgs.nil
 
-    (pkgs.discord-canary.override {
+    # (pkgs.discord-canary.override {
+    (nvidiaDiscord.override {
      # remove any overrides that you don't want
      withOpenASAR = true;
      withVencord = true;
     })
     #pkgs.vesktop
+    pkgs.element-desktop-wayland
+    pkgs.wireguard-tools
 
     # using gtkcord until nvidia+wayland+electron gets fixed
     pkgs.gtkcord4
@@ -155,7 +172,7 @@
     pkgs.teamspeak_client
 
     pkgs.gnome.dconf-editor
-    pkgs.nvtop-nvidia
+    pkgs.nvtopPackages.nvidia
 
     pkgs.qt5.full
     pkgs.libsForQt5.qt5ct
@@ -266,14 +283,14 @@
 
   qt = {
     enable = true;
-    platformTheme = "qtct";
+    platformTheme.name = "qtct";
     #style.name = "kvantum";
   };
 
-  services.swayosd = {
-    enable = true;
-    maxVolume = 120;
-  };
+  # services.swayosd = {
+  #   enable = true;
+  #   maxVolume = 120;
+  # };
 
   programs.zsh = {
     shellAliases = {  # shellGlobalAliases for replace anywhere
@@ -300,7 +317,7 @@
 
     enable = true;
     syntaxHighlighting.enable = true;
-    enableAutosuggestions = false;
+    autosuggestion.enable = false;
     enableCompletion = true;
     autocd = true;
     envExtra = "";

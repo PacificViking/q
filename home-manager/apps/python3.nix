@@ -20,5 +20,6 @@ let
 in {
   home.packages = [
     (pkgs.python3.withPackages python-packages)
+    pkgs.py-spy
   ];
 }

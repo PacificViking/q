@@ -22,6 +22,7 @@ in
       settings = {
         "widget.wayland.vsync.enabled" = false;
         "media.ffmpeg.vaapi.enabled" = true;
+        # "media.ffmpeg.vaapi.enabled" = false;  # causes slow pdf loading because nvidia gpu falls asleep
 
         "browser.search.region" = "CA"; 
         "doh-rollout.home-region" = "CA";

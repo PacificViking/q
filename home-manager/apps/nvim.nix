@@ -37,7 +37,7 @@ in
     tree-sitter
     python311Packages.python-lsp-server
     python311Packages.pyls-isort
-    python311Packages.python-lsp-black
+    # python311Packages.python-lsp-black
     python311Packages.pyls-memestra
     python311Packages.pylsp-rope
     python311Packages.python-lsp-ruff

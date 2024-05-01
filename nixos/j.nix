@@ -15,8 +15,8 @@ in
 
   environment.sessionVariables = {
     # some of these could be moved to home-manager
-    QT_QPA_PLATFORM = "wayland";
-    GDK_BACKEND = "wayland";
+    # QT_QPA_PLATFORM = "wayland";  # already set in hyprland
+    # GDK_BACKEND = "wayland";
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
     TESTNIXJ = "1";
   };
