@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, settings, localpkgs, masterpkgs, ... }:
+{ config, pkgs, lib, inputs, settings, localpkgs, masterpkgs, ... }:
 let
   nvidiaDiscord = pkgs.discord-canary.overrideAttrs (old: {
     name = "nvidiaDiscordCanary";
@@ -190,6 +190,10 @@ in
     # pkgs.gcc12
     pkgs.gdb
 
+    pkgs.re2c
+    pkgs.cmake
+    (lib.hiPrio pkgs.clang)
+
     #pkgs.qt6.qtwayland
     #pkgs.qt6.full
     #pkgs.qt6Packages.qt6ct
@@ -275,7 +279,7 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     TESTHOME = "2";
-    XCURSOR_SIZE = 36;
+    # XCURSOR_SIZE = 36;
   };
 
   xsession = {
@@ -442,7 +446,7 @@ in
     x11.enable = true;
     name = "phinger-cursors-light";
     package = pkgs.phinger-cursors;
-    size = 36;
+    # size = 36;
   };
 
   gtk = {

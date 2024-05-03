@@ -29,6 +29,7 @@ keymap({"n","v"}, "L", "$", opts)
 
 keymap({"n","v"}, "(", "<C-o>", opts)  -- next and previous position
 keymap({"n","v"}, ")", "<C-i>", opts)
+keymap({"n"}, "gr", "<C-]>", opts)
 
 keymap("n", "d-", "O<esc>jddk", opts)  -- delete without erasing
 keymap("n", "go", "%", opts)  -- go (to next parenthesis)

@@ -19,6 +19,7 @@ in
     # GDK_BACKEND = "wayland";
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
     TESTNIXJ = "1";
+    LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
   };
 
   fonts = {

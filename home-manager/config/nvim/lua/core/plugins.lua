@@ -205,6 +205,10 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 
 -- nvim-lualine
+-- https://www.reddit.com/r/neovim/comments/1829ffv/how_to_force_lualine_to_show_filename_when_you/
+local function path_option()
+    return 1
+end
 require('lualine').setup({
     options = {
         theme = 'rose-pine',
@@ -214,6 +218,10 @@ require('lualine').setup({
     sections = {
         lualine_c = {
             ...,
+            {
+                'filename',
+                path = path_option(),
+            },
             'lsp_progress',
         }
     }
