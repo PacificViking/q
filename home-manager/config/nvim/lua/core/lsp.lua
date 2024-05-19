@@ -13,6 +13,7 @@ local lspsetup = {
 
 require'lspconfig'.nil_ls.setup(lspsetup)  -- theres a bug that come from using capabilites? not sure
 require'lspconfig'.rust_analyzer.setup(lspsetup)
+vim.g.rustfmt_autosave = 1
 -- require'lspconfig'.pylsp.setup{
 --   capabilities = capabilities,
 --   settings = {

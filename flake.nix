@@ -18,21 +18,22 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-
-      # type = "path";
-      # path = "/home/john/opensource/Hyprland";
-
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # hyprland = {
-    #   type = "github";
-    #   owner = "hyprwm";
-    #   repo = "Hyprland";
-    #   ref = "fe7b748eb668136dd0558b7c8279bfcd7ab4d759";
+    #   url = "github:hyprwm/Hyprland";
+    #
+    #   # type = "path";
+    #   # path = "/home/john/opensource/Hyprland";
+    #
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+    hyprland = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "Hyprland";
+      ref = "fe7b748eb668136dd0558b7c8279bfcd7ab4d759";  # 3.39
+      # ref = "cba1ade848feac44b2eda677503900639581c3f4";  # 3.40
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
