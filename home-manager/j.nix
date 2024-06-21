@@ -256,6 +256,10 @@ in
   xdg.mimeApps = {
     enable = true;
     associations.added = {
+      "application/pdf" = [
+        "pqiv.desktop"
+        "com.github.xournalpp.xournalpp.desktop"
+      ];
       "inode/directory" = [ "thunar.desktop" ];
       "image/png" = [ "firefox-nightly.desktop" ];
     };

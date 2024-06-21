@@ -1,4 +1,5 @@
-vim.cmd "hi MatchParen cterm=underline,bold ctermbg=none ctermfg=blue"  -- make matching parenthesis more readable
+-- vim.cmd("filetype indent off")
+vim.cmd("hi MatchParen cterm=underline,bold ctermbg=none ctermfg=blue")  -- make matching parenthesis more readable
 
 -- hlslens highlighting
 vim.cmd("hi CurSearch guibg=" .. require('rose-pine.palette').rose)

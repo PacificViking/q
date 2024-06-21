@@ -28,6 +28,7 @@ vim.g.rustfmt_autosave = 1
 --   }
 -- }
 -- require'lspconfig'.pylsp.setup{}
+require'lspconfig'.ruff_lsp.setup(lspsetup)
 require'lspconfig'.pyright.setup(lspsetup)
 require'lspconfig'.luau_lsp.setup(lspsetup)
 require'lspconfig'.marksman.setup(lspsetup)

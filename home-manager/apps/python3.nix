@@ -4,12 +4,17 @@ let
     pylint
     pynvim
     jedi
+    ruff-lsp
 
     sympy
     numpy
+    tqdm
+
     parse
     requests
     fabric  # ssh library
+
+    libclang
 
     pycuda
     # tensorflow
