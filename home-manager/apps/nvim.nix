@@ -77,7 +77,7 @@ in
       gitsigns-nvim
       vim-visual-multi
       vim-repeat
-      suda-vim
+      vim-suda
       nvim-tree-lua
       comment-nvim
       nvim-treesitter.withAllGrammars

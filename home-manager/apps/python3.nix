@@ -21,6 +21,7 @@ let
     # torch  # conflicts with tensorflow in many paths
     keras
     scikit-learn
+    pymongo
   ];
 in {
   home.packages = [

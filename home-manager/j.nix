@@ -135,9 +135,11 @@ in
       "rustc"
       "rustfmt"
     ])
-    pkgs.rust-analyzer-nightly
+    pkgs.rust-analyzer
     pkgs.gcc
     pkgs.nil
+
+    pkgs.expressvpn
 
     # (pkgs.discord-canary.override {
     (nvidiaDiscord.override {
@@ -262,6 +264,7 @@ in
       ];
       "inode/directory" = [ "thunar.desktop" ];
       "image/png" = [ "firefox-nightly.desktop" ];
+      "video/x-matroska" = [ "vlc.desktop" ];
     };
     defaultApplications = {
       "application/vnd.mozilla.xul+xml" = [ "firefox-nightly.desktop" ];
