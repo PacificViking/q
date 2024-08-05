@@ -6,6 +6,11 @@ let
 sed -i '2 i\export __NV_PRIME_RENDER_OFFLOAD=1\nexport __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0\nexport __GLX_VENDOR_LIBRARY_NAME=nvidia\nexport __VK_LAYER_NV_optimus=NVIDIA_only' $out/opt/DiscordCanary/DiscordCanary
     '';
   });
+
+  rust-toolchain = pkgs.fenix.fromToolchainFile {
+    file = ./config/rust-toolchain.toml;
+    sha256 = "sha256-uzamZW0GCy8pEFLKcMjH1SnFwZEfmTipLadzYx97pVk=";
+  };
 in
 {
   imports = [
@@ -128,14 +133,9 @@ in
     pkgs.drumgizmo
     pkgs.bitwig-studio
 
-    (pkgs.fenix.latest.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
-    ])
-    pkgs.rust-analyzer
+    rust-toolchain
+
+    # pkgs.rust-analyzer  # is sometimes contained within rust-toolchain according to the toml file
     pkgs.gcc
     pkgs.nil
 
