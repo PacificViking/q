@@ -136,6 +136,7 @@ in
     rust-toolchain
 
     # pkgs.rust-analyzer  # is sometimes contained within rust-toolchain according to the toml file
+    pkgs.mold-wrapped
     pkgs.gcc
     pkgs.nil
 
@@ -156,6 +157,14 @@ in
     # pkgs.discord
     # pkgs.webcord-vencord
 
+    # pkgs.haskellPackages.sixel
+    pkgs.libsixel
+    pkgs.libcaca
+    pkgs.w3m
+    pkgs.imlib2
+    pkgs.ueberzug
+    pkgs.imagemagick
+    pkgs.sox
     pkgs.libreoffice-fresh
     # pkgs.zrythm
     pkgs.reaper
@@ -221,16 +230,15 @@ in
 
     ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/mpd";
 
+    ".w3m/config".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/w3m/config";
+
     ".config/gtklock".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtklock";
 
     ".config/wofi".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/wofi";
 
     ".config/gtk-3.0/bookmarks".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/gtk-3.0/bookmarks";
 
-    ".config/neofetch" = {
-      source = ./config/neofetch;
-      recursive = true;
-    };
+    ".config/neofetch".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/neofetch";
 
     #".config/xdg-desktop-portal" = {
     #  source = ./config/xdg-desktop-portal;
