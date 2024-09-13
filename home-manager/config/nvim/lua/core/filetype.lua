@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd("FileType", {
         require('Comment').setup({
             padding = false,
         })
-        vim.cmd("set noexpandtab")  -- noexpandtab for python for now
+        -- vim.cmd("set noexpandtab")  -- noexpandtab for python for now
     end,
 })
 

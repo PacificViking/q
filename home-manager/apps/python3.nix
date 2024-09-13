@@ -10,6 +10,9 @@ let
     numpy
     tqdm
 
+    flask 
+    python-jose
+
     parse
     requests
     fabric  # ssh library
@@ -19,7 +22,7 @@ let
     pycuda
     # tensorflow
     # torch  # conflicts with tensorflow in many paths
-    keras
+    # keras
     scikit-learn
     pymongo
   ];

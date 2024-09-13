@@ -11,6 +11,29 @@ sed -i '2 i\export __NV_PRIME_RENDER_OFFLOAD=1\nexport __NV_PRIME_RENDER_OFFLOAD
     file = ./config/rust-toolchain.toml;
     sha256 = "sha256-uzamZW0GCy8pEFLKcMjH1SnFwZEfmTipLadzYx97pVk=";
   };
+
+  runcage = pkgs.writeTextFile {
+   name = "runcage";
+   destination = "/bin/runcage";
+   executable = true;
+
+   text = ''
+    #!/usr/bin/env python3
+    import sys
+    import os
+    args = sys.argv[1:]
+    acc = ""
+    brightness = 40
+    for i in args:
+      if "--brightness=" in i:
+        brightness = int(i.replace("--brightness=", ""))
+      else:
+        acc += i
+        acc += " "
+    acc = acc[:-1]
+    os.system(f"cage -s -- sh -c 'kanshi & brightnessctl set {brightness}% & {acc}'")
+   '';
+  };
 in
 {
   imports = [
@@ -45,6 +68,9 @@ in
 
   home.packages = [
     inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
+
+    runcage
+
     #localpkgs.hyprprop-rust
     # localpkgs.pyfa
 
@@ -73,9 +99,9 @@ in
     pkgs.valgrind
     pkgs.gnumake
     # pkgs.cutter
-    pkgs.ghidra
-    
-    pkgs.ffmpeg
+    # pkgs.ghidra
+
+    # pkgs.ffmpeg
     pkgs.grim
     pkgs.slurp
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
@@ -139,6 +165,10 @@ in
     pkgs.mold-wrapped
     pkgs.gcc
     pkgs.nil
+    pkgs.clang-tools
+    pkgs.cage
+    pkgs.wlr-randr
+    pkgs.kanshi
 
     pkgs.expressvpn
 
@@ -175,15 +205,15 @@ in
     pkgs.isoimagewriter
     pkgs.qbittorrent
     pkgs.lutris
-    pkgs.obs-studio
+    # pkgs.obs-studio
     pkgs.vlc
     pkgs.archiver
-    pkgs.gnome.file-roller
+    pkgs.file-roller
     pkgs.tor
     pkgs.tor-browser
     pkgs.teamspeak_client
 
-    pkgs.gnome.dconf-editor
+    pkgs.dconf-editor
     pkgs.nvtopPackages.nvidia
 
     pkgs.qt5.full
@@ -197,9 +227,8 @@ in
     (pkgs.catppuccin-kvantum.override {accent = "Yellow"; variant = "Mocha";})
     pkgs.libsForQt5.breeze-icons
 
-    localpkgs.cudaPackages.cudatoolkit
-    # pkgs.gcc12
-    pkgs.gdb
+    pkgs.cudaPackages.cudatoolkit
+    # pkgs.gdb
 
     pkgs.re2c
     pkgs.cmake
@@ -225,6 +254,8 @@ in
     ".config/zshcompletions".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/zshcompletions";
 
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/waybar";
+
+    ".config/kanshi".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/kanshi";
 
     ".config/Thunar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/Thunar";
 
@@ -318,6 +349,8 @@ in
       "open" = "xdg-open";
       "gparted" = "sudo env WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR gparted";
       "sudodisp" = "sudo env WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR";
+      "clang-format-inplace" = "clang-format -i -style Google";
+      "cc++" = "g++ -std=c++11 -Wall -o a.out";
 
       "jj_hm" = "home-manager switch --flake ${settings.confpath}";
       "jj_nix" = "sudo nixos-rebuild switch --flake ${settings.confpath}";
@@ -348,6 +381,7 @@ in
       fpath=($HOME/.config/zshcompletions $fpath);
       autoload -U compinit && compinit;
       compdef nvidia-offload=exec;
+      compdef runcage=exec;
 
       source ~/.config/p10k.zsh;
     '';

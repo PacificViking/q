@@ -1,7 +1,7 @@
 tabstop 8
 indent_incr 4
-pixel_per_char 7
-pixel_per_line 14
+pixel_per_char 16
+pixel_per_line 33
 frame 0
 target_self 0
 open_tab_blank 0
@@ -29,7 +29,7 @@ auto_image 1
 max_load_image 4
 ext_image_viewer 1
 image_scale 100
-inline_img_protocol 0
+inline_img_protocol 4
 imgdisplay kitty
 image_map_list 1
 fold_line 0
@@ -80,10 +80,10 @@ tmp_dir
 mime_types ~/.mime.types, /nix/store/2f4ykly0mwq36yl4kahsb05c5q4pqzqr-w3m-0.5.3+git20230121/etc/mime.types
 mailcap ~/.w3m/mailcap, /nix/store/2f4ykly0mwq36yl4kahsb05c5q4pqzqr-w3m-0.5.3+git20230121/etc/w3m/mailcap
 urimethodmap ~/.w3m/urimethodmap, /nix/store/2f4ykly0mwq36yl4kahsb05c5q4pqzqr-w3m-0.5.3+git20230121/etc/w3m/urimethodmap
-editor /no-such-path/bin/vi
+editor nvim
 mailto_options 1
 mailer 
-extbrowser /no-such-path/bin/firefox
+extbrowser nvidia-offload firefox-nightly --name firefox-nightly
 extbrowser2 
 extbrowser3 
 extbrowser4 

@@ -21,8 +21,10 @@ in
       path = "my1.nightly-default";
       settings = {
         "widget.wayland.vsync.enabled" = false;
-        "media.ffmpeg.vaapi.enabled" = true;
-        # "media.ffmpeg.vaapi.enabled" = false;  # causes slow pdf loading because nvidia gpu falls asleep
+        # "media.ffmpeg.vaapi.enabled" = true;
+        "media.ffmpeg.vaapi.enabled" = false;  # causes slow pdf loading because nvidia gpu falls asleep
+
+        "browser.fullscreen.autohide" = false;  # dont autohide tabbar when fullscreen
 
         "browser.search.region" = "CA"; 
         "doh-rollout.home-region" = "CA";
