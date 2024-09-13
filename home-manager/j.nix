@@ -227,8 +227,8 @@ in
     (pkgs.catppuccin-kvantum.override {accent = "Yellow"; variant = "Mocha";})
     pkgs.libsForQt5.breeze-icons
 
-    pkgs.cudaPackages.cudatoolkit
-    # pkgs.gdb
+    (pkgs.cudaPackages.cudatoolkit.override {cuda_gdb = null;})  # don't use cuda gdb which doesn't work for some reason, I dont need it
+    pkgs.gdb
 
     pkgs.re2c
     pkgs.cmake
