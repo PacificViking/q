@@ -40,7 +40,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-firefox-nightly = {
-      url = "github:nix-community/flake-firefox-nightly";
+      type = "github";
+      owner = "nix-community";
+      repo = "flake-firefox-nightly";
+      ref = "9cd587f2cbf8a8de21a1aeb548b06fb134089e9d";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     musnix = {
