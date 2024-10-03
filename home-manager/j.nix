@@ -123,7 +123,7 @@ in
     #pkgs.xfce.thunar-volman
     #pkgs.xfce.tumbler
     #pkgs.gvfs
-    pkgs.polkit_gnome
+    # pkgs.polkit_gnome
     pkgs.xdg-utils
     pkgs.easyeffects
 
@@ -367,6 +367,7 @@ in
       "j_chown" = "sudo chown john:users";
       "j_buildFlakeVM" = "nixos-rebuild build-vm --flake";
       "j_colorPicker" = "grim -g \"$(slurp -p)\" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-";
+      "j_updateNixLocal" = "cd ~/q; nix flake lock --update-input localnixpkgs; cd -";
     };
 
     enable = true;

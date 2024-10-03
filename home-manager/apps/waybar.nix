@@ -4,7 +4,8 @@
     enable = true;
   };
   home.packages = [
-    pkgs.pavucontrol
+    # pkgs.pavucontrol
+    pkgs.lxqt.pavucontrol-qt
     pkgs.gtk3.dev
     pkgs.gobject-introspection.dev
     pkgs.libpulseaudio

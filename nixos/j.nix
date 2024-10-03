@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, inputs, settings, ... }:
+{ config, pkgs, nixpkgs, localpkgs, inputs, settings, ... }:
 let
   vaapiIntelHybrid = pkgs.vaapiIntel.overrideAttrs { enableHybridCodec = true; };
 in
@@ -92,47 +92,49 @@ in
  #   userEmail = "johnhaoallwood@gmail.com";
  # };
   
-  environment.systemPackages = with pkgs; [
-    nix
+  environment.systemPackages = [
+    localpkgs.polkit_gnome
+
+    pkgs.nix
     #home-manager
     #hyprland
-    kitty
-    mako
-    greetd.tuigreet
-    polkit
-    zsh
-    nerdfonts
-    light
+    pkgs.kitty
+    pkgs.mako
+    pkgs.greetd.tuigreet
+    pkgs.polkit
+    pkgs.zsh
+    pkgs.nerdfonts
+    pkgs.light
     # swaylock
-    swaylock-effects
-    gtklock
-    waylock
-    appimage-run
+    pkgs.swaylock-effects
+    pkgs.gtklock
+    pkgs.waylock
+    pkgs.appimage-run
 
-    libsForQt5.qt5.qtwayland
-    libsForQt5.qt5ct
-    libva
+    pkgs.libsForQt5.qt5.qtwayland
+    pkgs.libsForQt5.qt5ct
+    pkgs.libva
 
-    pw-volume
-    wireplumber
-    libinput
-    libinput-gestures
+    pkgs.pw-volume
+    pkgs.wireplumber
+    pkgs.libinput
+    pkgs.libinput-gestures
     #xorg.xorgserver
     #xorg.xinput
 
-    dex  # desktop autoentries
-    btrfs-progs
+    pkgs.dex  # desktop autoentries
+    pkgs.btrfs-progs
 
-    tlp
-    mesa
-    lm_sensors
-    glxinfo
+    pkgs.tlp
+    pkgs.mesa
+    pkgs.lm_sensors
+    pkgs.glxinfo
     
-    libsForQt5.qt5.qtwayland
-    qt6.qtwayland
+    pkgs.libsForQt5.qt5.qtwayland
+    pkgs.qt6.qtwayland
 
-    pkg-config
-    libnotify
+    pkgs.pkg-config
+    pkgs.libnotify
   ];
 
   nix = {

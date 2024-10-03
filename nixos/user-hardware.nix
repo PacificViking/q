@@ -80,8 +80,8 @@ in {
     options thinkpad_acpi fan_control=1
   '';
 
-  # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  # boot.extraModulePackages = [ ];
   boot.initrd.kernelModules = [ "nvidia" ];
 }
 

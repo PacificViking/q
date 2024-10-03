@@ -27,6 +27,7 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+vim.g.copilot_filetypes = {["*"] = false}  --no suggestions
 
 function ToggleMouse()
     if vim.o.mouse == 'a' then

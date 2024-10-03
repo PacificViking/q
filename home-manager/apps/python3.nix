@@ -21,14 +21,14 @@ let
 
     pycuda
     # tensorflow
-    # torch  # conflicts with tensorflow in many paths
+    # torch # conflicts with tensorflow in many paths
     # keras
     scikit-learn
     pymongo
   ];
 in {
   home.packages = [
-    (pkgs.python3.withPackages python-packages)
+    (pkgs.python311.withPackages python-packages)
     pkgs.py-spy
     pkgs.ruff
   ];
