@@ -9,6 +9,7 @@ in
     ./apps/docker.nix
     ./apps/mysql.nix
     ./apps/miracast.nix
+    ./apps/polkit_gnome.nix
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
@@ -93,8 +94,6 @@ in
  # };
   
   environment.systemPackages = [
-    localpkgs.polkit_gnome
-
     pkgs.nix
     #home-manager
     #hyprland

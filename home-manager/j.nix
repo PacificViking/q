@@ -49,7 +49,6 @@ in
     apps/ags.nix
     apps/texlive.nix
     apps/clipboard.nix
-    apps/pyfa.nix
     apps/element.nix
   ];
   
@@ -62,6 +61,11 @@ in
   #  enable = true;
   #};
 
+  # nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.permittedInsecurePackages = [
+  #               "openssl-1.1.1w"
+  #             ];
+
   nixpkgs.overlays = [
     inputs.fenix.overlays.default
   ];
@@ -72,7 +76,7 @@ in
     runcage
 
     #localpkgs.hyprprop-rust
-    # localpkgs.pyfa
+    masterpkgs.pyfa
 
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
@@ -184,6 +188,11 @@ in
 
     # using gtkcord until nvidia+wayland+electron gets fixed
     pkgs.gtkcord4
+    pkgs.cheese
+    localpkgs.webkitgtk_4_0
+    # masterpkgs.webkitgtk_6_0
+    # masterpkgs.webkitgtk_4_1
+    # pkgs.wechat-uos
     # pkgs.discord
     # pkgs.webcord-vencord
 
@@ -246,6 +255,15 @@ in
     terminal = false;
     categories = [ "GNOME" "GTK" "Network" "Chat" ];
     icon = "gtkcord4";
+    startupNotify = true;
+  };
+
+  xdg.desktopEntries.pyfa = {
+    name = "pyfa";
+    genericName = "Python Fitting Assistant";
+    exec = "pyfa";
+    terminal = false;
+    categories = [ "Engineering" ];
     startupNotify = true;
   };
 
@@ -422,7 +440,7 @@ in
         };
       };
       import = [
-        "${masterpkgs.alacritty-theme}/rose-pine-moon.toml"
+        "${masterpkgs.alacritty-theme}/rose_pine_moon.toml"
       ];
     };
   };
