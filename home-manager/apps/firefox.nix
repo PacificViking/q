@@ -25,6 +25,7 @@ in
         "media.ffmpeg.vaapi.enabled" = false;  # causes slow pdf loading because nvidia gpu falls asleep
 
         "browser.fullscreen.autohide" = false;  # dont autohide tabbar when fullscreen
+        "browser.tabs.groups.enabled" = false;  # dont use tab groups: interferes with multi-row tabs
 
         "browser.search.region" = "CA"; 
         "doh-rollout.home-region" = "CA";

@@ -102,6 +102,7 @@ in
     pkgs.yt-dlp
     pkgs.valgrind
     pkgs.gnumake
+    pkgs.web-ext
     # pkgs.cutter
     # pkgs.ghidra
 
