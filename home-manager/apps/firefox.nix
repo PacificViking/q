@@ -175,6 +175,12 @@ in
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [ "@zk" ];
         };
+        "Scryfall" = {
+          urls = [{ template = "https://scryfall.com/search?q={searchTerms}"; }];
+          iconUpdateURL = "https://scryfall.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [ "@sf" ];
+        };
 
 	"eBay".metaData.hidden = true;
 	"Amazon.ca".metaData.hidden = true;

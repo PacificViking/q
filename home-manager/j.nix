@@ -46,7 +46,7 @@ in
     apps/firefox.nix
     apps/OpenTabletDriver.nix
     apps/dolphin.nix
-    apps/ags.nix
+    # apps/ags.nix
     apps/texlive.nix
     apps/clipboard.nix
     apps/element.nix
@@ -82,6 +82,7 @@ in
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    inputs.ignis.packages.${settings.systemtype}.ignis
     pkgs.nerdfonts
     pkgs.git
     pkgs.nodejs
@@ -278,6 +279,8 @@ in
     ".config/kanshi".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/kanshi";
 
     ".config/Thunar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/Thunar";
+
+    ".config/ignis".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/ignis";
 
     ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/mpd";
 
