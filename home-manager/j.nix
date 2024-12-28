@@ -103,6 +103,7 @@ in
     pkgs.valgrind
     pkgs.gnumake
     pkgs.web-ext
+    pkgs.ruff-lsp
     # pkgs.cutter
     # pkgs.ghidra
 

@@ -113,6 +113,7 @@ in
     ] ++ [
       rose-pine
       rasmus
+      masterpkgs.vimPlugins.blink-cmp
     ];
     package = neovimFixedWrapper;
   };
