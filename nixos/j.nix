@@ -287,14 +287,27 @@ in
   security.pam.services.swaylock = {};
   security.pam.services.waylock = {};
   security.pam.services.gtklock = {};
-  #security.pam = {
-  #  loginLimits = [
-  #    { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
-  #    { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
-  #    { domain = "@audio"; item = "nofile"; type = "soft"; value = "99999"; }
-  #    { domain = "@audio"; item = "nofile"; type = "hard"; value = "99999"; }
-  #  ];
-  #};
+
+  # Set limits for esync.
+  systemd.extraConfig = "DefaultLimitNOFILE=1048576:1048576";
+  systemd.user.extraConfig = "DefaultLimitNOFILE=1048576:1048576";
+
+  # security.pam.loginLimits = [{
+  #     domain = "*";
+  #     type = "hard";
+  #     item = "nofile";
+  #     value = "1048576";
+  # }];
+
+  # somehow this works for esync limits for lutris, but the above doesn't
+  security.pam = {
+   loginLimits = [
+     { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
+     { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
+     { domain = "@audio"; item = "nofile"; type = "soft"; value = "1048576"; }
+     { domain = "@audio"; item = "nofile"; type = "hard"; value = "1048576"; }
+   ];
+  };
 
   musnix = {
     enable = true;

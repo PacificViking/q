@@ -1,3 +1,5 @@
+# modified from ignis examples
+
 import datetime
 from ignis.widgets import Widget
 from ignis.utils import Utils
@@ -92,8 +94,8 @@ def scroll_workspaces(direction: str, monitor_name: str = "") -> None:
 
 def hyprland_workspaces() -> Widget.EventBox:
     return Widget.EventBox(
-        on_scroll_up=lambda x: scroll_workspaces("up"),
-        on_scroll_down=lambda x: scroll_workspaces("down"),
+        on_scroll_up=lambda x: scroll_workspaces("down"),
+        on_scroll_down=lambda x: scroll_workspaces("up"),  # change direction because more natural
         css_classes=["workspaces"],
         spacing=5,
         child=hyprland.bind(

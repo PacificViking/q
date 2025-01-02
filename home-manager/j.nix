@@ -111,6 +111,7 @@ in
     # pkgs.ffmpeg
     pkgs.grim
     pkgs.slurp
+    pkgs.baobab  # disk usage analyzer
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     pkgs.hyprpicker
     pkgs.findutils
@@ -189,6 +190,8 @@ in
     pkgs.element-desktop-wayland
     pkgs.wireguard-tools
 
+    pkgs.gtk4
+    pkgs.gtk4-layer-shell
     # using gtkcord until nvidia+wayland+electron gets fixed
     pkgs.gtkcord4
     pkgs.cheese

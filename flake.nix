@@ -64,7 +64,7 @@
     # };
     ignis = {
       url = "github:linkfrg/ignis";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs = { self, nixpkgs, masternixpkgs, localnixpkgs, home-manager, hyprland, ...}@inputs:
