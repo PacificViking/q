@@ -5,11 +5,13 @@ from ignis.widgets import Widget
 from ignis.utils import Utils
 from ignis.app import IgnisApp
 from ignis.services.audio import AudioService
+from ignis.services.backlight import BacklightService
 from ignis.services.system_tray import SystemTrayService, SystemTrayItem
 from ignis.services.hyprland import HyprlandService
 from ignis.services.niri import NiriService
 from ignis.services.notifications import NotificationService
 from ignis.services.mpris import MprisService, MprisPlayer
+from ignis.gobject import IgnisGObject
 
 app = IgnisApp.get_default()
 
@@ -22,6 +24,7 @@ hyprland = HyprlandService.get_default()
 niri = NiriService.get_default()
 notifications = NotificationService.get_default()
 mpris = MprisService.get_default()
+backlight = BacklightService.get_default()
 
 
 def hyprland_workspace_button(workspace: dict) -> Widget.Button:
@@ -220,11 +223,23 @@ def clock() -> Widget.Label:
 def speaker_volume() -> Widget.Box:
     return Widget.Box(
         child=[
-            Widget.Icon(
-                image=audio.speaker.bind("icon_name"), style="margin-right: 5px;"
+            Widget.EventBox(
+                    child = [Widget.Icon(
+                        image=audio.speaker.bind("icon_name"), style="margin-right: 5px;"
+                        )],
+                    on_click = lambda x: audio.speaker.set_is_muted(not audio.speaker.is_muted)
             ),
             Widget.Label(
                 label=audio.speaker.bind("volume", transform=lambda value: str(value))
+            ),
+        ]
+    )
+
+def brightness_icon() -> Widget.Box:
+    return Widget.Box(
+        child=[
+            Widget.Icon(
+                image="weather-clear", style=""  # uhh yea thats the sun icon
             ),
         ]
     )
@@ -291,6 +306,17 @@ def speaker_slider() -> Widget.Scale:
         value=audio.speaker.bind("volume"),
         on_change=lambda x: audio.speaker.set_volume(x.value),
         css_classes=["volume-slider"],  # we will customize style in style.css
+    )
+
+def brightness_slider() -> Widget.Scale:
+    return Widget.Scale(
+        min=0,
+        max=backlight.max_brightness,
+        step=1,
+        value=backlight.brightness,
+        on_change=lambda x: backlight.set_brightness(x.value),
+        css_classes=["volume-slider"],  # we will customize style in style.css
+        style = "margin-right: 20px;"
     )
 
 
@@ -368,6 +394,8 @@ def right() -> Widget.Box:
             keyboard_layout(),
             speaker_volume(),
             speaker_slider(),
+            brightness_icon(),
+            brightness_slider(),
             clock(),
             power_menu(),
         ],

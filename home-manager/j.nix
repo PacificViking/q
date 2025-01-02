@@ -195,7 +195,7 @@ in
     # using gtkcord until nvidia+wayland+electron gets fixed
     pkgs.gtkcord4
     pkgs.cheese
-    localpkgs.webkitgtk_4_0
+    # pkgs.webkitgtk_4_0
     # masterpkgs.webkitgtk_6_0
     # masterpkgs.webkitgtk_4_1
     # pkgs.wechat-uos
@@ -203,6 +203,7 @@ in
     # pkgs.webcord-vencord
 
     # pkgs.haskellPackages.sixel
+    pkgs.wezterm
     pkgs.libsixel
     pkgs.libcaca
     pkgs.w3m
@@ -282,6 +283,8 @@ in
     ".config/kanshi".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/kanshi";
 
     ".config/Thunar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/Thunar";
+
+    ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/wezterm";
 
     ".config/ignis".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/ignis";
 
@@ -382,6 +385,7 @@ in
       "jj_nix" = "sudo nixos-rebuild switch --flake ${settings.confpath}";
 
       "j_nixTree" = "nix-store -q --tree /run/current-system";
+      "j_startIgnis" = "GSK_RENDERER=gl ignis init";
       "j_listInputs" = "sudo libinput list-devices";
       "j_listHyprDevices" = "hyprctl devices";
       "j_nixSearch" = "nix-env -qa";

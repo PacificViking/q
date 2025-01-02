@@ -41,7 +41,7 @@ require('blink.cmp').setup {
 
   keymap = {
     preset = 'default',
-    ['<C-tab>'] = { function(cmp) cmp.accept( { index = 1 } ) end },
+    ['<C-tab>'] = { function(cmp) cmp.accept() end },
     ['<C-a>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
     ['<C-c>'] = { function(cmp) cmp.hide() end },
     ['<Up>'] = { 'select_prev', 'fallback' },
