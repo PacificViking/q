@@ -109,6 +109,9 @@ in
     pkgs.gtklock
     pkgs.waylock
     pkgs.appimage-run
+    pkgs.mpd
+    pkgs.bluez
+    pkgs.bluez-tools
 
     pkgs.libsForQt5.qt5.qtwayland
     pkgs.libsForQt5.qt5ct
@@ -155,6 +158,7 @@ in
     powerOnBoot = true;
   };
   services.blueman.enable = true;
+  services.upower.enable = true;
   programs.light.enable = true;
 
   services.udisks2.enable = true;

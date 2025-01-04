@@ -9,6 +9,7 @@ from ignis.services.backlight import BacklightService
 from ignis.services.system_tray import SystemTrayService, SystemTrayItem
 from ignis.services.hyprland import HyprlandService
 from ignis.services.niri import NiriService
+from ignis.services.upower import UPowerService
 from ignis.services.notifications import NotificationService
 from ignis.services.mpris import MprisService, MprisPlayer
 from ignis.gobject import IgnisGObject
@@ -25,6 +26,7 @@ niri = NiriService.get_default()
 notifications = NotificationService.get_default()
 mpris = MprisService.get_default()
 backlight = BacklightService.get_default()
+upower = UPowerService.get_default()
 
 
 def hyprland_workspace_button(workspace: dict) -> Widget.Button:
@@ -209,15 +211,42 @@ def current_notification() -> Widget.Label:
         ),
     )
 
+is_show_date = False
+def toggle_show_date(x):
+    global is_show_date
+    is_show_date = not is_show_date
 
-def clock() -> Widget.Label:
+    x.data_poll.cancel()  # cancel old poll and set up new one to reset it immediately (would be better if poll objects had a "poll now" option)
+    poll = Utils.Poll(1_000, lambda self: clock_text())
+    x.child[0].set_label(poll.bind("output"))
+    x.data_poll = poll
+
+def clock_text():
+    if not is_show_date:
+        #return datetime.datetime.now().strftime("%H:%M:%S")
+        return datetime.datetime.now().strftime("%H:%M")
+    else:
+        return datetime.datetime.now().strftime("%Y.%m.%d")
+
+
+def clock() -> Widget.EventBox:
     # poll for current time every second
-    return Widget.Label(
-        css_classes=["clock"],
-        label=Utils.Poll(
-            1_000, lambda self: datetime.datetime.now().strftime("%H:%M")
-        ).bind("output"),
+    poll = Utils.Poll(1_000, lambda self: clock_text())
+
+    widget = Widget.EventBox(
+        child = [
+            Widget.Label(
+                css_classes=["clock"],
+                label = poll.bind("output")
+                ),
+            ],
+        style = "font-weight: bold;",
+        on_click = toggle_show_date
     )
+
+    widget.data_poll = poll
+
+    return widget
 
 
 def speaker_volume() -> Widget.Box:
@@ -316,7 +345,7 @@ def brightness_slider() -> Widget.Scale:
         value=backlight.brightness,
         on_change=lambda x: backlight.set_brightness(x.value),
         css_classes=["volume-slider"],  # we will customize style in style.css
-        style = "margin-right: 20px;"
+        style = "margin-right: 5px;"
     )
 
 
@@ -369,19 +398,35 @@ def power_menu() -> Widget.Button:
         on_click=lambda x: menu.popup(),
     )
 
+def battery() -> Widget.Box:
+    return Widget.Box(
+            child = [
+                Widget.Icon(
+                    image=upower.display_device.bind("icon_name"), style="margin-bottom: 1px;"
+                ),
+                Widget.Label(label=upower.display_device.bind(
+                    "percent",
+                    transform = lambda value: f"{int(value)}%"
+                    )),
+                ]
+            )
 
 def left(monitor_name: str) -> Widget.Box:
     return Widget.Box(
-        child=[workspaces(monitor_name), client_title(monitor_name)], spacing=10
+        child=[
+               client_title(monitor_name)
+               ],
+        spacing=10
     )
 
 
-def center() -> Widget.Box:
+def center(monitor_name) -> Widget.Box:
     return Widget.Box(
         child=[
-            current_notification(),
-            Widget.Separator(vertical=True, css_classes=["middle-separator"]),
-            media(),
+            workspaces(monitor_name),
+            #current_notification(),
+            #Widget.Separator(vertical=True, css_classes=["middle-separator"]),
+            #media(),
         ],
         spacing=10,
     )
@@ -391,11 +436,14 @@ def right() -> Widget.Box:
     return Widget.Box(
         child=[
             tray(),
+            Widget.Separator(vertical=True, css_classes=["middle-separator"]),
             keyboard_layout(),
             speaker_volume(),
             speaker_slider(),
             brightness_icon(),
             brightness_slider(),
+            Widget.Separator(vertical=True, css_classes=["middle-separator"]),
+            battery(),
             clock(),
             power_menu(),
         ],
@@ -413,7 +461,7 @@ def bar(monitor_id: int = 0) -> Widget.Window:
         child=Widget.CenterBox(
             css_classes=["bar"],
             start_widget=left(monitor_name),  # type: ignore
-            center_widget=center(),
+            center_widget=center(monitor_name),
             end_widget=right(),
         ),
     )

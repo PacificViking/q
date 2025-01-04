@@ -93,9 +93,9 @@ in
     pkgs.wl-clipboard-x11
     pkgs.wl-clip-persist
     pkgs.hyprpaper
-    pkgs.udisks
-    pkgs.udisks2
-    pkgs.udiskie
+    # pkgs.udisks
+    # pkgs.udisks2
+    # pkgs.udiskie
     pkgs.inxi
     pkgs.mercurialFull
     pkgs.dos2unix
@@ -145,8 +145,6 @@ in
     pkgs.font-awesome
 
     pkgs.networkmanagerapplet
-    pkgs.bluez
-    pkgs.bluez-tools
 
     pkgs.xorg.setxkbmap
     pkgs.xkb-switch
@@ -154,7 +152,6 @@ in
     pkgs.perl538Packages.FileMimeInfo
     pkgs.xorg.xdpyinfo
 
-    pkgs.mpd
     pkgs.mpdevil
     pkgs.ncmpcpp
     pkgs.mpc-cli

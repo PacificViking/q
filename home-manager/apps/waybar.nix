@@ -15,6 +15,5 @@
     pkgs.libmpdclient
     pkgs.sndio
     pkgs.libevdev
-    pkgs.upower
   ];
 }
