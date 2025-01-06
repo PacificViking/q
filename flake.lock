@@ -427,17 +427,14 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1735238397,
-        "narHash": "sha256-zSWkckB2XDJuVbXrvyj/FGbI6AQwnbKRs6RV7y56jH0=",
-        "owner": "linkfrg",
-        "repo": "ignis",
-        "rev": "edc9b054492bd3404c070eaabb1c1dbf54642996",
-        "type": "github"
+        "lastModified": 1736179713,
+        "narHash": "sha256-O1/bCLIodtm+b0y6lLpi7So/Z0M6+OjX2sELuJqUU/E=",
+        "path": "/home/john/opensource/ignis",
+        "type": "path"
       },
       "original": {
-        "owner": "linkfrg",
-        "repo": "ignis",
-        "type": "github"
+        "path": "/home/john/opensource/ignis",
+        "type": "path"
       }
     },
     "lib-aggregate": {
@@ -525,11 +522,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1735291276,
-        "narHash": "sha256-NYVcA06+blsLG6wpAbSPTCyLvxD/92Hy4vlY9WxFI1M=",
+        "lastModified": 1729256560,
+        "narHash": "sha256-/uilDXvCIEs3C9l73JTACm4quuHUsIHcns1c+cHUJwA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "634fd46801442d760e09493a794c4f15db2d0cbb",
+        "rev": "4c2fcb090b1f3e5b47eaa7bd33913b574a11e0a0",
         "type": "github"
       },
       "original": {

@@ -63,7 +63,10 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     ignis = {
-      url = "github:linkfrg/ignis";
+      # url = "github:linkfrg/ignis";
+      type = "path";
+      path = "/home/john/opensource/ignis";
+
       # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
