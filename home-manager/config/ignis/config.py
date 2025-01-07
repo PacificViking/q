@@ -1,6 +1,11 @@
 # modified from ignis examples
 
 import datetime
+import subprocess
+
+from ignis import gi
+from gi.repository import Gtk, Gdk, GLib
+
 from ignis.widgets import Widget
 from ignis.utils import Utils
 from ignis.app import IgnisApp
@@ -11,6 +16,7 @@ from ignis.services.hyprland import HyprlandService
 from ignis.services.niri import NiriService
 from ignis.services.upower import UPowerService
 from ignis.services.notifications import NotificationService
+from ignis.services.fetch import FetchService
 from ignis.services.mpris import MprisService, MprisPlayer
 from ignis.gobject import IgnisGObject
 
@@ -27,6 +33,7 @@ notifications = NotificationService.get_default()
 mpris = MprisService.get_default()
 backlight = BacklightService.get_default()
 upower = UPowerService.get_default()
+fetch = FetchService.get_default()
 
 
 def hyprland_workspace_button(workspace: dict) -> Widget.Button:
@@ -219,7 +226,7 @@ def toggle_show_date(x):
     is_show_date = not is_show_date
 
     x.data_poll.cancel()  # cancel old poll and set up new one to reset it immediately (would be better if poll objects had a "poll now" option)
-    poll = Utils.Poll(1_000, lambda self: clock_text())
+    poll = Utils.Poll(10_000, lambda self: clock_text())
     x.child[0].set_label(poll.bind("output"))
     x.data_poll = poll
 
@@ -233,17 +240,18 @@ def clock_text():
 
 def clock() -> Widget.EventBox:
     # poll for current time every second
-    poll = Utils.Poll(1_000, lambda self: clock_text())
+    poll = Utils.Poll(10_000, lambda self: clock_text())
 
+    clock_label = Widget.Label(
+        css_classes=["clock"],
+        label = poll.bind("output"),
+        )  # couldn't manage to right justify it
     widget = Widget.EventBox(
+        css_classes=["clock-box"],
         child = [
-            Widget.Label(
-                css_classes=["clock"],
-                label = poll.bind("output")
-                ),
+            clock_label
             ],
-        style = "font-weight: bold;",
-        on_click = toggle_show_date
+        on_click = toggle_show_date,
     )
 
     widget.data_poll = poll
@@ -251,17 +259,17 @@ def clock() -> Widget.EventBox:
     return widget
 
 
-def speaker_volume() -> Widget.Box:
+def stream_volume(stream) -> Widget.Box:
     return Widget.Box(
         child=[
             Widget.EventBox(
                     child = [Widget.Icon(
-                        image=audio.speaker.bind("icon_name"), style="margin-right: 5px;"
+                        image=stream.bind("icon_name"), style="margin-right: 5px;"
                         )],
-                    on_click = lambda x: audio.speaker.set_is_muted(not audio.speaker.is_muted)
+                    on_click = lambda x: stream.set_is_muted(not stream.is_muted)
             ),
             Widget.Label(
-                label=audio.speaker.bind("volume", transform=lambda value: str(value))
+                label=stream.bind("volume", transform=lambda value: str(value))
             ),
         ]
     )
@@ -270,11 +278,44 @@ def brightness_icon() -> Widget.Box:
     return Widget.Box(
         child=[
             Widget.Icon(
-                image="weather-clear", style=""  # uhh yea thats the sun icon
+                image="weather-clear", # uhh yea thats the sun icon
+                style="margin-right: 5px;"
+            ),
+            Widget.Label(
+                label=backlight.bind_many(["brightness", "max_brightness"], transform=lambda brightness, max_brightness: str(int(brightness/max_brightness*100)))
             ),
         ]
     )
+    
+def setup_icon() -> Widget.EventBox:
+    return Widget.EventBox(
+        child=[
+            Widget.Icon(
+                image="emblem-system", style=""  # uhh yea thats the sun icon
+            ),
+        ],
+        on_click=lambda x: subprocess.check_output(".pavucontrol-qt-wrapped", shell=True),
+        style="padding: 3px; border: 1px solid white; border-radius: 8px;"
+    )
 
+def capslock_icon(_):
+    capslock = subprocess.check_output("cat /sys/class/leds/input*::capslock/brightness", shell=True).decode()[0]  # first letter 0 or 1
+    if capslock == "0":
+        return "changes-allow"  # unlocked
+    elif capslock == "1":
+        return "changes-prevent"  # locked
+    else:
+        return "dialog-error"
+
+def capslock() -> Widget.Box:
+    return Widget.Box(
+        child=[
+            Widget.Icon(
+                image=Utils.Poll(1_000, capslock_icon).bind("output"),
+                style = ""
+            ),
+        ]
+    )
 
 def hyprland_keyboard_layout() -> Widget.EventBox:
     return Widget.EventBox(
@@ -329,22 +370,22 @@ def tray():
     )
 
 
-def speaker_slider() -> Widget.Scale:
+def stream_slider(stream) -> Widget.Scale:
     return Widget.Scale(
         min=0,
         max=100,
         step=1,
-        value=audio.speaker.bind("volume"),
-        on_change=lambda x: audio.speaker.set_volume(x.value),
+        value=stream.bind("volume"),
+        on_change=lambda x: stream.set_volume(x.value),
         css_classes=["volume-slider"],  # we will customize style in style.css
     )
 
 def brightness_slider() -> Widget.Scale:
     return Widget.Scale(
         min=0,
-        max=backlight.max_brightness,
+        max=backlight.bind("max_brightness"),
         step=1,
-        value=backlight.brightness,
+        value=backlight.bind("brightness"),
         on_change=lambda x: backlight.set_brightness(x.value),
         css_classes=["volume-slider"],  # we will customize style in style.css
         style = "margin-right: 5px;"
@@ -394,9 +435,15 @@ def power_menu() -> Widget.Button:
         ]
     )
     return Widget.Button(
-        child=Widget.Box(
-            child=[Widget.Icon(image="system-shutdown-symbolic", pixel_size=20), menu]
-        ),
+        child = Widget.Box(
+            child = [
+                Widget.Icon(
+                    image = fetch.bind("os_logo"),
+                    style = "",
+                    ),
+                menu,
+                ]
+            ),
         on_click=lambda x: menu.popup(),
     )
 
@@ -413,11 +460,44 @@ def battery() -> Widget.Box:
                 ]
             )
 
+def os_icon() -> Widget.Box:
+    return Widget.Box(
+        child=[
+            Widget.Icon(
+                image=fetch.bind("os_logo"),
+                style=""
+            ),
+        ]
+    )
+
+def os_info() -> Widget.Box:
+    return Widget.Box(
+        child = [
+            Widget.Label(
+                label=fetch.bind_many(
+                    ["mem_available", "mem_total"],
+                    transform=lambda available, total: f"{(total-available)/1024/1024:.1f}GB / {total/1024/1024:.1f}GB"
+                    ),
+                style = "margin-right: 12px;"
+                ),
+            Widget.Label(
+                label=fetch.bind(
+                    "cpu_temp",
+                    transform=lambda value: f"{int(value)}°C"
+                    ),
+                ),
+            ]
+    )
+
 def left(monitor_name: str) -> Widget.Box:
     return Widget.Box(
         child=[
-               client_title(monitor_name)
-               ],
+            power_menu(),
+            #os_icon(),
+            os_info(),
+            Widget.Separator(vertical=True, css_classes=["middle-separator"]),
+            client_title(monitor_name)
+            ],
         spacing=10
     )
 
@@ -439,15 +519,18 @@ def right() -> Widget.Box:
         child=[
             tray(),
             Widget.Separator(vertical=True, css_classes=["middle-separator"]),
+            capslock(),
             keyboard_layout(),
-            speaker_volume(),
-            speaker_slider(),
+            stream_volume(audio.microphone),
+            stream_slider(audio.microphone),
+            stream_volume(audio.speaker),
+            stream_slider(audio.speaker),
+            setup_icon(),
             brightness_icon(),
             brightness_slider(),
             Widget.Separator(vertical=True, css_classes=["middle-separator"]),
-            battery(),
             clock(),
-            power_menu(),
+            battery(),
         ],
         spacing=10,
     )

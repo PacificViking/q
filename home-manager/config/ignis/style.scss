@@ -24,7 +24,7 @@ $urgent: #eb6f92;
 }
 
 .volume-slider trough {
-    min-width: 100px;
+    min-width: 75px;
     background-color: gray;
     min-height: 0.3rem;
     border-radius: 1rem;
@@ -66,10 +66,12 @@ $urgent: #eb6f92;
     all: unset;
 }
 
+.clock-box {
+}
 .clock {
     min-width: 100px;
+    /* margin: 0rem 0.5rem; */
     font-size: 1.1rem;
-    margin: 0rem 0.5rem;
 }
 
 popover.menu {
