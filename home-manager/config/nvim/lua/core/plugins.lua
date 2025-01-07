@@ -159,8 +159,8 @@ require'nvim-lastplace'.setup {
 
 
 -- nvim-tree.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 local function nvimtree_on_attach(bufnr)
     local api = require "nvim-tree.api"
@@ -195,6 +195,9 @@ require("nvim-tree").setup({
         dotfiles = true,
     },
     on_attach = nvimtree_on_attach,
+
+    disable_netrw = false,
+    hijack_netrw = true,
 })
 
 local function open_nvim_tree()

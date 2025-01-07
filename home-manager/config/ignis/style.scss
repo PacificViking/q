@@ -52,13 +52,13 @@ $urgent: #eb6f92;
     background-color: lighten($bg, 10%);
 }
 
-.workspace.active {
-    background-color: $active;
+.workspace.urgent {
+    background-color: $urgent;
     color: $bg;
 }
 
-.workspace.urgent {
-    background-color: $urgent;
+.workspace.active {
+    background-color: $active;
     color: $bg;
 }
 

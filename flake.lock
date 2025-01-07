@@ -427,8 +427,8 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1736179713,
-        "narHash": "sha256-O1/bCLIodtm+b0y6lLpi7So/Z0M6+OjX2sELuJqUU/E=",
+        "lastModified": 1736188168,
+        "narHash": "sha256-ycTKWPjjNZoygj8tZe5SnlxUVoGNLPVFSLPv6zB2XAM=",
         "path": "/home/john/opensource/ignis",
         "type": "path"
       },

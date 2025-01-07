@@ -225,6 +225,8 @@ in
     pkgs.tor
     pkgs.tor-browser
     pkgs.teamspeak_client
+    pkgs.tigervnc
+    pkgs.sshfs
 
     pkgs.dconf-editor
     pkgs.nvtopPackages.nvidia
