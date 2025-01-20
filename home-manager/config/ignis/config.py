@@ -233,7 +233,7 @@ def toggle_show_date(x):
 def clock_text():
     if not is_show_date:
         #return datetime.datetime.now().strftime("%H:%M:%S")
-        return datetime.datetime.now().strftime("%H:%M")
+        return datetime.datetime.now().strftime("%a %H:%M")
     else:
         return datetime.datetime.now().strftime("%Y.%m.%d")
 
@@ -295,7 +295,8 @@ def setup_icon() -> Widget.EventBox:
             ),
         ],
         on_click=lambda x: subprocess.check_output(".pavucontrol-qt-wrapped", shell=True),
-        style="padding: 3px; border: 1px solid white; border-radius: 8px;"
+        #style="padding: 3px; border: 1px solid white; border-radius: 8px;"
+        style="padding: 3px;"
     )
 
 def capslock_icon(_):
@@ -438,7 +439,8 @@ def power_menu() -> Widget.Button:
         child = Widget.Box(
             child = [
                 Widget.Icon(
-                    image = fetch.bind("os_logo"),
+                    #image = fetch.bind("os_logo"),
+                    image = "system-shutdown-symbolic",
                     style = "",
                     ),
                 menu,
@@ -492,11 +494,16 @@ def os_info() -> Widget.Box:
 def left(monitor_name: str) -> Widget.Box:
     return Widget.Box(
         child=[
-            power_menu(),
-            #os_icon(),
+            os_icon(),
             os_info(),
             Widget.Separator(vertical=True, css_classes=["middle-separator"]),
-            client_title(monitor_name)
+            stream_volume(audio.microphone),
+            stream_slider(audio.microphone),
+            stream_volume(audio.speaker),
+            stream_slider(audio.speaker),
+            setup_icon(),
+            Widget.Separator(vertical=True, css_classes=["middle-separator"]),
+            client_title(monitor_name),
             ],
         spacing=10
     )
@@ -521,16 +528,13 @@ def right() -> Widget.Box:
             Widget.Separator(vertical=True, css_classes=["middle-separator"]),
             capslock(),
             keyboard_layout(),
-            stream_volume(audio.microphone),
-            stream_slider(audio.microphone),
-            stream_volume(audio.speaker),
-            stream_slider(audio.speaker),
-            setup_icon(),
             brightness_icon(),
             brightness_slider(),
+            battery(),
             Widget.Separator(vertical=True, css_classes=["middle-separator"]),
             clock(),
-            battery(),
+            Widget.Separator(vertical=True, css_classes=["middle-separator"]),
+            power_menu(),
         ],
         spacing=10,
     )

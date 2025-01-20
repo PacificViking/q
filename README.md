@@ -37,3 +37,4 @@ ripgrep localpkgs and localnixpkgs
 - - Provide separate flake config for other users
 - Backup /q/ and .mozilla
 - Pick and choose latex libraries: they're very large
+- Fix "Running stop job for Session 3 of user (username)"

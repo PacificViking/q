@@ -344,3 +344,8 @@ require'nvim-web-devicons'.setup {
   }
  };
 }
+
+
+require("oil").setup()
+
+vim.keymap.set('n', 'ff', require('fzf-lua').files, {})

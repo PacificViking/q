@@ -71,8 +71,6 @@ in
   ];
 
   home.packages = [
-    inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
-
     runcage
 
     #localpkgs.hyprprop-rust
@@ -107,6 +105,9 @@ in
     pkgs.ruff-lsp
     # pkgs.cutter
     # pkgs.ghidra
+    # inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
+    masterpkgs.hyprprop
+
 
     # pkgs.ffmpeg
     pkgs.grim
@@ -200,7 +201,6 @@ in
     # pkgs.webcord-vencord
 
     # pkgs.haskellPackages.sixel
-    pkgs.wezterm
     pkgs.libsixel
     pkgs.libcaca
     pkgs.w3m
@@ -227,6 +227,14 @@ in
     pkgs.teamspeak_client
     pkgs.tigervnc
     pkgs.sshfs
+    pkgs.pdftk
+    # pkgs.openjdk17-bootstrap
+    pkgs.jdk
+    pkgs.wine-wayland
+    # inputs.prismlauncher-cracked.packages.${settings.systemtype}.prismlauncher
+    pkgs.cargo-flamegraph
+    (pkgs.octaveFull.override { enableQt = true; })
+    pkgs.lazygit
 
     pkgs.dconf-editor
     pkgs.nvtopPackages.nvidia
@@ -283,8 +291,6 @@ in
 
     ".config/Thunar".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/Thunar";
 
-    ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/wezterm";
-
     ".config/ignis".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/ignis";
 
     ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/mpd";
@@ -326,9 +332,14 @@ in
     enable = true;
     associations.added = {
       "application/pdf" = [
-        "pqiv.desktop"
         "com.github.xournalpp.xournalpp.desktop"
+        "pqiv.desktop"
       ];
+      "image/svg+xml" = [
+        "firefox-nightly.desktop"
+      ];
+      "application/x-zerosize" = [ "nvim.desktop" ];
+      "text/markdown" = [ "nvim.desktop" ];
       "inode/directory" = [ "thunar.desktop" ];
       "image/png" = [ "firefox-nightly.desktop" ];
       "video/x-matroska" = [ "vlc.desktop" ];
@@ -379,6 +390,7 @@ in
       "sudodisp" = "sudo env WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR";
       "clang-format-inplace" = "clang-format -i -style Google";
       "cc++" = "g++ -std=c++11 -Wall -o a.out";
+      "matlab" = "octave";
 
       "jj_hm" = "home-manager switch --flake ${settings.confpath}";
       "jj_nix" = "sudo nixos-rebuild switch --flake ${settings.confpath}";
@@ -431,6 +443,22 @@ in
 
   };
 
+  programs.wezterm = {
+    enable = true;
+    enableZshIntegration = true;
+    extraConfig = ''
+      local config = wezterm.config_builder()
+      config.enable_wayland = false
+      config.color_scheme = "rose-pine-moon"
+      config.front_end = "WebGpu"
+      config.font_size = 24.0
+      config.dpi = 384.0
+      config.hide_tab_bar_if_only_one_tab = true
+      config.font = wezterm.font "Mononoki Nerd Font Mono"
+      return config
+    '';
+  };
+
   programs.alacritty = {
     enable = true;
     settings = {
@@ -449,6 +477,10 @@ in
         offset = {
           y = -1;
         };
+      };
+      debug = {
+        persistent_logging = true;
+        log_level = "Info";
       };
       import = [
         "${masterpkgs.alacritty-theme}/rose_pine_moon.toml"

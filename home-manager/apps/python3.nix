@@ -9,6 +9,7 @@ let
     sympy
     numpy
     tqdm
+    pycrypto
 
     flask 
     python-jose
@@ -16,6 +17,7 @@ let
     parse
     requests
     fabric  # ssh library
+    pexpect
 
     libclang
 

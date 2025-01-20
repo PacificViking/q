@@ -34,6 +34,7 @@ in
       powerline-symbols
       nerdfonts
       wine64Packages.fonts
+      wine64Packages.waylandFull
       corefonts
       cabin
 

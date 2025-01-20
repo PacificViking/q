@@ -67,6 +67,9 @@ in
       mini-nvim
       vim-peekaboo
       indent-blankline-nvim
+      oil-nvim
+      mini-nvim
+      fzf-lua
       
       nvim-hlslens
       nvim-scrollbar
