@@ -9,6 +9,7 @@ let
     sympy
     numpy
     tqdm
+    argcomplete
     pycrypto
 
     flask 

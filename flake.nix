@@ -32,7 +32,7 @@
       repo = "Hyprland";
       # ref = "fe7b748eb668136dd0558b7c8279bfcd7ab4d759";  # 3.39
       # ref = "cba1ade848feac44b2eda677503900639581c3f4";  # 3.40
-      ref = "d505b3366533b71d57156469c926e8b2b75afb89"; # 3.43?
+      # ref = "d505b3366533b71d57156469c926e8b2b75afb89"; # 3.43?
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {

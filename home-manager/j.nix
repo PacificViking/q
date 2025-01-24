@@ -256,6 +256,7 @@ in
     pkgs.re2c
     pkgs.cmake
     (lib.hiPrio pkgs.clang)
+    pkgs.jq
 
     #pkgs.qt6.qtwayland
     #pkgs.qt6.full
@@ -409,6 +410,7 @@ in
       "j_buildFlakeVM" = "nixos-rebuild build-vm --flake";
       "j_colorPicker" = "grim -g \"$(slurp -p)\" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-";
       "j_updateNixLocal" = "cd ~/q; nix flake lock --update-input localnixpkgs; cd -";
+      "j_clearNvimSwap" = "rm ~/.local/state/nvim/swap/*";
     };
 
     enable = true;
@@ -416,7 +418,6 @@ in
     autosuggestion.enable = false;
     enableCompletion = true;
     autocd = true;
-    envExtra = "";
     # neofetch;
     completionInit = "";
     initExtra = ''
@@ -426,6 +427,10 @@ in
       compdef runcage=exec;
 
       source ~/.config/p10k.zsh;
+      fpath=( /nix/store/g4547f55cyqvil7yafv20a44bkr9b3s1-python3-3.11.9-env/lib/python3.11/site-packages/argcomplete/bash_completion.d "''${fpath[@]}" )
+    '';
+    envExtra = ''
+      fpath=( /nix/store/g4547f55cyqvil7yafv20a44bkr9b3s1-python3-3.11.9-env/lib/python3.11/site-packages/argcomplete/bash_completion.d "''${fpath[@]}" )
     '';
     
     oh-my-zsh = {
@@ -530,6 +535,7 @@ in
       user.email = "johnhaoallwood@gmail.com";
       advice.addIgnoredFile = "false";
       push.autoSetupRemote = "true";
+      safe.directory = "*";
     };
   };
 

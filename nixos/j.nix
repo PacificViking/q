@@ -138,6 +138,8 @@ in
 
     pkgs.pkg-config
     pkgs.libnotify
+
+    pkgs.efibootmgr
   ];
 
   nix = {
