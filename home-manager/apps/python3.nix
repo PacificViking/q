@@ -25,6 +25,7 @@ let
     pycuda
     # tensorflow
     # torch # conflicts with tensorflow in many paths
+    torch-bin
     # keras
     scikit-learn
     pymongo

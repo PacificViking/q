@@ -27,7 +27,6 @@ vscode and vscodium's window -> title bar style needs to be set to custom, or el
 - python uses packages (torch, pycuda, tensorflow) that has dependency cuda, so cuda-toolkit might be needed
 
 ## Local Changes
-I installed hyprprop using nix-env because it's not replicable
 (also pyfa)
 ripgrep localpkgs and localnixpkgs
 
@@ -38,3 +37,6 @@ ripgrep localpkgs and localnixpkgs
 - Backup /q/ and .mozilla
 - Pick and choose latex libraries: they're very large
 - Fix "Running stop job for Session 3 of user (username)"
+- Fix Thunar not opening windows partition
+- - [https://www.reddit.com/r/xfce/comments/17n2v5p/mounting_a_ntfs_partition_with_thunar_xubuntu_2310/]
+- - [https://github.com/NixOS/nixpkgs/issues/243234]

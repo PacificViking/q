@@ -140,12 +140,19 @@ in
     pkgs.libnotify
 
     pkgs.efibootmgr
+    pkgs.ntfs3g
   ];
 
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
   };
+
+  # https://www.reddit.com/r/NixOS/comments/1d7zvgu/nvim_cant_find_standard_library_headers/
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+  ];
 
   security.rtkit.enable = true;
   services.pipewire = {

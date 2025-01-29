@@ -342,7 +342,7 @@ in
       "application/x-zerosize" = [ "nvim.desktop" ];
       "text/markdown" = [ "nvim.desktop" ];
       "inode/directory" = [ "thunar.desktop" ];
-      "image/png" = [ "firefox-nightly.desktop" ];
+      "image/png" = [ "pqiv.desktop" "firefox-nightly.desktop" ];
       "video/x-matroska" = [ "vlc.desktop" ];
     };
     defaultApplications = {
@@ -427,10 +427,9 @@ in
       compdef runcage=exec;
 
       source ~/.config/p10k.zsh;
-      fpath=( /nix/store/g4547f55cyqvil7yafv20a44bkr9b3s1-python3-3.11.9-env/lib/python3.11/site-packages/argcomplete/bash_completion.d "''${fpath[@]}" )
     '';
     envExtra = ''
-      fpath=( /nix/store/g4547f55cyqvil7yafv20a44bkr9b3s1-python3-3.11.9-env/lib/python3.11/site-packages/argcomplete/bash_completion.d "''${fpath[@]}" )
+      fpath=( ${pkgs.python311Packages.argcomplete}/lib/python3.11/site-packages/argcomplete/bash_completion.d "''${fpath[@]}" )
     '';
     
     oh-my-zsh = {

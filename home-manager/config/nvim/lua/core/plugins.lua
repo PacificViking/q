@@ -346,6 +346,11 @@ require'nvim-web-devicons'.setup {
 }
 
 
-require("oil").setup()
+require("oil").setup({
+    keymaps = {
+        ["-"] = {},
+        ["<BS>"] = { "actions.parent", mode = "n" },
+    }
+})
 
-vim.keymap.set('n', 'ff', require('fzf-lua').files, {})
+vim.keymap.set('n', 'gz', require('fzf-lua').files, {})
