@@ -19,21 +19,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # hyprland = {
-    #   url = "github:hyprwm/Hyprland";
-    #
-    #   # type = "path";
-    #   # path = "/home/john/opensource/Hyprland";
-    #
-    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   type = "path";
+    #   path = "/home/john/opensource/Hyprland";
     # };
     hyprland = {
-      type = "github";
-      owner = "hyprwm";
-      repo = "Hyprland";
+      url = "github:hyprwm/Hyprland";
+      # type = "github";
+      # owner = "hyprwm";
+      # repo = "Hyprland";
       # ref = "fe7b748eb668136dd0558b7c8279bfcd7ab4d759";  # 3.39
       # ref = "cba1ade848feac44b2eda677503900639581c3f4";  # 3.40
       # ref = "d505b3366533b71d57156469c926e8b2b75afb89"; # 3.43?
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
@@ -43,7 +40,7 @@
       type = "github";
       owner = "nix-community";
       repo = "flake-firefox-nightly";
-      ref = "d8ef98015073208c319a121bc052e346eed2ce84";
+      # ref = "d8ef98015073208c319a121bc052e346eed2ce84";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     musnix = {
@@ -54,10 +51,10 @@
       url = "github:PacificViking/hyprprop-rust";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xdg-desktop-portal-hyprland = {
-      url = "github:hyprwm/xdg-desktop-portal-hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # xdg-desktop-portal-hyprland = {
+    #   url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # ags = {
     #   url = "github:Aylur/ags/d1835cad79868cab3154d673e6d37b6b46624611";
     #   inputs.nixpkgs.follows = "nixpkgs";

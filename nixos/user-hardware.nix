@@ -20,7 +20,7 @@ in {
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
+    # NIXOS_OZONE_WL = "1";
     LIBVA_DRIVER_NAME = "nvidia";
     # LIBVA_DRIVER_NAME = "iHD";  # https://github.com/intel/libva/issues/575; nvidia-vaapi-driver doesn't work with my optimus laptop
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";

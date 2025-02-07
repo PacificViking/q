@@ -1,6 +1,7 @@
 { config, pkgs, nixpkgs, localpkgs, inputs, settings, ... }:
 let
   vaapiIntelHybrid = pkgs.vaapiIntel.overrideAttrs { enableHybridCodec = true; };
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   imports = [
@@ -12,6 +13,11 @@ in
     ./apps/polkit_gnome.nix
   ];
 
+  nix.settings = {   # hyprland cachix
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
+
   environment.pathsToLink = [ "/share/zsh" ];
 
   environment.sessionVariables = {
@@ -21,6 +27,7 @@ in
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
     TESTNIXJ = "1";
     LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
+    # AQ_DRM_DEVICES = "/dev/dri/card2";
   };
 
   fonts = {
@@ -77,8 +84,9 @@ in
   # hyprland-related wayland config
   programs.hyprland = {
     enable = true;
-    # package = inputs.hyprland.packages.${settings.systemtype}.hyprland;
-    package = pkgs.hyprland;
+    package = inputs.hyprland.packages.${settings.systemtype}.hyprland;
+    # package = pkgs.hyprland;
+    portalPackage = inputs.hyprland.packages.${settings.systemtype}.xdg-desktop-portal-hyprland;
   };
 
   programs.zsh = {
@@ -129,7 +137,7 @@ in
     pkgs.btrfs-progs
 
     pkgs.tlp
-    pkgs.mesa
+    # pkgs.mesa
     pkgs.lm_sensors
     pkgs.glxinfo
     
@@ -186,6 +194,7 @@ in
     enable = true;
     # driSupport = true;
     # driSupport32Bit = true;
+    package = pkgs-unstable.mesa.drivers;  # use Hyprland's mesa drivers
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
       # vaapiIntelHybrid  # LIBVA_DRIVER_NAME=i965
@@ -230,7 +239,7 @@ in
       pkgs.xdg-desktop-portal-kde
       pkgs.xdg-desktop-portal-wlr
       #pkgs.xdg-desktop-portal-hyprland
-      inputs.xdg-desktop-portal-hyprland
+      # inputs.xdg-desktop-portal-hyprland
     ];
   };
 
