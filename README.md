@@ -40,3 +40,4 @@ ripgrep localpkgs and localnixpkgs
 - Fix Thunar not opening windows partition
 - - [https://www.reddit.com/r/xfce/comments/17n2v5p/mounting_a_ntfs_partition_with_thunar_xubuntu_2310/]
 - - [https://github.com/NixOS/nixpkgs/issues/243234]
+- fix fpath issue when `nix develop` (asks for file that cannot be accessed)

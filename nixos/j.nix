@@ -1,7 +1,9 @@
 { config, pkgs, nixpkgs, localpkgs, inputs, settings, ... }:
 let
   vaapiIntelHybrid = pkgs.vaapiIntel.overrideAttrs { enableHybridCodec = true; };
-  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  # hyprland = inputs.hyprland.override (old: { submodules = true; });
+  hyprland = inputs.hyprland;
+  pkgs-unstable = hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   imports = [
@@ -84,9 +86,9 @@ in
   # hyprland-related wayland config
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${settings.systemtype}.hyprland;
+    package = hyprland.packages.${settings.systemtype}.hyprland;
     # package = pkgs.hyprland;
-    portalPackage = inputs.hyprland.packages.${settings.systemtype}.xdg-desktop-portal-hyprland;
+    portalPackage = hyprland.packages.${settings.systemtype}.xdg-desktop-portal-hyprland;
   };
 
   programs.zsh = {
