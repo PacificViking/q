@@ -29,7 +29,7 @@ in
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
     TESTNIXJ = "1";
     LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
-    # AQ_DRM_DEVICES = "/dev/dri/card2";
+    AQ_DRM_DEVICES = "/dev/dri/card2";
   };
 
   fonts = {
@@ -123,6 +123,7 @@ in
     pkgs.mpd
     pkgs.bluez
     pkgs.bluez-tools
+    pkgs.xwayland
 
     pkgs.libsForQt5.qt5.qtwayland
     pkgs.libsForQt5.qt5ct
@@ -196,13 +197,15 @@ in
     enable = true;
     # driSupport = true;
     # driSupport32Bit = true;
-    package = pkgs-unstable.mesa.drivers;  # use Hyprland's mesa drivers
+    # package = pkgs-unstable.mesa.drivers;  # use Hyprland's mesa drivers
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
       # vaapiIntelHybrid  # LIBVA_DRIVER_NAME=i965
       vaapiVdpau
       libvdpau-va-gl
       nvidia-vaapi-driver  # LIBVA_DRIVER_NAME=nvidia
+    # ] ++ [
+    #   pkgs-unstable.mesa.drivers  # use Hyprland's mesa drivers
     ];
   };
   # https://www.youtube.com/watch?v=61wGzIv12Ds
