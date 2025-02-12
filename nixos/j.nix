@@ -30,6 +30,7 @@ in
     TESTNIXJ = "1";
     LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
     AQ_DRM_DEVICES = "/dev/dri/card2";
+    NIXQCONFPATH = "${settings.confpath}";
   };
 
   fonts = {
@@ -98,11 +99,10 @@ in
     enable = true;
   };
   
- # programs.git = {
- #   enable = true;
- #   userName = "John Hao";
- #   userEmail = "johnhaoallwood@gmail.com";
- # };
+ programs.git = {
+   enable = true;
+   lfs.enable = true;
+ };
   
   environment.systemPackages = [
     pkgs.nix
@@ -213,20 +213,20 @@ in
 
   xdg.portal = {
     enable = true;
-    wlr = {
-      enable = true;
-      settings.screencast = {
-        output_name = "HDMI-A-1";
-        max_fps = 30;
-        chooser_type = "simple";
-        chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-      };
-    };
+    # wlr = {
+    #   enable = true;
+    #   settings.screencast = {
+    #     output_name = "HDMI-A-1";
+    #     max_fps = 30;
+    #     chooser_type = "simple";
+    #     chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+    #   };
+    # };
     config = {
       common = {
         Hyprland = [
-          "gtk"
           "hyprland"
+          "gtk"
           "wlr"
         ];
         #"org.freedesktop.impl.portal.AppChooser"=["kde"];
@@ -241,8 +241,8 @@ in
     };
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-kde
-      pkgs.xdg-desktop-portal-wlr
+      # pkgs.xdg-desktop-portal-kde
+      # pkgs.xdg-desktop-portal-wlr
       #pkgs.xdg-desktop-portal-hyprland
       # inputs.xdg-desktop-portal-hyprland
     ];

@@ -11,5 +11,9 @@ vim.api.nvim_set_hl(0, 'IncSearch', { bg=rosepine.gold, fg=rosepine.pine })
 -- vim.cmd("hi IncSearch guibg=" .. require('rose-pine.palette').gold)
 
 
+vim.g["mkdp_preview_options"] = {
+    disable_sync_scroll = 1,
+}
+
     end,
 })

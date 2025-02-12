@@ -90,7 +90,7 @@ in
       lsp_signature-nvim
       markdown-preview-nvim
       glow-nvim
-      vim-markdown
+      # vim-markdown
 
       nvim-cmp
       cmp-nvim-lsp

@@ -63,3 +63,11 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.cmd("normal zR")
     end,
 })
+
+-- markdown no folding
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"markdown"},
+    callback = function()
+        vim.opt["foldenable"] = false
+    end,
+})

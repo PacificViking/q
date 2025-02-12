@@ -82,7 +82,8 @@ in
     # '')
     inputs.ignis.packages.${settings.systemtype}.ignis
     pkgs.nerdfonts
-    pkgs.git
+    # pkgs.git
+    # pkgs.git-lfs
     pkgs.nodejs
     pkgs.ghc
     #pkgs.firefox-devedition
@@ -177,14 +178,16 @@ in
     pkgs.kanshi
 
     pkgs.expressvpn
+    pkgs.gpt4all-cuda
 
-    # (pkgs.discord-canary.override {
-    (nvidiaDiscord.override {
+    (pkgs.discord-canary.override {
+    # (nvidiaDiscord.override {
      # remove any overrides that you don't want
-     withOpenASAR = true;
-     withVencord = true;
+     # withOpenASAR = true;
+     # withVencord = true;
     })
-    #pkgs.vesktop
+    # pkgs.discord
+    # pkgs.vesktop
     pkgs.element-desktop-wayland
     pkgs.wireguard-tools
 
@@ -218,7 +221,7 @@ in
     pkgs.isoimagewriter
     pkgs.qbittorrent
     pkgs.lutris
-    # pkgs.obs-studio
+    # masterpkgs.obs-studio
     pkgs.vlc
     pkgs.archiver
     pkgs.file-roller
@@ -329,6 +332,10 @@ in
     # '';
   };
 
+  home.sessionPath = [
+    "${settings.confpath}/programs"
+  ];
+
   xdg.mimeApps = {
     enable = true;
     associations.added = {
@@ -397,7 +404,7 @@ in
       "jj_nix" = "sudo nixos-rebuild switch --flake ${settings.confpath}";
 
       "j_nixTree" = "nix-store -q --tree /run/current-system";
-      "j_startIgnis" = "GSK_RENDERER=gl ignis init";
+      "j_startIgnis" = "GSK_RENDERER=ngl ignis init";
       "j_listInputs" = "sudo libinput list-devices";
       "j_listHyprDevices" = "hyprctl devices";
       "j_nixSearch" = "nix-env -qa";
