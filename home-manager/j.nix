@@ -221,7 +221,8 @@ in
     pkgs.isoimagewriter
     pkgs.qbittorrent
     pkgs.lutris
-    # masterpkgs.obs-studio
+    masterpkgs.opencv
+    masterpkgs.obs-studio
     pkgs.vlc
     pkgs.archiver
     pkgs.file-roller

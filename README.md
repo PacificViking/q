@@ -42,3 +42,7 @@ ripgrep localpkgs and localnixpkgs
 - - [https://github.com/NixOS/nixpkgs/issues/243234]
 - fix fpath issue when `nix develop` (asks for file that cannot be accessed)
 - Fix firefox + paxmod tab reordering (used to work)
+- discord dilemma
+- - Discord with --disable-gpu and wayland can't screenshare or push to talk
+- - Discord using xwayland can't be dragged/copy pasted into and can't screenshare (and push to talk doesn't work with backtick)
+- - Vesktop can't push to talk (but can screenshare)
