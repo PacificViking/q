@@ -11,7 +11,7 @@ in
     ./apps/sway.nix
     ./apps/docker.nix
     ./apps/mysql.nix
-    ./apps/miracast.nix
+    # ./apps/miracast.nix
     ./apps/polkit_gnome.nix
   ];
 
@@ -37,12 +37,11 @@ in
     enableDefaultPackages = true;
     packages = with pkgs; [
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       font-awesome
       powerline-fonts
       powerline-symbols
-      nerdfonts
       wine64Packages.fonts
       wine64Packages.waylandFull
       corefonts
@@ -53,7 +52,7 @@ in
       
       lexend
       material-symbols
-    ];
+    ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
     fontconfig = {
       localConf = '''';  # xml
       defaultFonts = {
@@ -113,7 +112,6 @@ in
     pkgs.greetd.tuigreet
     pkgs.polkit
     pkgs.zsh
-    pkgs.nerdfonts
     pkgs.light
     # swaylock
     pkgs.swaylock-effects
@@ -155,7 +153,7 @@ in
   ];
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.latest;
     extraOptions = "experimental-features = nix-command flakes";
   };
 

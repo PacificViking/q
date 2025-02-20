@@ -22,24 +22,24 @@
       # type = "path";
       # path = "/home/john/opensource/Hyprland";
       # inputs.nixpkgs.follows = "nixpkgs";
-      url = "git+file:///home/john/opensource/Hyprland?submodules=1";
+      # url = "git+file:///home/john/opensource/Hyprland?submodules=1";
     };
-    # hyprland = {
-    #   type = "github";
-    #   owner = "hyprwm";
-    #   repo = "Hyprland";
-    #
-    #   # url = "github:hyprwm/Hyprland?submodules=1?ref=788ae588979c2a1ff8a660f16e3c502ef5796755";
-    #
-    #   # ref = "fe7b748eb668136dd0558b7c8279bfcd7ab4d759";  # 0.39
-    #   # ref = "cba1ade848feac44b2eda677503900639581c3f4";  # 0.40
-    #   # ref = "9a09eac79b85c846e3a865a9078a3f8ff65a9259";  # 0.42
-    #   # ref = "0c7a7e2d569eeed9d6025f3eef4ea0690d90845d";  # 0.44
-    #   # ref = "a425fbebe4cf4238e48a42f724ef2208959d66cf";  # 0.45
-    #   # ref = "788ae588979c2a1ff8a660f16e3c502ef5796755";  # 0.46
-    #   # ref = "04ac46c54357278fc68f0a95d26347ea0db99496";  # 0.47
-    #   # inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    hyprland = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "Hyprland";
+
+      # url = "github:hyprwm/Hyprland?submodules=1?ref=788ae588979c2a1ff8a660f16e3c502ef5796755";
+
+      # ref = "fe7b748eb668136dd0558b7c8279bfcd7ab4d759";  # 0.39
+      # ref = "cba1ade848feac44b2eda677503900639581c3f4";  # 0.40
+      # ref = "9a09eac79b85c846e3a865a9078a3f8ff65a9259";  # 0.42
+      # ref = "0c7a7e2d569eeed9d6025f3eef4ea0690d90845d";  # 0.44
+      # ref = "a425fbebe4cf4238e48a42f724ef2208959d66cf";  # 0.45
+      # ref = "788ae588979c2a1ff8a660f16e3c502ef5796755";  # 0.46
+      # ref = "04ac46c54357278fc68f0a95d26347ea0db99496";  # 0.47
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -100,7 +100,7 @@
       modules = [
         nixos/configuration.nix
         inputs.musnix.nixosModules.musnix
-        inputs.nur.nixosModules.nur
+        inputs.nur.modules.nixos.default
       ];
     };
 
@@ -113,7 +113,6 @@
         #hyprland.homeManagerModules.default
         #{wayland.windowManager.hyprland.enable = true;}
         home-manager/j.nix
-        inputs.nur.nixosModules.nur
         # ...
       ];
     };

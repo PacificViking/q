@@ -5,7 +5,7 @@ require'lspconfig'.nil_ls.setup(lspsetup)  -- theres a bug that come from using 
 require'lspconfig'.rust_analyzer.setup(lspsetup)
 vim.g.rustfmt_autosave = 1
 
-require'lspconfig'.ruff_lsp.setup(lspsetup)
+require'lspconfig'.ruff.setup(lspsetup)
 require'lspconfig'.pyright.setup(lspsetup)
 require'lspconfig'.luau_lsp.setup(lspsetup)
 require'lspconfig'.marksman.setup(lspsetup)

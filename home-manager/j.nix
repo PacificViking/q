@@ -74,14 +74,13 @@ in
     runcage
 
     #localpkgs.hyprprop-rust
-    masterpkgs.pyfa
+    pkgs.pyfa
 
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
     inputs.ignis.packages.${settings.systemtype}.ignis
-    pkgs.nerdfonts
     # pkgs.git
     # pkgs.git-lfs
     pkgs.nodejs
@@ -107,7 +106,7 @@ in
     # pkgs.cutter
     # pkgs.ghidra
     # inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
-    masterpkgs.hyprprop
+    pkgs.hyprprop
 
 
     # pkgs.ffmpeg
@@ -177,8 +176,9 @@ in
     pkgs.wlr-randr
     pkgs.kanshi
 
-    pkgs.expressvpn
+    # pkgs.expressvpn
     pkgs.gpt4all-cuda
+    pkgs.gnome-keyring
 
     (pkgs.discord-canary.override {
     # (nvidiaDiscord.override {
@@ -188,7 +188,7 @@ in
     })
     # pkgs.discord
     # pkgs.vesktop
-    pkgs.element-desktop-wayland
+    pkgs.element-desktop
     pkgs.wireguard-tools
 
     pkgs.gtk4
@@ -215,16 +215,16 @@ in
     # pkgs.zrythm
     pkgs.reaper
     pkgs.muse
-    pkgs.netsurf.browser
+    # pkgs.netsurf.browser
     pkgs.xournalpp
     pkgs.gparted
     pkgs.isoimagewriter
     pkgs.qbittorrent
     pkgs.lutris
-    masterpkgs.opencv
-    masterpkgs.obs-studio
+    pkgs.opencv
+    pkgs.obs-studio
     pkgs.vlc
-    pkgs.archiver
+    # pkgs.archiver
     pkgs.file-roller
     pkgs.tor
     pkgs.tor-browser
@@ -251,7 +251,7 @@ in
     pkgs.libsForQt5.kwayland
     pkgs.libsForQt5.kwayland-integration
     #pkgs.libsForQt5.qtstyleplugin-kvantum
-    (pkgs.catppuccin-kvantum.override {accent = "Yellow"; variant = "Mocha";})
+    (pkgs.catppuccin-kvantum.override {accent = "yellow"; variant = "mocha";})
     pkgs.libsForQt5.breeze-icons
 
     (pkgs.cudaPackages.cudatoolkit.override {cuda_gdb = null;})  # don't use cuda gdb which doesn't work for some reason, I dont need it
@@ -419,6 +419,7 @@ in
       "j_colorPicker" = "grim -g \"$(slurp -p)\" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-";
       "j_updateNixLocal" = "cd ~/q; nix flake lock --update-input localnixpkgs; cd -";
       "j_clearNvimSwap" = "rm ~/.local/state/nvim/swap/*";
+      "j_mountWindows" = "sudo mkdir -p /run/media/john/Windows; sudo mount /dev/nvme0n1p3 /run/media/john/Windows";
     };
 
     enable = true;
@@ -494,8 +495,8 @@ in
         persistent_logging = true;
         log_level = "Info";
       };
-      import = [
-        "${masterpkgs.alacritty-theme}/rose_pine_moon.toml"
+      general.import = [
+        "${pkgs.alacritty-theme}/rose_pine_moon.toml"
       ];
     };
   };
@@ -512,7 +513,7 @@ in
     settings = {
       enable_audio_bell = false;
     };
-    theme = "Rosé Pine Moon";
+    # themeFile = "Rosé Pine Moon";
     shellIntegration.enableZshIntegration = true;
   };
 

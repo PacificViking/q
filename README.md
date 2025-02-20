@@ -42,7 +42,11 @@ ripgrep localpkgs and localnixpkgs
 - - [https://github.com/NixOS/nixpkgs/issues/243234]
 - fix fpath issue when `nix develop` (asks for file that cannot be accessed)
 - Fix firefox + paxmod tab reordering (used to work)
+- firefox ctrl-tab repeating causes ctrl to de-press and only tab
 - discord dilemma
 - - Discord with --disable-gpu and wayland can't screenshare or push to talk
 - - Discord using xwayland can't be dragged/copy pasted into and can't screenshare (and push to talk doesn't work with backtick)
 - - Vesktop can't push to talk (but can screenshare)
+- - Discord wit wayland and --use-gl=desktop launches immediately for some reason but still doesn't push to talk or screenshare
+- bluetooth blueman applet not working
+- wacom tablet xournal++ focusing issues (doesnt focus on hover like mice do)
