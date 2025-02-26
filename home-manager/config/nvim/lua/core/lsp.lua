@@ -9,7 +9,7 @@ require'lspconfig'.ruff.setup(lspsetup)
 require'lspconfig'.pyright.setup(lspsetup)
 require'lspconfig'.luau_lsp.setup(lspsetup)
 require'lspconfig'.marksman.setup(lspsetup)
-
+require'lspconfig'.sourcekit.setup{}
 
 vim.api.nvim_set_hl(0, "CmpNormal", {
     bg = require('rose-pine.palette').overlay,

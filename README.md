@@ -50,3 +50,4 @@ ripgrep localpkgs and localnixpkgs
 - - Discord wit wayland and --use-gl=desktop launches immediately for some reason but still doesn't push to talk or screenshare
 - bluetooth blueman applet not working
 - wacom tablet xournal++ focusing issues (doesnt focus on hover like mice do)
+- Maybe dwindle layout / master layout reading... hyprland ordering might be too inflexible

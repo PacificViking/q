@@ -48,7 +48,7 @@
       type = "github";
       owner = "nix-community";
       repo = "flake-firefox-nightly";
-      # ref = "d8ef98015073208c319a121bc052e346eed2ce84";
+      ref = "d8ef98015073208c319a121bc052e346eed2ce84";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     musnix = {

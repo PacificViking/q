@@ -29,7 +29,7 @@ in
     #QT_QPA_PLATFORMTHEME = "qt5ct";  # overridden by nix's own qt
     TESTNIXJ = "1";
     LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
-    AQ_DRM_DEVICES = "/dev/dri/card2";
+    # AQ_DRM_DEVICES = "\"/dev/dri/by-path/pci-0000\:01\:00.0-card\"";
     NIXQCONFPATH = "${settings.confpath}";
   };
 
@@ -71,7 +71,7 @@ in
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --cmd Hyprland ";
+        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --remember --cmd "Hyprland >> ~/tmp/hyprland.log 2>&1" --greeting "Welcome to your computer." --time --asterisks --asterisks-char "#" '';
         user = "greeter";
       };
     };

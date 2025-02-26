@@ -27,6 +27,9 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+vim.cmd("set iskeyword-=_")
+vim.cmd("set iskeyword-=-")
+
 vim.g.copilot_filetypes = {["*"] = false}  --no suggestions
 
 function ToggleMouse()

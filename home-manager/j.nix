@@ -73,9 +73,9 @@ in
   home.packages = [
     runcage
 
-    #localpkgs.hyprprop-rust
-    pkgs.pyfa
+    localpkgs.wlvncc
 
+    #localpkgs.hyprprop-rust
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
@@ -83,6 +83,8 @@ in
     inputs.ignis.packages.${settings.systemtype}.ignis
     # pkgs.git
     # pkgs.git-lfs
+    pkgs.sourcekit-lsp
+    pkgs.pyfa
     pkgs.nodejs
     pkgs.ghc
     #pkgs.firefox-devedition
@@ -110,6 +112,7 @@ in
 
 
     # pkgs.ffmpeg
+    pkgs.pciutils
     pkgs.grim
     pkgs.slurp
     pkgs.baobab  # disk usage analyzer
@@ -117,7 +120,7 @@ in
     pkgs.hyprpicker
     pkgs.findutils
     pkgs.ripgrep
-    pkgs.killall
+    # pkgs.killall
     pkgs.bat
     pkgs.curl.dev
     # pkgs.dfeet
