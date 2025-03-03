@@ -60,12 +60,18 @@ in {
 
     # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
+    # package = config.boot.kernelPackages.nvidiaPackages.production;
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   powerManagement.enable = false;  # this makes NVreg_PreserveVideoMemoryAllocations = 1, which causes problems with open source driver, so unset
   # I don't know what unset here means: have it set to false or true?
   # powerManagement.enable = true;
+  powerManagement.powertop.enable = true;
+
+  services.tlp = {
+    enable = true;
+  };
 
   boot.kernelParams = [
     "nvidia_drm.modeset=1"

@@ -34,6 +34,9 @@ sed -i '2 i\export __NV_PRIME_RENDER_OFFLOAD=1\nexport __NV_PRIME_RENDER_OFFLOAD
     os.system(f"cage -s -- sh -c 'kanshi & brightnessctl set {brightness}% & {acc}'")
    '';
   };
+
+  hyprland = inputs.hyprland;
+  pkgs-unstable = hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   imports = [
@@ -60,6 +63,17 @@ in
   #wayland.windowManager.hyprland = {
   #  enable = true;
   #};
+
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #
+  #   plugins = [
+  #     pkgs.hyprlandPlugins.hyprscroller
+  #   ];
+  #
+  #   package = hyprland.packages.${settings.systemtype}.hyprland;
+  #   portalPackage = hyprland.packages.${settings.systemtype}.xdg-desktop-portal-hyprland;
+  # };
 
   # nixpkgs.config.allowUnfree = true;
   # nixpkgs.config.permittedInsecurePackages = [
@@ -99,7 +113,6 @@ in
     pkgs.inxi
     pkgs.mercurialFull
     pkgs.dos2unix
-    pkgs.powertop
     pkgs.yt-dlp
     pkgs.valgrind
     pkgs.gnumake
@@ -126,7 +139,6 @@ in
     # pkgs.dfeet
     pkgs.d-spy
     pkgs.pqiv
-    pkgs.tmux
 
     pkgs.nodejs_22
 
@@ -191,6 +203,7 @@ in
     })
     # pkgs.discord
     # pkgs.vesktop
+    pkgs.kdePackages.xwaylandvideobridge
     pkgs.element-desktop
     pkgs.wireguard-tools
 
@@ -268,6 +281,10 @@ in
     #pkgs.qt6.qtwayland
     #pkgs.qt6.full
     #pkgs.qt6Packages.qt6ct
+
+    pkgs.vkmark
+    pkgs.glmark2
+    pkgs.vulkan-tools
   ];
 
   xdg.desktopEntries.gtkcord = {
@@ -355,6 +372,7 @@ in
       "inode/directory" = [ "thunar.desktop" ];
       "image/png" = [ "pqiv.desktop" "firefox-nightly.desktop" ];
       "video/x-matroska" = [ "vlc.desktop" ];
+      "application/x-bat" = [ "nvim.desktop" ];
     };
     defaultApplications = {
       "application/vnd.mozilla.xul+xml" = [ "firefox-nightly.desktop" ];
@@ -472,6 +490,17 @@ in
       config.hide_tab_bar_if_only_one_tab = true
       config.font = wezterm.font "Mononoki Nerd Font Mono"
       return config
+    '';
+  };
+
+  programs.tmux = {
+  # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
+    enable = true;
+    terminal = "alacritty";
+    extraConfig = ''
+set-option -sa terminal-features ',alacritty:RGB'
+set-option -ga terminal-features ",alacritty:usstyle"
+set-option -ga terminal-overrides ',alacritty:Tc'
     '';
   };
 

@@ -137,7 +137,6 @@ in
     pkgs.dex  # desktop autoentries
     pkgs.btrfs-progs
 
-    pkgs.tlp
     # pkgs.mesa
     pkgs.lm_sensors
     pkgs.glxinfo
@@ -191,6 +190,9 @@ in
     #};
   };
 
+  services.seatd.enable = true;
+  services.seatd.user = settings.username;
+
   hardware.graphics = {
     enable = true;
     # driSupport = true;
@@ -230,8 +232,8 @@ in
         #"org.freedesktop.impl.portal.AppChooser"=["kde"];
         # this doesn't work
         #"org.freedesktop.impl.portal.FileChooser"=["kde"];
-        #"org.freedesktop.impl.portal.ScreenCast"=["wlr"];
-        #"org.freedesktop.impl.portal.Screenshot"=["wlr"];
+        # "org.freedesktop.impl.portal.ScreenCast"=["wlr"];
+        # "org.freedesktop.impl.portal.Screenshot"=["wlr"];
 
         "org.freedesktop.impl.portal.ScreenCast"=["hyprland"];
         "org.freedesktop.impl.portal.Screenshot"=["hyprland"];

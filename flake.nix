@@ -18,12 +18,12 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
+    # hyprland = {
       # type = "path";
       # path = "/home/john/opensource/Hyprland";
       # inputs.nixpkgs.follows = "nixpkgs";
       # url = "git+file:///home/john/opensource/Hyprland?submodules=1";
-    };
+    # };
     hyprland = {
       type = "github";
       owner = "hyprwm";
@@ -49,6 +49,12 @@
       owner = "nix-community";
       repo = "flake-firefox-nightly";
       ref = "d8ef98015073208c319a121bc052e346eed2ce84";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    betterfox = {
+      type = "github";
+      owner = "HeitorAugustoLN";
+      repo = "betterfox-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     musnix = {

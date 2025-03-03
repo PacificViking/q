@@ -13,4 +13,7 @@
       }
     ];
   };
+
+  # disable autostart
+  systemd.services.mysql.wantedBy = lib.mkForce [ ];
 }

@@ -3,6 +3,8 @@ let
 firefox-package = inputs.flake-firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
 in
 {
+  imports = [inputs.betterfox.homeManagerModules.betterfox];
+
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
     MOZ_ENABLE_WAYLAND="1";
@@ -15,9 +17,19 @@ in
     package = firefox-package;
     policies = {};
 
+    betterfox = {
+      enable = true;
+    };
+
     #profiles.dev-edition-default = {
     profiles.nightly-default = {
       #path = "my1.firefox-dev-edition-default";
+
+      betterfox = {
+        enable = true;
+        enableAllSections = true;
+      };
+
       path = "my1.nightly-default";
       settings = {
         "widget.wayland.vsync.enabled" = false;
@@ -97,7 +109,7 @@ in
         "toolkit.cosmeticAnimations.enabled" = false;
         "ui.prefersReducedMotion" = 1;
         "full-screen-api.warning.delay" = 50;
-        "full-screen-api.warning.timeout" = 50;
+        # "full-screen-api.warning.timeout" = 50;
         "full-screen-api.transition-duration.enter" = "0 0";
         "full-screen-api.transition-duration.leave" = "0 0";
         "full-screen-api.transition.timeout" = 0;
@@ -106,24 +118,24 @@ in
         "network.buffer.cache.count" = 128;
         "network.http.max-connections" = 1800;
         "network.http.max-connections-per-server" = 32;
-        "network.http.max-persistent-connections-per-server" = 12;
-        "network.http.max-urgent-start-excessive-connections-per-host" = 10;
+        # "network.http.max-persistent-connections-per-server" = 12;
+        # "network.http.max-urgent-start-excessive-connections-per-host" = 10;
         "network.http.pacing.requests.burst" = 32;
         "network.http.pacing.requests.min-parallelism" = 10;
         "network.websocket.max-connections" = 400;
-        "network.ssl_tokens_cache_capacity" = 32768;
+        # "network.ssl_tokens_cache_capacity" = 32768;
 
         "browser.cache.disk.enable" = false;  # change these two if I don't have enough RAM
         "browser.cache.memory.enable" = true;
         #"media.cache_size" = 102400;
         "media.memory_caches_combined_limit_kb" = 102400;
         "image.mem.surfacecache.max_size_kb" = 102400;
-        "browser.sessionstore.interval" = 15000;
+        # "browser.sessionstore.interval" = 15000;
 
         "browser.tabs.loadBookmarksInTabs" = true;
         "browser.link.open_newwindow.override.external" = 3;
 
-        "image.mem.decode_bytes_at_a_time" = 65536;
+        # "image.mem.decode_bytes_at_a_time" = 65536;
         "image.http.accept" = "*/*";
         #https://www.reddit.com/r/firefox/comments/17hlkhp/what_are_your_must_have_changes_in_aboutconfig/
 

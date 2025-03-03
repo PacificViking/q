@@ -47,7 +47,7 @@ ripgrep localpkgs and localnixpkgs
 - - Discord with --disable-gpu and wayland can't screenshare or push to talk
 - - Discord using xwayland can't be dragged/copy pasted into and can't screenshare (and push to talk doesn't work with backtick)
 - - Vesktop can't push to talk (but can screenshare)
-- - Discord wit wayland and --use-gl=desktop launches immediately for some reason but still doesn't push to talk or screenshare
+- - Discord wit wayland and --use-gl=desktop launches immediately for some reason but still doesn't push to talk or screenshare (does screenshare on sway)
 - bluetooth blueman applet not working
 - wacom tablet xournal++ focusing issues (doesnt focus on hover like mice do)
 - Maybe dwindle layout / master layout reading... hyprland ordering might be too inflexible
