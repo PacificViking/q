@@ -95,6 +95,7 @@ in
     #   echo "Hello, ${config.home.username}!"
     # '')
     inputs.ignis.packages.${settings.systemtype}.ignis
+    inputs.swww.packages.${settings.systemtype}.swww
     # pkgs.git
     # pkgs.git-lfs
     pkgs.sourcekit-lsp
@@ -122,9 +123,11 @@ in
     # pkgs.ghidra
     # inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
     pkgs.hyprprop
+    pkgs.hyprcursor
+    pkgs.win2xcur
+    pkgs.xcur2png
 
-
-    # pkgs.ffmpeg
+    pkgs.ffmpeg
     pkgs.pciutils
     pkgs.grim
     pkgs.slurp
@@ -144,6 +147,7 @@ in
 
     #pkgs.gnome.nautilus
     pkgs.xfce.xfce4-icon-theme
+    pkgs.xfce.xfce4-settings
     #pkgs.xfce.thunar-volman
     #pkgs.xfce.tumbler
     #pkgs.gvfs
@@ -224,7 +228,8 @@ in
     pkgs.libcaca
     pkgs.w3m
     pkgs.imlib2
-    pkgs.ueberzug
+    (pkgs.ueberzugpp.override { enableOpencv = false; })
+    pkgs.yazi
     pkgs.imagemagick
     pkgs.sox
     pkgs.libreoffice-fresh
@@ -307,6 +312,8 @@ in
   };
 
   home.file = {
+    ".icons".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/icons";
+
     "p".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/programs";
     ".config/zshcompletions".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/zshcompletions";
 

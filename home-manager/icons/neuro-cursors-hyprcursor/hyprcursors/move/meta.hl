@@ -1,0 +1,13 @@
+resize_algorithm = none
+hotspot_x = 0.50
+hotspot_y = 0.50
+
+define_size = 32, move_000.png, 100
+define_size = 32, move_001.png, 100
+define_size = 32, move_002.png, 100
+define_size = 32, move_003.png, 100
+define_size = 32, move_004.png, 100
+define_size = 32, move_005.png, 100
+define_size = 32, move_006.png, 100
+define_size = 32, move_007.png, 100
+

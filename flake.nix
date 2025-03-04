@@ -40,6 +40,9 @@
       # ref = "04ac46c54357278fc68f0a95d26347ea0db99496";  # 0.47
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+    swww = {
+      url = "github:LGFae/swww";
+    };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
