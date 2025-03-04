@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.00
+hotspot_y = 0.00
+
+define_size = 32, no_drop_000.png, 100
+define_size = 32, no_drop_001.png, 100
+define_size = 32, no_drop_002.png, 100
+define_size = 32, no_drop_003.png, 100
+define_size = 32, no_drop_004.png, 100
+define_size = 32, no_drop_005.png, 100
+define_size = 32, no_drop_006.png, 100
+define_size = 32, no_drop_007.png, 100
+define_size = 32, no_drop_008.png, 100
+define_size = 32, no_drop_009.png, 100
+define_size = 32, no_drop_010.png, 100
+define_size = 32, no_drop_011.png, 100
+define_size = 32, no_drop_012.png, 100
+define_size = 32, no_drop_013.png, 100
+define_size = 32, no_drop_014.png, 100
+define_size = 32, no_drop_015.png, 100
+define_size = 32, no_drop_016.png, 100
+define_size = 32, no_drop_017.png, 100
+define_size = 32, no_drop_018.png, 100
+define_size = 32, no_drop_019.png, 100
+define_size = 32, no_drop_020.png, 100
+

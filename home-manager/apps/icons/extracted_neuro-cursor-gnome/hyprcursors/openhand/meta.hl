@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.00
+hotspot_y = 0.00
+
+define_size = 32, openhand_000.png, 100
+define_size = 32, openhand_001.png, 100
+define_size = 32, openhand_002.png, 100
+define_size = 32, openhand_003.png, 100
+define_size = 32, openhand_004.png, 100
+define_size = 32, openhand_005.png, 100
+define_size = 32, openhand_006.png, 100
+define_size = 32, openhand_007.png, 100
+define_size = 32, openhand_008.png, 100
+define_size = 32, openhand_009.png, 100
+define_size = 32, openhand_010.png, 100
+define_size = 32, openhand_011.png, 100
+define_size = 32, openhand_012.png, 100
+define_size = 32, openhand_013.png, 100
+define_size = 32, openhand_014.png, 100
+define_size = 32, openhand_015.png, 100
+define_size = 32, openhand_016.png, 100
+define_size = 32, openhand_017.png, 100
+define_size = 32, openhand_018.png, 100
+define_size = 32, openhand_019.png, 100
+define_size = 32, openhand_020.png, 100
+

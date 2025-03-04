@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.00
+hotspot_y = 0.00
+
+define_size = 32, pointing_hand_000.png, 100
+define_size = 32, pointing_hand_001.png, 100
+define_size = 32, pointing_hand_002.png, 100
+define_size = 32, pointing_hand_003.png, 100
+define_size = 32, pointing_hand_004.png, 100
+define_size = 32, pointing_hand_005.png, 100
+define_size = 32, pointing_hand_006.png, 100
+define_size = 32, pointing_hand_007.png, 100
+define_size = 32, pointing_hand_008.png, 100
+define_size = 32, pointing_hand_009.png, 100
+define_size = 32, pointing_hand_010.png, 100
+define_size = 32, pointing_hand_011.png, 100
+define_size = 32, pointing_hand_012.png, 100
+define_size = 32, pointing_hand_013.png, 100
+define_size = 32, pointing_hand_014.png, 100
+define_size = 32, pointing_hand_015.png, 100
+define_size = 32, pointing_hand_016.png, 100
+define_size = 32, pointing_hand_017.png, 100
+define_size = 32, pointing_hand_018.png, 100
+define_size = 32, pointing_hand_019.png, 100
+define_size = 32, pointing_hand_020.png, 100
+

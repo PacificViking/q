@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.47
+hotspot_y = 0.47
+
+define_size = 32, w-resize_000.png, 100
+define_size = 32, w-resize_001.png, 100
+define_size = 32, w-resize_002.png, 100
+define_size = 32, w-resize_003.png, 100
+define_size = 32, w-resize_004.png, 100
+define_size = 32, w-resize_005.png, 100
+define_size = 32, w-resize_006.png, 100
+define_size = 32, w-resize_007.png, 100
+define_size = 32, w-resize_008.png, 100
+define_size = 32, w-resize_009.png, 100
+define_size = 32, w-resize_010.png, 100
+define_size = 32, w-resize_011.png, 100
+define_size = 32, w-resize_012.png, 100
+define_size = 32, w-resize_013.png, 100
+define_size = 32, w-resize_014.png, 100
+define_size = 32, w-resize_015.png, 100
+define_size = 32, w-resize_016.png, 100
+define_size = 32, w-resize_017.png, 100
+define_size = 32, w-resize_018.png, 100
+define_size = 32, w-resize_019.png, 100
+define_size = 32, w-resize_020.png, 100
+

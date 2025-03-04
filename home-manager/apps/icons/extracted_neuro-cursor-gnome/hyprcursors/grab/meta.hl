@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.00
+hotspot_y = 0.00
+
+define_size = 32, grab_000.png, 100
+define_size = 32, grab_001.png, 100
+define_size = 32, grab_002.png, 100
+define_size = 32, grab_003.png, 100
+define_size = 32, grab_004.png, 100
+define_size = 32, grab_005.png, 100
+define_size = 32, grab_006.png, 100
+define_size = 32, grab_007.png, 100
+define_size = 32, grab_008.png, 100
+define_size = 32, grab_009.png, 100
+define_size = 32, grab_010.png, 100
+define_size = 32, grab_011.png, 100
+define_size = 32, grab_012.png, 100
+define_size = 32, grab_013.png, 100
+define_size = 32, grab_014.png, 100
+define_size = 32, grab_015.png, 100
+define_size = 32, grab_016.png, 100
+define_size = 32, grab_017.png, 100
+define_size = 32, grab_018.png, 100
+define_size = 32, grab_019.png, 100
+define_size = 32, grab_020.png, 100
+

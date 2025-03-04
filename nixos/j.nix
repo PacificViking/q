@@ -105,6 +105,7 @@ in
   
   environment.systemPackages = [
     pkgs.nix
+    pkgs.perl
     #home-manager
     #hyprland
     pkgs.kitty

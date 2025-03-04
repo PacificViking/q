@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.00
+hotspot_y = 0.00
+
+define_size = 32, pencil_000.png, 100
+define_size = 32, pencil_001.png, 100
+define_size = 32, pencil_002.png, 100
+define_size = 32, pencil_003.png, 100
+define_size = 32, pencil_004.png, 100
+define_size = 32, pencil_005.png, 100
+define_size = 32, pencil_006.png, 100
+define_size = 32, pencil_007.png, 100
+define_size = 32, pencil_008.png, 100
+define_size = 32, pencil_009.png, 100
+define_size = 32, pencil_010.png, 100
+define_size = 32, pencil_011.png, 100
+define_size = 32, pencil_012.png, 100
+define_size = 32, pencil_013.png, 100
+define_size = 32, pencil_014.png, 100
+define_size = 32, pencil_015.png, 100
+define_size = 32, pencil_016.png, 100
+define_size = 32, pencil_017.png, 100
+define_size = 32, pencil_018.png, 100
+define_size = 32, pencil_019.png, 100
+define_size = 32, pencil_020.png, 100
+

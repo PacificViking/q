@@ -124,6 +124,7 @@ in
     # inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
     pkgs.hyprprop
     pkgs.hyprcursor
+    # pkgs.rose-pine-hyprcursor
     pkgs.win2xcur
     pkgs.xcur2png
 
@@ -207,7 +208,7 @@ in
     })
     # pkgs.discord
     # pkgs.vesktop
-    pkgs.kdePackages.xwaylandvideobridge
+    # pkgs.kdePackages.xwaylandvideobridge
     pkgs.element-desktop
     pkgs.wireguard-tools
 
@@ -312,7 +313,6 @@ in
   };
 
   home.file = {
-    ".icons".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/icons";
 
     "p".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/programs";
     ".config/zshcompletions".source = config.lib.file.mkOutOfStoreSymlink "${settings.confpath}/home-manager/config/zshcompletions";
@@ -605,13 +605,29 @@ set-option -ga terminal-overrides ',alacritty:Tc'
   #services.network-manager-applet.enable = true;
 
 
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   x11.enable = true;
+  #   name = "phinger-cursors-light";
+  #   package = pkgs.phinger-cursors;
+  #   # size = 36;
+  # };
+
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    name = "phinger-cursors-light";
-    package = pkgs.phinger-cursors;
-    # size = 36;
+    name = "neuro-cursor-gnome";
+    package = (pkgs.callPackage ./apps/neuro_cursor.nix { });
+    size = 64;
   };
+
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   x11.enable = true;
+  #   name = "rose-pine-hyprcursor";
+  #   package = pkgs.rose-pine-hyprcursor;
+  #   size = 32;
+  # };
 
   gtk = {
     enable = true;

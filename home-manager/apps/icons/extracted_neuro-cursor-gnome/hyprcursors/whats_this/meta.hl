@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.00
+hotspot_y = 0.00
+
+define_size = 32, whats_this_000.png, 100
+define_size = 32, whats_this_001.png, 100
+define_size = 32, whats_this_002.png, 100
+define_size = 32, whats_this_003.png, 100
+define_size = 32, whats_this_004.png, 100
+define_size = 32, whats_this_005.png, 100
+define_size = 32, whats_this_006.png, 100
+define_size = 32, whats_this_007.png, 100
+define_size = 32, whats_this_008.png, 100
+define_size = 32, whats_this_009.png, 100
+define_size = 32, whats_this_010.png, 100
+define_size = 32, whats_this_011.png, 100
+define_size = 32, whats_this_012.png, 100
+define_size = 32, whats_this_013.png, 100
+define_size = 32, whats_this_014.png, 100
+define_size = 32, whats_this_015.png, 100
+define_size = 32, whats_this_016.png, 100
+define_size = 32, whats_this_017.png, 100
+define_size = 32, whats_this_018.png, 100
+define_size = 32, whats_this_019.png, 100
+define_size = 32, whats_this_020.png, 100
+

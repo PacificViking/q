@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.09
+hotspot_y = 0.25
+
+define_size = 32, ibeam_000.png, 100
+define_size = 32, ibeam_001.png, 100
+define_size = 32, ibeam_002.png, 100
+define_size = 32, ibeam_003.png, 100
+define_size = 32, ibeam_004.png, 100
+define_size = 32, ibeam_005.png, 100
+define_size = 32, ibeam_006.png, 100
+define_size = 32, ibeam_007.png, 100
+define_size = 32, ibeam_008.png, 100
+define_size = 32, ibeam_009.png, 100
+define_size = 32, ibeam_010.png, 100
+define_size = 32, ibeam_011.png, 100
+define_size = 32, ibeam_012.png, 100
+define_size = 32, ibeam_013.png, 100
+define_size = 32, ibeam_014.png, 100
+define_size = 32, ibeam_015.png, 100
+define_size = 32, ibeam_016.png, 100
+define_size = 32, ibeam_017.png, 100
+define_size = 32, ibeam_018.png, 100
+define_size = 32, ibeam_019.png, 100
+define_size = 32, ibeam_020.png, 100
+

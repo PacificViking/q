@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.22
+hotspot_y = 0.22
+
+define_size = 32, cross_000.png, 100
+define_size = 32, cross_001.png, 100
+define_size = 32, cross_002.png, 100
+define_size = 32, cross_003.png, 100
+define_size = 32, cross_004.png, 100
+define_size = 32, cross_005.png, 100
+define_size = 32, cross_006.png, 100
+define_size = 32, cross_007.png, 100
+define_size = 32, cross_008.png, 100
+define_size = 32, cross_009.png, 100
+define_size = 32, cross_010.png, 100
+define_size = 32, cross_011.png, 100
+define_size = 32, cross_012.png, 100
+define_size = 32, cross_013.png, 100
+define_size = 32, cross_014.png, 100
+define_size = 32, cross_015.png, 100
+define_size = 32, cross_016.png, 100
+define_size = 32, cross_017.png, 100
+define_size = 32, cross_018.png, 100
+define_size = 32, cross_019.png, 100
+define_size = 32, cross_020.png, 100
+

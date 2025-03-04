@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.00
+hotspot_y = 0.00
+
+define_size = 32, left_ptr_000.png, 100
+define_size = 32, left_ptr_001.png, 100
+define_size = 32, left_ptr_002.png, 100
+define_size = 32, left_ptr_003.png, 100
+define_size = 32, left_ptr_004.png, 100
+define_size = 32, left_ptr_005.png, 100
+define_size = 32, left_ptr_006.png, 100
+define_size = 32, left_ptr_007.png, 100
+define_size = 32, left_ptr_008.png, 100
+define_size = 32, left_ptr_009.png, 100
+define_size = 32, left_ptr_010.png, 100
+define_size = 32, left_ptr_011.png, 100
+define_size = 32, left_ptr_012.png, 100
+define_size = 32, left_ptr_013.png, 100
+define_size = 32, left_ptr_014.png, 100
+define_size = 32, left_ptr_015.png, 100
+define_size = 32, left_ptr_016.png, 100
+define_size = 32, left_ptr_017.png, 100
+define_size = 32, left_ptr_018.png, 100
+define_size = 32, left_ptr_019.png, 100
+define_size = 32, left_ptr_020.png, 100
+

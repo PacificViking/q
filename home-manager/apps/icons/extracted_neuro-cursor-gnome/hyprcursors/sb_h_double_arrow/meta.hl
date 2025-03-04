@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.47
+hotspot_y = 0.47
+
+define_size = 32, sb_h_double_arrow_000.png, 100
+define_size = 32, sb_h_double_arrow_001.png, 100
+define_size = 32, sb_h_double_arrow_002.png, 100
+define_size = 32, sb_h_double_arrow_003.png, 100
+define_size = 32, sb_h_double_arrow_004.png, 100
+define_size = 32, sb_h_double_arrow_005.png, 100
+define_size = 32, sb_h_double_arrow_006.png, 100
+define_size = 32, sb_h_double_arrow_007.png, 100
+define_size = 32, sb_h_double_arrow_008.png, 100
+define_size = 32, sb_h_double_arrow_009.png, 100
+define_size = 32, sb_h_double_arrow_010.png, 100
+define_size = 32, sb_h_double_arrow_011.png, 100
+define_size = 32, sb_h_double_arrow_012.png, 100
+define_size = 32, sb_h_double_arrow_013.png, 100
+define_size = 32, sb_h_double_arrow_014.png, 100
+define_size = 32, sb_h_double_arrow_015.png, 100
+define_size = 32, sb_h_double_arrow_016.png, 100
+define_size = 32, sb_h_double_arrow_017.png, 100
+define_size = 32, sb_h_double_arrow_018.png, 100
+define_size = 32, sb_h_double_arrow_019.png, 100
+define_size = 32, sb_h_double_arrow_020.png, 100
+

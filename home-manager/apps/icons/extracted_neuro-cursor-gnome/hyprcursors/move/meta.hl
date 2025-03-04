@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.47
+hotspot_y = 0.47
+
+define_size = 32, move_000.png, 100
+define_size = 32, move_001.png, 100
+define_size = 32, move_002.png, 100
+define_size = 32, move_003.png, 100
+define_size = 32, move_004.png, 100
+define_size = 32, move_005.png, 100
+define_size = 32, move_006.png, 100
+define_size = 32, move_007.png, 100
+define_size = 32, move_008.png, 100
+define_size = 32, move_009.png, 100
+define_size = 32, move_010.png, 100
+define_size = 32, move_011.png, 100
+define_size = 32, move_012.png, 100
+define_size = 32, move_013.png, 100
+define_size = 32, move_014.png, 100
+define_size = 32, move_015.png, 100
+define_size = 32, move_016.png, 100
+define_size = 32, move_017.png, 100
+define_size = 32, move_018.png, 100
+define_size = 32, move_019.png, 100
+define_size = 32, move_020.png, 100
+

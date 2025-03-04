@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.00
+hotspot_y = 0.00
+
+define_size = 32, half-busy_000.png, 100
+define_size = 32, half-busy_001.png, 100
+define_size = 32, half-busy_002.png, 100
+define_size = 32, half-busy_003.png, 100
+define_size = 32, half-busy_004.png, 100
+define_size = 32, half-busy_005.png, 100
+define_size = 32, half-busy_006.png, 100
+define_size = 32, half-busy_007.png, 100
+define_size = 32, half-busy_008.png, 100
+define_size = 32, half-busy_009.png, 100
+define_size = 32, half-busy_010.png, 100
+define_size = 32, half-busy_011.png, 100
+define_size = 32, half-busy_012.png, 100
+define_size = 32, half-busy_013.png, 100
+define_size = 32, half-busy_014.png, 100
+define_size = 32, half-busy_015.png, 100
+define_size = 32, half-busy_016.png, 100
+define_size = 32, half-busy_017.png, 100
+define_size = 32, half-busy_018.png, 100
+define_size = 32, half-busy_019.png, 100
+define_size = 32, half-busy_020.png, 100
+

@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.00
+hotspot_y = 0.00
+
+define_size = 32, progress_000.png, 100
+define_size = 32, progress_001.png, 100
+define_size = 32, progress_002.png, 100
+define_size = 32, progress_003.png, 100
+define_size = 32, progress_004.png, 100
+define_size = 32, progress_005.png, 100
+define_size = 32, progress_006.png, 100
+define_size = 32, progress_007.png, 100
+define_size = 32, progress_008.png, 100
+define_size = 32, progress_009.png, 100
+define_size = 32, progress_010.png, 100
+define_size = 32, progress_011.png, 100
+define_size = 32, progress_012.png, 100
+define_size = 32, progress_013.png, 100
+define_size = 32, progress_014.png, 100
+define_size = 32, progress_015.png, 100
+define_size = 32, progress_016.png, 100
+define_size = 32, progress_017.png, 100
+define_size = 32, progress_018.png, 100
+define_size = 32, progress_019.png, 100
+define_size = 32, progress_020.png, 100
+

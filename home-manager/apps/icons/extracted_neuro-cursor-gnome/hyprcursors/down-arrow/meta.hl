@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.12
+hotspot_y = 0.00
+
+define_size = 32, down-arrow_000.png, 100
+define_size = 32, down-arrow_001.png, 100
+define_size = 32, down-arrow_002.png, 100
+define_size = 32, down-arrow_003.png, 100
+define_size = 32, down-arrow_004.png, 100
+define_size = 32, down-arrow_005.png, 100
+define_size = 32, down-arrow_006.png, 100
+define_size = 32, down-arrow_007.png, 100
+define_size = 32, down-arrow_008.png, 100
+define_size = 32, down-arrow_009.png, 100
+define_size = 32, down-arrow_010.png, 100
+define_size = 32, down-arrow_011.png, 100
+define_size = 32, down-arrow_012.png, 100
+define_size = 32, down-arrow_013.png, 100
+define_size = 32, down-arrow_014.png, 100
+define_size = 32, down-arrow_015.png, 100
+define_size = 32, down-arrow_016.png, 100
+define_size = 32, down-arrow_017.png, 100
+define_size = 32, down-arrow_018.png, 100
+define_size = 32, down-arrow_019.png, 100
+define_size = 32, down-arrow_020.png, 100
+

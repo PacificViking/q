@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.09
+hotspot_y = 0.25
+
+define_size = 32, xterm_000.png, 100
+define_size = 32, xterm_001.png, 100
+define_size = 32, xterm_002.png, 100
+define_size = 32, xterm_003.png, 100
+define_size = 32, xterm_004.png, 100
+define_size = 32, xterm_005.png, 100
+define_size = 32, xterm_006.png, 100
+define_size = 32, xterm_007.png, 100
+define_size = 32, xterm_008.png, 100
+define_size = 32, xterm_009.png, 100
+define_size = 32, xterm_010.png, 100
+define_size = 32, xterm_011.png, 100
+define_size = 32, xterm_012.png, 100
+define_size = 32, xterm_013.png, 100
+define_size = 32, xterm_014.png, 100
+define_size = 32, xterm_015.png, 100
+define_size = 32, xterm_016.png, 100
+define_size = 32, xterm_017.png, 100
+define_size = 32, xterm_018.png, 100
+define_size = 32, xterm_019.png, 100
+define_size = 32, xterm_020.png, 100
+

@@ -1,0 +1,26 @@
+resize_algorithm = nearest
+hotspot_x = 0.00
+hotspot_y = 0.00
+
+define_size = 32, pointer_000.png, 100
+define_size = 32, pointer_001.png, 100
+define_size = 32, pointer_002.png, 100
+define_size = 32, pointer_003.png, 100
+define_size = 32, pointer_004.png, 100
+define_size = 32, pointer_005.png, 100
+define_size = 32, pointer_006.png, 100
+define_size = 32, pointer_007.png, 100
+define_size = 32, pointer_008.png, 100
+define_size = 32, pointer_009.png, 100
+define_size = 32, pointer_010.png, 100
+define_size = 32, pointer_011.png, 100
+define_size = 32, pointer_012.png, 100
+define_size = 32, pointer_013.png, 100
+define_size = 32, pointer_014.png, 100
+define_size = 32, pointer_015.png, 100
+define_size = 32, pointer_016.png, 100
+define_size = 32, pointer_017.png, 100
+define_size = 32, pointer_018.png, 100
+define_size = 32, pointer_019.png, 100
+define_size = 32, pointer_020.png, 100
+
