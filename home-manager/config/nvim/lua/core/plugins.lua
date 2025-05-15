@@ -100,6 +100,7 @@ require('gitsigns').setup {
 
         -- Actions
         map('n', 'g\\', gs.preview_hunk)
+        map('n', 'gp', gs.reset_hunk)
         map('n', '<leader>gs', gs.stage_hunk)
         map('v', '<leader>gs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
         map('n', '<leader>gS', gs.stage_buffer)
@@ -354,3 +355,5 @@ require("oil").setup({
 })
 
 vim.keymap.set('n', 'gz', require('fzf-lua').files, {})
+vim.keymap.set('n', 'gr', require('fzf-lua').live_grep, {})
+vim.keymap.set('n', 'gt', require('fzf-lua').tags, {})

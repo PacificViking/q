@@ -195,6 +195,7 @@ in
     pkgs.cage
     pkgs.wlr-randr
     pkgs.kanshi
+    pkgs.universal-ctags
 
     # pkgs.expressvpn
     pkgs.gpt4all-cuda
@@ -260,6 +261,7 @@ in
     # inputs.prismlauncher-cracked.packages.${settings.systemtype}.prismlauncher
     pkgs.cargo-flamegraph
     (pkgs.octaveFull.override { enableQt = true; })
+    pkgs.octavePackages.signal
     pkgs.lazygit
 
     pkgs.dconf-editor
@@ -283,6 +285,7 @@ in
     pkgs.cmake
     (lib.hiPrio pkgs.clang)
     pkgs.jq
+    pkgs.uutils-coreutils-noprefix
 
     #pkgs.qt6.qtwayland
     #pkgs.qt6.full
@@ -443,11 +446,11 @@ in
       "j_listDevices" = "lspci -v";
       "j_systemInfo" = "inxi -Fzxx";
       "j_chown" = "sudo chown john:users";
-      "j_buildFlakeVM" = "nixos-rebuild build-vm --flake";
       "j_colorPicker" = "grim -g \"$(slurp -p)\" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-";
       "j_updateNixLocal" = "cd ~/q; nix flake lock --update-input localnixpkgs; cd -";
       "j_clearNvimSwap" = "rm ~/.local/state/nvim/swap/*";
       "j_mountWindows" = "sudo mkdir -p /run/media/john/Windows; sudo mount /dev/nvme0n1p3 /run/media/john/Windows";
+      "j_nixDevelopPure" = "nix develop -i -c bash --norc";
     };
 
     enable = true;
