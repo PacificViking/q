@@ -163,6 +163,11 @@ in
     stdenv.cc.cc
   ];
 
+  virtualisation.podman = {
+    enable = true;
+    # dockerCompat = true;
+  };
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -171,6 +176,11 @@ in
     pulse.enable = true;
     jack.enable = true;
   };
+
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+    # "riscv64-linux"
+  ];
 
   hardware.bluetooth = {
     enable = true;

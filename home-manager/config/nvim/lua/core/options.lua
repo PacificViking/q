@@ -29,6 +29,7 @@ end
 
 vim.cmd("set iskeyword-=_")
 vim.cmd("set iskeyword-=-")
+vim.cmd("set colorcolumn=100")
 
 vim.g.copilot_filetypes = {["*"] = false}  --no suggestions
 

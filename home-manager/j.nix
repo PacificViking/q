@@ -196,12 +196,13 @@ in
     pkgs.wlr-randr
     pkgs.kanshi
     pkgs.universal-ctags
+    pkgs.qemu
 
     # pkgs.expressvpn
     pkgs.gpt4all-cuda
     pkgs.gnome-keyring
 
-    (pkgs.discord-canary.override {
+    (masterpkgs.discord-canary.override {
     # (nvidiaDiscord.override {
      # remove any overrides that you don't want
      # withOpenASAR = true;
@@ -286,6 +287,8 @@ in
     (lib.hiPrio pkgs.clang)
     pkgs.jq
     pkgs.uutils-coreutils-noprefix
+    pkgs.distrobox
+    pkgs.virt-manager
 
     #pkgs.qt6.qtwayland
     #pkgs.qt6.full
@@ -451,6 +454,8 @@ in
       "j_clearNvimSwap" = "rm ~/.local/state/nvim/swap/*";
       "j_mountWindows" = "sudo mkdir -p /run/media/john/Windows; sudo mount /dev/nvme0n1p3 /run/media/john/Windows";
       "j_nixDevelopPure" = "nix develop -i -c bash --norc";
+      "j_runFlakeVM" = "QEMU_NET_OPTS=\"hostfwd=tcp::2221-:22\" result/bin/run-nixos-vm";
+      "j_buildFlakeVM" = "nix build .#nixosConfigurations.test.config.system.build.vm"; #https://gist.github.com/FlakM/0535b8aa7efec56906c5ab5e32580adf
     };
 
     enable = true;
