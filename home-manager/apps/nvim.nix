@@ -86,7 +86,8 @@ in
       nvim-treesitter.withAllGrammars
       # nvim-treesitter-parsers.markdown
       # nvim-treesitter-parsers.markdown_inline
-      nvim-lastplace
+      # nvim-lastplace causes crashes when I shut down computer lid
+      vim-lastplace
       lsp_signature-nvim
       markdown-preview-nvim
       glow-nvim

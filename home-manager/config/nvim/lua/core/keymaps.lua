@@ -46,3 +46,5 @@ keymap({"n","v"}, "j", "gj", opts)  -- move displayed lines instead of real line
 keymap({"n","v"}, "k", "gk", opts)  -- move displayed lines instead of real lines
 
 keymap("n", "?", vim.lsp.buf.hover, opts)  -- move displayed lines instead of real lines
+
+keymap("v", "<C-c>", "\"+y", opts)  -- Ctrl+c to copy in visual mode

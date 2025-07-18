@@ -8,9 +8,13 @@ let
 
     sympy
     numpy
+    pandas
     tqdm
     argcomplete
     pycrypto
+    simpleaudio
+    pyarrow
+    openpyxl
 
     flask 
     python-jose

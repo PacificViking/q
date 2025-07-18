@@ -264,6 +264,7 @@ in
     (pkgs.octaveFull.override { enableQt = true; })
     pkgs.octavePackages.signal
     pkgs.lazygit
+    pkgs.owncast
 
     pkgs.dconf-editor
     pkgs.nvtopPackages.nvidia

@@ -10,6 +10,8 @@ local options = {
     undodir = vim.fn.expand("~/.vim/undodir"),  -- expand ~ to $HOME
     conceallevel = 0,
     -- fixendofline = false,
+    backup = true,
+    backupdir = '/tmp/nvim-backup//',
 
     termguicolors = true,
     -- signcolumn = "yes:2",

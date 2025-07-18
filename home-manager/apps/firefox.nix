@@ -32,9 +32,10 @@ in
 
       path = "my1.nightly-default";
       settings = {
+        "network.security.ports.banned.override" = "1-65535";
         "widget.wayland.vsync.enabled" = false;
-        # "media.ffmpeg.vaapi.enabled" = true;
-        "media.ffmpeg.vaapi.enabled" = false;  # causes slow pdf loading because nvidia gpu falls asleep
+        "media.ffmpeg.vaapi.enabled" = true;
+        # "media.ffmpeg.vaapi.enabled" = false;  # causes slow pdf loading because nvidia gpu falls asleep
 
         "browser.fullscreen.autohide" = false;  # dont autohide tabbar when fullscreen
         "browser.tabs.groups.enabled" = false;  # dont use tab groups: interferes with multi-row tabs

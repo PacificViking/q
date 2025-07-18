@@ -297,6 +297,7 @@ in
   #HandlePowerKey=ignore
   #HandleLidSwitch=ignore
   #HandleLidSwitchExternalPower=ignore
+  services.logind.lidSwitchExternalPower = "ignore";
   services.logind.extraConfig = ''
     HandlePowerKeyLongPress=poweroff
   '';
