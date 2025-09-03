@@ -2,6 +2,13 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     masternixpkgs.url = "github:NixOS/nixpkgs/master";
+
+    # copyparty.url = "github:9001/copyparty";
+    copyparty = {
+      type = "path";
+      path = "/home/john/opensource/copyparty";
+    };
+
     #localnixpkgs = nixpkgs;
     localnixpkgs = {
       type = "path";
@@ -110,6 +117,7 @@
         nixos/configuration.nix
         inputs.musnix.nixosModules.musnix
         inputs.nur.modules.nixos.default
+        inputs.copyparty.nixosModules.default
       ];
     };
 

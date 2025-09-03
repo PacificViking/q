@@ -34,7 +34,7 @@ require('blink.cmp').setup {
       if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
         return { 'buffer' }
       else
-        return { 'lsp', 'path', 'snippets', 'buffer' }
+        return { 'lsp', 'snippets', 'buffer' }
       end
     end
   },

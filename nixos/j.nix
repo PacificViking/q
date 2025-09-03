@@ -20,6 +20,8 @@ in
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
+  nixpkgs.overlays = [inputs.copyparty.overlays.default];
+
   environment.pathsToLink = [ "/share/zsh" ];
 
   environment.sessionVariables = {
@@ -98,10 +100,10 @@ in
     enable = true;
   };
   
- programs.git = {
-   enable = true;
-   lfs.enable = true;
- };
+ # programs.git = {
+ #   enable = true;
+ #   lfs.enable = true;
+ # };
   
   environment.systemPackages = [
     pkgs.nix
@@ -175,6 +177,33 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+  };
+
+  # networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
+  services.copyparty = {
+    enable = true;
+    volumes = {
+      "/" = {
+        path = "/srv/copyparty";
+        access = {
+          rw = "*";
+        };
+      };
+    };
+  };
+
+  programs.proxychains = {
+    enable = true;
+    # proxyDNS = false;
+    package = pkgs.proxychains-ng;
+    proxies = {
+      battleram = {
+        enable = true;
+        type = "socks5";
+        host = "192.168.31.247";
+        port = 1060;
+      };
+    };
   };
 
   boot.binfmt.emulatedSystems = [

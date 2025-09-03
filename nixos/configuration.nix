@@ -28,6 +28,7 @@
 
   # Set your time zone.
   time.timeZone = "America/Toronto";
+  # time.timeZone = "Asia/Shanghai";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

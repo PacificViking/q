@@ -16,6 +16,8 @@ let
     pyarrow
     openpyxl
 
+    scapy
+    levenshtein
     flask 
     python-jose
 

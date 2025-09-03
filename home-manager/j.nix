@@ -172,6 +172,8 @@ in
     pkgs.xkblayout-state
     pkgs.perl538Packages.FileMimeInfo
     pkgs.xorg.xdpyinfo
+    # pkgs.busybox
+    # pkgs.mullvad-vpn
 
     pkgs.mpdevil
     pkgs.ncmpcpp
@@ -369,6 +371,7 @@ in
 
   home.sessionPath = [
     "${settings.confpath}/programs"
+    "/home/${settings.username}/.cargo/bin"
   ];
 
   xdg.mimeApps = {
