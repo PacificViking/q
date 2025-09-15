@@ -101,6 +101,6 @@ in {
 
   # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   boot.extraModulePackages = [ ];
-  boot.initrd.kernelModules = [ "nvidia" ];
+  #boot.initrd.kernelModules = [ "nvidia" ];
 }
 

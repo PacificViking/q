@@ -58,7 +58,6 @@
       type = "github";
       owner = "nix-community";
       repo = "flake-firefox-nightly";
-      ref = "d8ef98015073208c319a121bc052e346eed2ce84";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     betterfox = {
@@ -88,7 +87,7 @@
       type = "path";
       path = "/home/john/opensource/ignis";
 
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs = { self, nixpkgs, masternixpkgs, localnixpkgs, home-manager, hyprland, ...}@inputs:

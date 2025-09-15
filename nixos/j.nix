@@ -73,7 +73,7 @@ in
     enable = true;
     settings = {
       default_session = {
-        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --remember --cmd "Hyprland >> ~/tmp/hyprland.log 2>&1" --greeting "Welcome to your computer." --time --asterisks --asterisks-char "#" '';
+        command = ''${pkgs.tuigreet}/bin/tuigreet --remember --cmd "Hyprland >> ~/tmp/hyprland.log 2>&1" --greeting "Welcome to your computer." --time --asterisks --asterisks-char "#" '';
         user = "greeter";
       };
     };
@@ -112,7 +112,7 @@ in
     #hyprland
     pkgs.kitty
     pkgs.mako
-    pkgs.greetd.tuigreet
+    pkgs.tuigreet
     pkgs.polkit
     pkgs.zsh
     pkgs.light
@@ -326,10 +326,8 @@ in
   #HandlePowerKey=ignore
   #HandleLidSwitch=ignore
   #HandleLidSwitchExternalPower=ignore
-  services.logind.lidSwitchExternalPower = "ignore";
-  services.logind.extraConfig = ''
-    HandlePowerKeyLongPress=poweroff
-  '';
+  services.logind.settings.Login.lidSwitchExternalPower = "ignore";
+  services.logind.settings.Login.HandlePowerKeyLongPress = "poweroff";
 
   programs.thunar = {
     enable = true;
@@ -358,7 +356,7 @@ in
   security.pam.services.gtklock = {};
 
   # Set limits for esync.
-  systemd.extraConfig = "DefaultLimitNOFILE=1048576:1048576";
+  systemd.settings.Manager.DefaultLimitNOFILE = "1048576:1048576";
   systemd.user.extraConfig = "DefaultLimitNOFILE=1048576:1048576";
 
   # security.pam.loginLimits = [{

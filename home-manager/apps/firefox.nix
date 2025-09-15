@@ -3,7 +3,7 @@ let
 firefox-package = inputs.flake-firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
 in
 {
-  imports = [inputs.betterfox.homeManagerModules.betterfox];
+  imports = [inputs.betterfox.homeModules.betterfox];
 
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
@@ -19,16 +19,15 @@ in
 
     betterfox = {
       enable = true;
+      profiles.nightly-default = {
+        enable = true;
+        enableAllSections = true;
+      };
     };
 
     #profiles.dev-edition-default = {
     profiles.nightly-default = {
       #path = "my1.firefox-dev-edition-default";
-
-      betterfox = {
-        enable = true;
-        enableAllSections = true;
-      };
 
       path = "my1.nightly-default";
       settings = {
@@ -171,33 +170,39 @@ in
 
         "NixOS Wiki" = {
           urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
-          iconUpdateURL = "https://nixos.wiki/favicon.png";
+          icon = "https://nixos.wiki/favicon.png";
           updateInterval = 24 * 60 * 60 * 1000; # every day
           definedAliases = [ "@nw" ];
         };
 
         "GitHub" = {
           urls = [{ template = "https://github.com/search?q={searchTerms}&type=repositories"; }];
-          iconUpdateURL = "https://github.com/favicon.ico";
+          icon = "https://github.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [ "@gh" ];
         };
         "zKillBoard" = {
           urls = [{ template = "https://zkillboard.com/search/{searchTerms}"; }];
-          iconUpdateURL = "https://zkillboard.com/favicon.ico";
+          icon = "https://zkillboard.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [ "@zk" ];
         };
         "Scryfall" = {
           urls = [{ template = "https://scryfall.com/search?q={searchTerms}"; }];
-          iconUpdateURL = "https://scryfall.com/favicon.ico";
+          icon = "https://scryfall.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [ "@sf" ];
         };
+        "SpellVoid" = {
+          urls = [{ template = "https://spellvoid.com/search?={searchTerms}&q={searchTerms}&page=1"; }];
+          icon = "https://spellvoid.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [ "@sv" ];
+        };
 
-	"eBay".metaData.hidden = true;
+	"ebay".metaData.hidden = true;
 	"Amazon.ca".metaData.hidden = true;
-	"Bing".metaData.hidden = true;
+	"bing".metaData.hidden = true;
         #"Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
       };
       # rose pine, remove close button

@@ -40,6 +40,7 @@ sed -i '2 i\export __NV_PRIME_RENDER_OFFLOAD=1\nexport __NV_PRIME_RENDER_OFFLOAD
 in
 {
   imports = [
+    inputs.ignis.homeManagerModules.default
     apps/misc.nix
     apps/waybar.nix
     apps/nvim.nix
@@ -84,6 +85,17 @@ in
     inputs.fenix.overlays.default
   ];
 
+  programs.ignis = {
+      enable = true;
+
+      services = {
+        bluetooth.enable = true;
+        recorder.enable = true;
+        audio.enable = true;
+        network.enable = true;
+      };
+    };
+
   home.packages = [
     runcage
 
@@ -94,10 +106,11 @@ in
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    inputs.ignis.packages.${settings.systemtype}.ignis
+    # inputs.ignis.packages.${settings.systemtype}.ignis
     inputs.swww.packages.${settings.systemtype}.swww
     # pkgs.git
     # pkgs.git-lfs
+    pkgs.dart-sass
     pkgs.sourcekit-lsp
     pkgs.pyfa
     pkgs.nodejs
@@ -118,7 +131,6 @@ in
     pkgs.valgrind
     pkgs.gnumake
     pkgs.web-ext
-    pkgs.ruff-lsp
     # pkgs.cutter
     # pkgs.ghidra
     # inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
@@ -201,7 +213,7 @@ in
     pkgs.qemu
 
     # pkgs.expressvpn
-    pkgs.gpt4all-cuda
+    # pkgs.gpt4all-cuda
     pkgs.gnome-keyring
 
     (masterpkgs.discord-canary.override {
@@ -254,7 +266,7 @@ in
     pkgs.file-roller
     pkgs.tor
     pkgs.tor-browser
-    pkgs.teamspeak_client
+    # pkgs.teamspeak_client
     pkgs.tigervnc
     pkgs.sshfs
     pkgs.pdftk
@@ -271,13 +283,13 @@ in
     pkgs.dconf-editor
     pkgs.nvtopPackages.nvidia
 
-    pkgs.qt5.full
-    pkgs.libsForQt5.qt5ct
-    pkgs.libsForQt5.qt5.qtwayland
-    pkgs.libsForQt5.plasma-wayland-protocols
+    # pkgs.qt5.full
+    # pkgs.libsForQt5.qt5ct
+    # pkgs.libsForQt5.qt5.qtwayland
+    # pkgs.libsForQt5.plasma-wayland-protocols
     #pkgs.libsForQt5.dolphin
-    pkgs.libsForQt5.kwayland
-    pkgs.libsForQt5.kwayland-integration
+    # pkgs.libsForQt5.kwayland
+    # pkgs.kdePackages.kwayland-integration
     #pkgs.libsForQt5.qtstyleplugin-kvantum
     (pkgs.catppuccin-kvantum.override {accent = "yellow"; variant = "mocha";})
     pkgs.libsForQt5.breeze-icons
@@ -469,7 +481,7 @@ in
     autocd = true;
     # neofetch;
     completionInit = "";
-    initExtra = ''
+    initContent = ''
       fpath=($HOME/.config/zshcompletions $fpath);
       autoload -U compinit && compinit;
       compdef nvidia-offload=exec;
@@ -547,7 +559,7 @@ set-option -ga terminal-overrides ',alacritty:Tc'
         log_level = "Info";
       };
       general.import = [
-        "${pkgs.alacritty-theme}/rose_pine_moon.toml"
+        "${pkgs.alacritty-theme}/share/alacritty-theme/rose_pine_moon.toml"
       ];
     };
   };

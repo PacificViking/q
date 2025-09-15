@@ -4,10 +4,11 @@ import datetime
 import subprocess
 
 from ignis import gi
+import asyncio
 from gi.repository import Gtk, Gdk, GLib
 
 from ignis.widgets import Widget
-from ignis.utils import Utils
+from ignis import utils
 from ignis.app import IgnisApp
 from ignis.services.audio import AudioService
 from ignis.services.backlight import BacklightService
@@ -19,10 +20,11 @@ from ignis.services.notifications import NotificationService
 from ignis.services.fetch import FetchService
 from ignis.services.mpris import MprisService, MprisPlayer
 from ignis.gobject import IgnisGObject
+from ignis.menu_model import IgnisMenuModel, IgnisMenuItem, IgnisMenuSeparator
 
 app = IgnisApp.get_default()
 
-app.apply_css(f"{Utils.get_current_dir()}/style.scss")
+app.apply_css(f"{utils.get_current_dir()}/style.scss")
 
 
 audio = AudioService.get_default()
@@ -36,21 +38,21 @@ upower = UPowerService.get_default()
 fetch = FetchService.get_default()
 
 
-def hyprland_workspace_button(workspace: dict) -> Widget.Button:
+def hyprland_workspace_button(workspace) -> Widget.Button:
     widget = Widget.Button(
         css_classes=["workspace"],
-        on_click=lambda x, id=workspace["id"]: hyprland.switch_to_workspace(id),
-        child=Widget.Label(label=str(workspace["id"])),
+        on_click=lambda x, id=workspace.id: hyprland.switch_to_workspace(id),
+        child=Widget.Label(label=str(workspace.id)),
     )
-    if workspace["id"] == hyprland.active_workspace["id"]:
+    if workspace.id == hyprland.active_workspace.id:
         widget.add_css_class("active")
-    if workspace["id"] in hyprland.urgent_workspaces:
+    if workspace.is_urgent:
         widget.add_css_class("urgent")
 
     return widget
 
 
-def niri_workspace_button(workspace: dict) -> Widget.Button:
+def niri_workspace_button(workspace) -> Widget.Button:
     widget = Widget.Button(
         css_classes=["workspace"],
         on_click=lambda x, id=workspace["idx"]: niri.switch_to_workspace(id),
@@ -113,8 +115,8 @@ def hyprland_workspaces() -> Widget.EventBox:
         css_classes=["workspaces"],
         spacing=5,
         child=hyprland.bind_many(
-            ["workspaces", "urgent_windows"],  # only synced to urgent_workspaces, its value doesn't matter
-            transform=lambda value, _: [workspace_button(i) for i in value],
+            ["workspaces", "active_workspace", "urgent_windows"],  # only synced to urgent_workspaces, its value doesn't matter
+            transform=lambda value, *_: [workspace_button(i) for i in value],  # *_ denotes many unused variables
         ),
     )
 
@@ -182,10 +184,7 @@ def hyprland_client_title() -> Widget.Label:
         max_width_chars=40,
         label=hyprland.bind(
             "active_window",
-            transform=lambda value: value.get(
-                "title",
-                "",  # sometimes there is no title, so return empty string
-            ),
+            transform=lambda value: value.title
         ),
     )
 
@@ -197,7 +196,7 @@ def niri_client_title(monitor_name) -> Widget.Label:
         visible=niri.bind("active_output", lambda x: x["name"] == monitor_name),
         label=niri.bind(
             "active_window",
-            transform=lambda value: "" if value is None else value["title"],
+            transform=lambda value: "" if value is None else value.title,
         ),
     )
 
@@ -226,7 +225,7 @@ def toggle_show_date(x):
     is_show_date = not is_show_date
 
     x.data_poll.cancel()  # cancel old poll and set up new one to reset it immediately (would be better if poll objects had a "poll now" option)
-    poll = Utils.Poll(10_000, lambda self: clock_text())
+    poll = utils.Poll(10_000, lambda self: clock_text())
     x.child[0].set_label(poll.bind("output"))
     x.data_poll = poll
 
@@ -240,7 +239,7 @@ def clock_text():
 
 def clock() -> Widget.EventBox:
     # poll for current time every second
-    poll = Utils.Poll(10_000, lambda self: clock_text())
+    poll = utils.Poll(10_000, lambda self: clock_text())
 
     clock_label = Widget.Label(
         css_classes=["clock"],
@@ -312,7 +311,7 @@ def capslock() -> Widget.Box:
     return Widget.Box(
         child=[
             Widget.Icon(
-                image=Utils.Poll(1_000, capslock_icon).bind("output"),
+                image=utils.Poll(1_000, capslock_icon).bind("output"),
                 style = ""
             ),
         ]
@@ -321,7 +320,7 @@ def capslock() -> Widget.Box:
 def hyprland_keyboard_layout() -> Widget.EventBox:
     return Widget.EventBox(
         on_click=lambda self: hyprland.switch_kb_layout(),
-        child=[Widget.Label(label=hyprland.bind("kb_layout"))],
+        child=[Widget.Label(label=hyprland.main_keyboard.bind("active_keymap"))],
     )
 
 
@@ -392,48 +391,51 @@ def brightness_slider() -> Widget.Scale:
         style = "margin-right: 5px;"
     )
 
+def create_exec_task(cmd: str) -> None:
+    # use create_task to run async function in a regular (sync) one
+    asyncio.create_task(utils.exec_sh_async(cmd))
 
 def logout() -> None:
     if hyprland.is_available:
-        Utils.exec_sh_async("hyprctl dispatch exit 0")
+        create_exec_task("hyprctl dispatch exit 0")
     elif niri.is_available:
-        Utils.exec_sh_async("niri msg action quit")
+        create_exec_task("niri msg action quit")
     else:
         pass
 
 
 def power_menu() -> Widget.Button:
-    menu = Widget.PopoverMenu(
-        items=[
-            Widget.MenuItem(
+    menu = Widget.PopoverMenu (
+        model = IgnisMenuModel(
+            IgnisMenuItem(
                 label="Lock",
-                on_activate=lambda x: Utils.exec_sh_async("swaylock"),
+                on_activate=lambda x: create_exec_task("swaylock"),
             ),
-            Widget.Separator(),
-            Widget.MenuItem(
+            IgnisMenuSeparator(),
+            IgnisMenuItem(
                 label="Suspend",
-                on_activate=lambda x: Utils.exec_sh_async("systemctl suspend"),
+                on_activate=lambda x: create_exec_task("systemctl suspend"),
             ),
-            Widget.MenuItem(
+            IgnisMenuItem(
                 label="Hibernate",
-                on_activate=lambda x: Utils.exec_sh_async("systemctl hibernate"),
+                on_activate=lambda x: create_exec_task("systemctl hibernate"),
             ),
-            Widget.Separator(),
-            Widget.MenuItem(
+            IgnisMenuSeparator(),
+            IgnisMenuItem(
                 label="Reboot",
-                on_activate=lambda x: Utils.exec_sh_async("systemctl reboot"),
+                on_activate=lambda x: create_exec_task("systemctl reboot"),
             ),
-            Widget.MenuItem(
+            IgnisMenuItem(
                 label="Shutdown",
-                on_activate=lambda x: Utils.exec_sh_async("systemctl poweroff"),
+                on_activate=lambda x: create_exec_task("systemctl poweroff"),
             ),
-            Widget.Separator(),
-            Widget.MenuItem(
+            IgnisMenuSeparator(),
+            IgnisMenuItem(
                 label="Logout",
                 enabled=hyprland.is_available or niri.is_available,
                 on_activate=lambda x: logout(),
             ),
-        ]
+        )
     )
     return Widget.Button(
         child = Widget.Box(
@@ -541,7 +543,7 @@ def right() -> Widget.Box:
 
 
 def bar(monitor_id: int = 0) -> Widget.Window:
-    monitor_name = Utils.get_monitor(monitor_id).get_connector()  # type: ignore
+    monitor_name = utils.get_monitor(monitor_id).get_connector()  # type: ignore
     return Widget.Window(
         namespace=f"ignis_bar_{monitor_id}",
         monitor=monitor_id,
@@ -557,5 +559,5 @@ def bar(monitor_id: int = 0) -> Widget.Window:
 
 
 # this will display bar on all monitors
-for i in range(Utils.get_n_monitors()):
+for i in range(utils.get_n_monitors()):
     bar(i)

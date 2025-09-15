@@ -4,7 +4,8 @@ let
     pylint
     pynvim
     jedi
-    ruff-lsp
+    # ruff-lsp
+    ruff
 
     sympy
     numpy
@@ -40,6 +41,6 @@ in {
   home.packages = [
     (pkgs.python311.withPackages python-packages)
     pkgs.py-spy
-    pkgs.ruff
+    # pkgs.ruff
   ];
 }
