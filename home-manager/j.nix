@@ -69,7 +69,7 @@ in
   #   enable = true;
   #
   #   plugins = [
-  #     pkgs.hyprlandPlugins.hyprscroller
+  #     inputs.hyprland-plugins.packages.${settings.systemtype}.hyprscrolling
   #   ];
   #
   #   package = hyprland.packages.${settings.systemtype}.hyprland;

@@ -4,6 +4,12 @@ let
   # hyprland = inputs.hyprland.override (old: { submodules = true; });
   hyprland = inputs.hyprland;
   pkgs-unstable = hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  hypr-plugin-dir = pkgs.symlinkJoin {
+    name = "hyprland-plugins";
+    paths = with inputs.hyprland-plugins.packages.${settings.systemtype}; [
+      hyprscrolling
+    ];
+  };
 in
 {
   imports = [
@@ -33,6 +39,7 @@ in
     LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
     # AQ_DRM_DEVICES = "\"/dev/dri/by-path/pci-0000\:01\:00.0-card\"";
     NIXQCONFPATH = "${settings.confpath}";
+    HYPR_PLUGIN_DIR = hypr-plugin-dir;
   };
 
   fonts = {
