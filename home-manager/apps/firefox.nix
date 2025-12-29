@@ -152,6 +152,7 @@ in
       id = 0;
       isDefault = true;
 
+      search.default = "ddg";  # duckduckgo
       search.force = true;
       search.engines = {
         "Nix Packages" = {

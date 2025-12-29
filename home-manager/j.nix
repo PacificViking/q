@@ -99,7 +99,7 @@ in
   home.packages = [
     runcage
 
-    localpkgs.wlvncc
+    # localpkgs.comfyui
 
     #localpkgs.hyprprop-rust
     # # environment:
@@ -108,8 +108,13 @@ in
     # '')
     # inputs.ignis.packages.${settings.systemtype}.ignis
     inputs.swww.packages.${settings.systemtype}.swww
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     # pkgs.git
     # pkgs.git-lfs
+    pkgs.ladybird
+    pkgs.nyxt
+    pkgs.wlvncc
+    masterpkgs.uv
     pkgs.dart-sass
     pkgs.sourcekit-lsp
     pkgs.pyfa
@@ -140,12 +145,13 @@ in
     pkgs.win2xcur
     pkgs.xcur2png
 
+    pkgs.texstudio
+    pkgs.unixtools.ifconfig
     pkgs.ffmpeg
     pkgs.pciutils
     pkgs.grim
     pkgs.slurp
     pkgs.baobab  # disk usage analyzer
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     pkgs.hyprpicker
     pkgs.findutils
     pkgs.ripgrep
@@ -259,7 +265,7 @@ in
     pkgs.isoimagewriter
     pkgs.qbittorrent
     pkgs.lutris
-    pkgs.opencv
+    # pkgs.opencv
     pkgs.obs-studio
     pkgs.vlc
     # pkgs.archiver
@@ -275,10 +281,12 @@ in
     pkgs.wine-wayland
     # inputs.prismlauncher-cracked.packages.${settings.systemtype}.prismlauncher
     pkgs.cargo-flamegraph
-    (pkgs.octaveFull.override { enableQt = true; })
-    pkgs.octavePackages.signal
+    # ((pkgs.octaveFull.withPackages( ps: with ps; [signal] )).override { enableQt = true; })
+    ((pkgs.octaveFull.override { enableQt = true; }).withPackages ( ps: with ps; [signal] ))
+    # pkgs.octavePackages.signal
     pkgs.lazygit
     pkgs.owncast
+    pkgs.blender
 
     pkgs.dconf-editor
     pkgs.nvtopPackages.nvidia
@@ -402,6 +410,9 @@ in
       "image/png" = [ "pqiv.desktop" "firefox-nightly.desktop" ];
       "video/x-matroska" = [ "vlc.desktop" ];
       "application/x-bat" = [ "nvim.desktop" ];
+      "application/xhtml+xml" = [ "firefox-nightly.desktop" ];
+      "text/html" = [ "firefox-nightly.desktop" ];
+      "application/html" = [ "firefox-nightly.desktop" ];
     };
     defaultApplications = {
       "application/vnd.mozilla.xul+xml" = [ "firefox-nightly.desktop" ];
@@ -472,6 +483,7 @@ in
       "j_nixDevelopPure" = "nix develop -i -c bash --norc";
       "j_runFlakeVM" = "QEMU_NET_OPTS=\"hostfwd=tcp::2221-:22\" result/bin/run-nixos-vm";
       "j_buildFlakeVM" = "nix build .#nixosConfigurations.test.config.system.build.vm"; #https://gist.github.com/FlakM/0535b8aa7efec56906c5ab5e32580adf
+      "j_pyProfile" = "py-spy record -o profile.svg -- python3";
     };
 
     enable = true;

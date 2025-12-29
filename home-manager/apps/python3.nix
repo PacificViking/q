@@ -16,6 +16,8 @@ let
     simpleaudio
     pyarrow
     openpyxl
+    seaborn
+    matplotlib
 
     scapy
     levenshtein
@@ -33,13 +35,25 @@ let
     # tensorflow
     # torch # conflicts with tensorflow in many paths
     torch-bin
+    torchvision-bin
+    opencv-python
+    albumentations
+    shapely
+    faiss
+    # open-clip-torch
     # keras
     scikit-learn
+    scikit-image
     pymongo
+    beautifulsoup4
+    transformers
+
+    imagehash
+    networkx
   ];
 in {
   home.packages = [
-    (pkgs.python311.withPackages python-packages)
+    (pkgs.python313.withPackages python-packages)
     pkgs.py-spy
     # pkgs.ruff
   ];

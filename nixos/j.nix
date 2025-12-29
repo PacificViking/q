@@ -42,6 +42,9 @@ in
     HYPR_PLUGIN_DIR = hypr-plugin-dir;
   };
 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "john" ];
+
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [

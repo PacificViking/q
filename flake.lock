@@ -616,8 +616,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1757946680,
-        "narHash": "sha256-Zg0AMoZMKdZFX44ltOdl/DYebO0D0sONh1Rh7Qdkw24=",
+        "lastModified": 1758128755,
+        "narHash": "sha256-r9fxH6ONXmbH7BSMJuiMjr68pnD1pbRGqgtUtPwji0s=",
         "path": "/home/john/opensource/ignis",
         "type": "path"
       },
@@ -683,8 +683,8 @@
     },
     "localnixpkgs": {
       "locked": {
-        "lastModified": 1741121078,
-        "narHash": "sha256-ny8qhsD4AR/lrFhiwaTe1AbjmWJpRcqKWs3PTqJlVDg=",
+        "lastModified": 1758123195,
+        "narHash": "sha256-S6PRdmosfXjCSYVqcgZtmomBdXezbKi+H3AqUziuli0=",
         "path": "/home/john/opensource/nixpkgs",
         "type": "path"
       },
@@ -695,11 +695,11 @@
     },
     "masternixpkgs": {
       "locked": {
-        "lastModified": 1757380535,
-        "narHash": "sha256-4TctuXDmJzi67wRKcCBoRuxHQPeofUTPqFSWwHe2qCQ=",
+        "lastModified": 1762650045,
+        "narHash": "sha256-pl04X/7aKDXkbU5um0fjUC6IC2q2ErS+nNbJ5s5J6eU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9e69fc52e7cf7b9e1faa12631f5104d1969c40a7",
+        "rev": "069d4d63b91fb5d7677494e7ca7f55b94349be99",
         "type": "github"
       },
       "original": {
