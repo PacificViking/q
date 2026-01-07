@@ -25,6 +25,10 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pwndbg = {
+      url = "github:pwndbg/pwndbg";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hyprland = {
       # type = "path";
       # path = "/home/john/opensource/Hyprland";

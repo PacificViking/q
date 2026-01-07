@@ -107,6 +107,8 @@ in
     #   echo "Hello, ${config.home.username}!"
     # '')
     # inputs.ignis.packages.${settings.systemtype}.ignis
+    inputs.pwndbg.packages.${settings.systemtype}.pwndbg
+
     inputs.swww.packages.${settings.systemtype}.swww
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     # pkgs.git
@@ -137,7 +139,7 @@ in
     pkgs.gnumake
     pkgs.web-ext
     # pkgs.cutter
-    # pkgs.ghidra
+    pkgs.ghidra
     # inputs.hyprprop-rust.defaultPackage.${settings.systemtype}
     pkgs.hyprprop
     pkgs.hyprcursor

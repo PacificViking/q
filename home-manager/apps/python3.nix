@@ -50,6 +50,8 @@ let
 
     imagehash
     networkx
+
+    pwntools
   ];
 in {
   home.packages = [
