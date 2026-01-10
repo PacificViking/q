@@ -110,15 +110,15 @@ in
     inputs.pwndbg.packages.${settings.systemtype}.pwndbg
 
     inputs.swww.packages.${settings.systemtype}.swww
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    inputs.hyprland-contrib.packages.${settings.systemtype}.grimblast
     # pkgs.git
     # pkgs.git-lfs
     pkgs.ladybird
     pkgs.nyxt
     pkgs.wlvncc
-    masterpkgs.uv
+    pkgs.uv
     pkgs.dart-sass
-    pkgs.sourcekit-lsp
+    # pkgs.sourcekit-lsp
     pkgs.pyfa
     pkgs.nodejs
     pkgs.ghc
@@ -164,11 +164,9 @@ in
     pkgs.d-spy
     pkgs.pqiv
 
-    pkgs.nodejs_22
-
     #pkgs.gnome.nautilus
-    pkgs.xfce.xfce4-icon-theme
-    pkgs.xfce.xfce4-settings
+    pkgs.xfce4-icon-theme
+    pkgs.xfce4-settings
     #pkgs.xfce.thunar-volman
     #pkgs.xfce.tumbler
     #pkgs.gvfs
@@ -190,19 +188,19 @@ in
     pkgs.xorg.setxkbmap
     pkgs.xkb-switch
     pkgs.xkblayout-state
-    pkgs.perl538Packages.FileMimeInfo
+    pkgs.perl5Packages.FileMimeInfo
     pkgs.xorg.xdpyinfo
     # pkgs.busybox
     # pkgs.mullvad-vpn
 
-    pkgs.mpdevil
+    # pkgs.mpdevil
     pkgs.ncmpcpp
-    pkgs.mpc-cli
+    pkgs.mpc
     pkgs.pms
     pkgs.hydrogen  # drum synthesizer
     #pkgs.vcv-rack
     pkgs.freepats
-    pkgs.ChowKick
+    pkgs.chow-kick
     pkgs.drumkv1
     pkgs.drumgizmo
     pkgs.bitwig-studio
@@ -210,7 +208,7 @@ in
     rust-toolchain
 
     # pkgs.rust-analyzer  # is sometimes contained within rust-toolchain according to the toml file
-    pkgs.mold-wrapped
+    pkgs.mold
     pkgs.gcc
     pkgs.nil
     pkgs.clang-tools
@@ -224,7 +222,8 @@ in
     # pkgs.gpt4all-cuda
     pkgs.gnome-keyring
 
-    (masterpkgs.discord-canary.override {
+    # (masterpkgs.discord-canary.override {
+    (pkgs.discord-canary.override {
     # (nvidiaDiscord.override {
      # remove any overrides that you don't want
      # withOpenASAR = true;
@@ -238,8 +237,7 @@ in
 
     pkgs.gtk4
     pkgs.gtk4-layer-shell
-    # using gtkcord until nvidia+wayland+electron gets fixed
-    pkgs.gtkcord4
+    pkgs.dissent
     pkgs.cheese
     # pkgs.webkitgtk_4_0
     # masterpkgs.webkitgtk_6_0
@@ -264,7 +262,7 @@ in
     # pkgs.netsurf.browser
     pkgs.xournalpp
     pkgs.gparted
-    pkgs.isoimagewriter
+    pkgs.kdePackages.isoimagewriter
     pkgs.qbittorrent
     pkgs.lutris
     # pkgs.opencv
@@ -304,7 +302,9 @@ in
     (pkgs.catppuccin-kvantum.override {accent = "yellow"; variant = "mocha";})
     pkgs.libsForQt5.breeze-icons
 
-    (pkgs.cudaPackages.cudatoolkit.override {cuda_gdb = null;})  # don't use cuda gdb which doesn't work for some reason, I dont need it
+    # pkgs.cudaPackages.cudatoolkit
+    # (pkgs.cudaPackages.cudatoolkit.override {cuda_gdb = null;})  # don't use cuda gdb which doesn't work for some reason, I dont need it
+    # theres an error with the override too so I guess.. no cudatoolkit
     pkgs.gdb
 
     pkgs.re2c
@@ -319,7 +319,7 @@ in
     #pkgs.qt6.full
     #pkgs.qt6Packages.qt6ct
 
-    pkgs.vkmark
+    # pkgs.vkmark
     pkgs.glmark2
     pkgs.vulkan-tools
   ];
@@ -615,7 +615,7 @@ set-option -ga terminal-overrides ',alacritty:Tc'
 
   programs.git = {
     enable = true;
-    extraConfig = {
+    settings = {
       user.name = "John Hao";
       user.email = "johnhaoallwood@gmail.com";
       advice.addIgnoredFile = "false";

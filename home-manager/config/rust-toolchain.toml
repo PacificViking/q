@@ -7,6 +7,6 @@ components = [
     "rust-src",
     "rustc",
 	"rustfmt",
-	"llvm-tools",
+	# "llvm-tools",
 	"rust-analyzer",
 ]

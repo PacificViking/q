@@ -1,15 +1,23 @@
 local lspsetup = {
 }
 
-require'lspconfig'.nil_ls.setup(lspsetup)  -- theres a bug that come from using capabilites? not sure
-require'lspconfig'.rust_analyzer.setup(lspsetup)
-vim.g.rustfmt_autosave = 1
+vim.lsp.enable('nil_ls')
+vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('ruff')
+vim.lsp.enable('pyright')
+vim.lsp.enable('luau_lsp')
+vim.lsp.enable('marksman')
+vim.lsp.enable('sourcekit')
 
-require'lspconfig'.ruff.setup(lspsetup)
-require'lspconfig'.pyright.setup(lspsetup)
-require'lspconfig'.luau_lsp.setup(lspsetup)
-require'lspconfig'.marksman.setup(lspsetup)
-require'lspconfig'.sourcekit.setup{}
+-- require'lspconfig'.nil_ls.setup(lspsetup)  -- theres a bug that come from using capabilites? not sure
+-- require'lspconfig'.rust_analyzer.setup(lspsetup)
+vim.g.rustfmt_autosave = 1
+--
+-- require'lspconfig'.ruff.setup(lspsetup)
+-- require'lspconfig'.pyright.setup(lspsetup)
+-- require'lspconfig'.luau_lsp.setup(lspsetup)
+-- require'lspconfig'.marksman.setup(lspsetup)
+-- require'lspconfig'.sourcekit.setup{}
 
 vim.api.nvim_set_hl(0, "CmpNormal", {
     bg = require('rose-pine.palette').overlay,

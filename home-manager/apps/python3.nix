@@ -50,6 +50,7 @@ let
 
     imagehash
     networkx
+    gmpy2
 
     pwntools
   ];

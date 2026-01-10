@@ -1,6 +1,6 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, settings, ... }:
 let
-firefox-package = inputs.flake-firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
+firefox-package = inputs.flake-firefox-nightly.packages.${settings.systemtype}.firefox-nightly-bin;
 in
 {
   imports = [inputs.betterfox.homeModules.betterfox];
@@ -128,7 +128,7 @@ in
         "browser.cache.disk.enable" = false;  # change these two if I don't have enough RAM
         "browser.cache.memory.enable" = true;
         #"media.cache_size" = 102400;
-        "media.memory_caches_combined_limit_kb" = 102400;
+        # "media.memory_caches_combined_limit_kb" = 102400;
         "image.mem.surfacecache.max_size_kb" = 102400;
         # "browser.sessionstore.interval" = 15000;
 

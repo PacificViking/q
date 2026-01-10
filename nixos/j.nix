@@ -50,7 +50,7 @@ in
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       font-awesome
       powerline-fonts
       powerline-symbols
@@ -83,7 +83,7 @@ in
     enable = true;
     settings = {
       default_session = {
-        command = ''${pkgs.tuigreet}/bin/tuigreet --remember --cmd "Hyprland >> ~/tmp/hyprland.log 2>&1" --greeting "Welcome to your computer." --time --asterisks --asterisks-char "#" '';
+        command = ''${pkgs.tuigreet}/bin/tuigreet --remember --cmd "start-hyprland >> ~/tmp/hyprland.log 2>&1" --greeting "Welcome to your computer." --time --asterisks --asterisks-char "#" '';
         user = "greeter";
       };
     };
@@ -152,7 +152,7 @@ in
 
     # pkgs.mesa
     pkgs.lm_sensors
-    pkgs.glxinfo
+    pkgs.mesa-demos
     
     pkgs.libsForQt5.qt5.qtwayland
     pkgs.qt6.qtwayland
@@ -251,7 +251,7 @@ in
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
       # vaapiIntelHybrid  # LIBVA_DRIVER_NAME=i965
-      vaapiVdpau
+      libva-vdpau-driver
       libvdpau-va-gl
       nvidia-vaapi-driver  # LIBVA_DRIVER_NAME=nvidia
     # ] ++ [
@@ -341,7 +341,7 @@ in
 
   programs.thunar = {
     enable = true;
-    plugins = with pkgs.xfce; [
+    plugins = with pkgs; [
       thunar-archive-plugin
       thunar-volman
     ];
@@ -353,7 +353,7 @@ in
   services.dbus = {
     enable = true;
     packages = [
-      pkgs.xfce.thunar
+      pkgs.thunar
       #pkgs.libsForQt5.dolphin
     ];
   };
