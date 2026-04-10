@@ -163,6 +163,8 @@ in
 
     pkgs.efibootmgr
     pkgs.ntfs3g
+
+    pkgs.sbctl
   ];
 
   nix = {

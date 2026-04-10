@@ -15,9 +15,6 @@
 
   # Use the systemd-boot EFI boot loader. - not!
   boot.loader.systemd-boot.enable = false;
-  environment.systemPackages = [
-    pkgs.sbctl
-  ];
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
