@@ -119,7 +119,7 @@ in
     pkgs.uv
     pkgs.dart-sass
     # pkgs.sourcekit-lsp
-    pkgs.pyfa
+    masterpkgs.pyfa
     pkgs.nodejs
     pkgs.ghc
     #pkgs.firefox-devedition
@@ -136,6 +136,7 @@ in
     pkgs.dos2unix
     pkgs.yt-dlp
     pkgs.valgrind
+    # pkgs.valgrind.dev
     pkgs.gnumake
     pkgs.web-ext
     # pkgs.cutter
@@ -159,7 +160,8 @@ in
     pkgs.ripgrep
     # pkgs.killall
     pkgs.bat
-    pkgs.curl.dev
+    pkgs.curl
+    # pkgs.curl.dev
     # pkgs.dfeet
     pkgs.d-spy
     pkgs.pqiv
@@ -221,6 +223,7 @@ in
     # pkgs.expressvpn
     # pkgs.gpt4all-cuda
     pkgs.gnome-keyring
+    pkgs.gnome-sound-recorder
 
     # (masterpkgs.discord-canary.override {
     (pkgs.discord-canary.override {
@@ -234,6 +237,17 @@ in
     # pkgs.kdePackages.xwaylandvideobridge
     pkgs.element-desktop
     pkgs.wireguard-tools
+    pkgs.revolt-desktop
+
+    pkgs.typescript-language-server
+    pkgs.typescript
+    pkgs.angular-language-server
+    pkgs.ember-language-server
+
+    pkgs.meson
+    pkgs.ninja
+
+    pkgs.claude-code
 
     pkgs.gtk4
     pkgs.gtk4-layer-shell

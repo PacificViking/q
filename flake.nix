@@ -97,6 +97,10 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { self, nixpkgs, masternixpkgs, localnixpkgs, home-manager, hyprland, ...}@inputs:
   let
@@ -125,6 +129,7 @@
         inputs.musnix.nixosModules.musnix
         inputs.nur.modules.nixos.default
         inputs.copyparty.nixosModules.default
+        inputs.lanzaboote.nixosModules.lanzaboote
       ];
     };
 

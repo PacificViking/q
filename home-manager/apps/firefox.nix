@@ -183,7 +183,7 @@ in
           definedAliases = [ "@gh" ];
         };
         "zKillBoard" = {
-          urls = [{ template = "https://zkillboard.com/search/{searchTerms}"; }];
+          urls = [{ template = "https://zkillboard.com/search/{searchTerms}/"; }];
           icon = "https://zkillboard.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [ "@zk" ];

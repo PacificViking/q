@@ -13,8 +13,16 @@
     ];
   nix.settings.sandbox = true;
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  # Use the systemd-boot EFI boot loader. - not!
+  boot.loader.systemd-boot.enable = false;
+  environment.systemPackages = [
+    pkgs.sbctl
+  ];
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.loader.grub.device = "nodev";

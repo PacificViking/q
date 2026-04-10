@@ -9,7 +9,9 @@ if vim.bo.filetype ~= "blink-cmp-signature" then
 if vim.bo.filetype ~= "blink-cmp-menu" then
 if vim.bo.filetype ~= "oil" then
 if vim.bo.filetype ~= "text" then
+if vim.bo.filetype ~= "peekaboo" then
     vim.treesitter.start()
+end
 end
 end
 end

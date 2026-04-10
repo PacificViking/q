@@ -40,6 +40,7 @@ in
     # AQ_DRM_DEVICES = "\"/dev/dri/by-path/pci-0000\:01\:00.0-card\"";
     NIXQCONFPATH = "${settings.confpath}";
     HYPR_PLUGIN_DIR = hypr-plugin-dir;
+    # NIX_BUILD_SHELL = "zsh";
   };
 
   virtualisation.virtualbox.host.enable = true;
@@ -157,7 +158,7 @@ in
     pkgs.libsForQt5.qt5.qtwayland
     pkgs.qt6.qtwayland
 
-    pkgs.pkg-config
+    pkgs.pkg-configUpstream
     pkgs.libnotify
 
     pkgs.efibootmgr

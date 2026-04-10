@@ -119,6 +119,7 @@ require('gitsigns').setup {
 -- nvim-treesitter
 require'nvim-treesitter'.setup {
     sync_install = true,
+    ensure_installed = { 'typescript', 'javascript', 'tsx', 'json' },
 
     highlight = {
         enable = true,

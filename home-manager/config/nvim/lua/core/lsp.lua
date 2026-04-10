@@ -8,6 +8,7 @@ vim.lsp.enable('pyright')
 vim.lsp.enable('luau_lsp')
 vim.lsp.enable('marksman')
 vim.lsp.enable('sourcekit')
+vim.lsp.enable('ts_ls')
 
 -- require'lspconfig'.nil_ls.setup(lspsetup)  -- theres a bug that come from using capabilites? not sure
 -- require'lspconfig'.rust_analyzer.setup(lspsetup)
