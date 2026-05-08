@@ -84,7 +84,8 @@ in
     enable = true;
     settings = {
       default_session = {
-        command = ''${pkgs.tuigreet}/bin/tuigreet --remember --cmd "start-hyprland >> ~/tmp/hyprland.log 2>&1" --greeting "Welcome to your computer." --time --asterisks --asterisks-char "#" '';
+        # command = ''${pkgs.tuigreet}/bin/tuigreet --remember --cmd "start-hyprland >> ~/tmp/hyprland.log 2>&1" --greeting "Welcome to your computer." --time --asterisks --asterisks-char "#" '';
+        command = ''${pkgs.tuigreet}/bin/tuigreet --remember --cmd "start-hyprland" --greeting "Oh? You're buying booze. Nice. Hold on.. How old are you? You sure don't look like you're over twenty." --time --asterisks --asterisks-char "#" '';
         user = "greeter";
       };
     };

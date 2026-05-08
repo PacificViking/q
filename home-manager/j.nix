@@ -111,6 +111,7 @@ in
 
     inputs.swww.packages.${settings.systemtype}.swww
     inputs.hyprland-contrib.packages.${settings.systemtype}.grimblast
+    inputs.eve-preview-manager.packages.${pkgs.stdenv.hostPlatform.system}.default
     # pkgs.git
     # pkgs.git-lfs
     pkgs.ladybird
