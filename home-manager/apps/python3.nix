@@ -28,6 +28,7 @@ let
     requests
     fabric  # ssh library
     pexpect
+    rich
 
     libclang
 

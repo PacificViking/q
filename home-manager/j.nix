@@ -97,6 +97,7 @@ in
     };
 
   home.packages = [
+    masterpkgs.claude-code
     runcage
 
     # localpkgs.comfyui
@@ -148,6 +149,8 @@ in
     # pkgs.rose-pine-hyprcursor
     pkgs.win2xcur
     pkgs.xcur2png
+    pkgs.xdotool
+    pkgs.ydotool
 
     pkgs.texstudio
     pkgs.unixtools.ifconfig
@@ -248,7 +251,6 @@ in
     pkgs.meson
     pkgs.ninja
 
-    pkgs.claude-code
 
     pkgs.gtk4
     pkgs.gtk4-layer-shell
@@ -501,6 +503,7 @@ in
       "j_runFlakeVM" = "QEMU_NET_OPTS=\"hostfwd=tcp::2221-:22\" result/bin/run-nixos-vm";
       "j_buildFlakeVM" = "nix build .#nixosConfigurations.test.config.system.build.vm"; #https://gist.github.com/FlakM/0535b8aa7efec56906c5ab5e32580adf
       "j_pyProfile" = "py-spy record -o profile.svg -- python3";
+      "j_pyListSymbols" = "python3 -m pyclbr";
     };
 
     enable = true;
