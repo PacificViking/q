@@ -49,22 +49,6 @@ in
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-color-emoji
-      font-awesome
-      powerline-fonts
-      powerline-symbols
-      wine64Packages.fonts
-      wine64Packages.waylandFull
-      corefonts
-      cabin
-
-      wqy_zenhei
-      wqy_microhei
-      
-      lexend
-      material-symbols
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
     fontconfig = {
       localConf = '''';  # xml
@@ -119,53 +103,6 @@ in
   
   environment.systemPackages = [
     pkgs.nix
-    pkgs.perl
-    #home-manager
-    #hyprland
-    pkgs.kitty
-    pkgs.mako
-    pkgs.tuigreet
-    pkgs.polkit
-    pkgs.zsh
-    pkgs.light
-    # swaylock
-    pkgs.swaylock-effects
-    pkgs.gtklock
-    pkgs.waylock
-    pkgs.appimage-run
-    pkgs.mpd
-    pkgs.bluez
-    pkgs.bluez-tools
-    pkgs.xwayland
-
-    pkgs.libsForQt5.qt5.qtwayland
-    pkgs.libsForQt5.qt5ct
-    pkgs.libva
-
-    pkgs.pw-volume
-    pkgs.wireplumber
-    pkgs.libinput
-    pkgs.libinput-gestures
-    #xorg.xorgserver
-    #xorg.xinput
-
-    pkgs.dex  # desktop autoentries
-    pkgs.btrfs-progs
-
-    # pkgs.mesa
-    pkgs.lm_sensors
-    pkgs.mesa-demos
-    
-    pkgs.libsForQt5.qt5.qtwayland
-    pkgs.qt6.qtwayland
-
-    pkgs.pkg-configUpstream
-    pkgs.libnotify
-
-    pkgs.efibootmgr
-    pkgs.ntfs3g
-
-    pkgs.sbctl
   ];
 
   nix = {
@@ -246,24 +183,6 @@ in
 
   services.seatd.enable = true;
   services.seatd.user = settings.username;
-
-  hardware.graphics = {
-    enable = true;
-    # driSupport = true;
-    # driSupport32Bit = true;
-    # package = pkgs-unstable.mesa.drivers;  # use Hyprland's mesa drivers
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      # vaapiIntelHybrid  # LIBVA_DRIVER_NAME=i965
-      libva-vdpau-driver
-      libvdpau-va-gl
-      nvidia-vaapi-driver  # LIBVA_DRIVER_NAME=nvidia
-    # ] ++ [
-    #   pkgs-unstable.mesa.drivers  # use Hyprland's mesa drivers
-    ];
-  };
-  # https://www.youtube.com/watch?v=61wGzIv12Ds
-  # nvidia.modesetting.enable = true;
 
   xdg.portal = {
     enable = true;

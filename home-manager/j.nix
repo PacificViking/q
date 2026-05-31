@@ -50,7 +50,6 @@ in
     apps/firefox.nix
     apps/OpenTabletDriver.nix
     apps/dolphin.nix
-    # apps/ags.nix
     apps/texlive.nix
     apps/clipboard.nix
     apps/element.nix
@@ -306,7 +305,6 @@ in
     pkgs.blender
 
     pkgs.dconf-editor
-    pkgs.nvtopPackages.nvidia
 
     # pkgs.qt5.full
     # pkgs.libsForQt5.qt5ct
@@ -339,7 +337,72 @@ in
     # pkgs.vkmark
     pkgs.glmark2
     pkgs.vulkan-tools
+
+    pkgs.perl
+    pkgs.kitty
+    pkgs.mako
+    pkgs.tuigreet
+    pkgs.polkit
+    pkgs.zsh
+    pkgs.light
+    # swaylock
+    pkgs.swaylock-effects
+    pkgs.gtklock
+    pkgs.waylock
+    pkgs.appimage-run
+    pkgs.mpd
+    pkgs.bluez
+    pkgs.bluez-tools
+    pkgs.xwayland
+
+    pkgs.libsForQt5.qt5.qtwayland
+    pkgs.libsForQt5.qt5ct
+    pkgs.libva
+
+    pkgs.pw-volume
+    pkgs.wireplumber
+    pkgs.libinput
+    pkgs.libinput-gestures
+    #xorg.xorgserver
+    #xorg.xinput
+
+    pkgs.dex  # desktop autoentries
+    pkgs.btrfs-progs
+
+    # pkgs.mesa
+    pkgs.lm_sensors
+    pkgs.mesa-demos
+    
+    pkgs.libsForQt5.qt5.qtwayland
+    pkgs.qt6.qtwayland
+
+    pkgs.pkg-configUpstream
+    pkgs.libnotify
+
+    pkgs.efibootmgr
+    pkgs.ntfs3g
+
+    pkgs.sbctl
+
+    pkgs.noto-fonts
+    pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-color-emoji
+    pkgs.font-awesome
+    pkgs.powerline-fonts
+    pkgs.powerline-symbols
+    pkgs.wine64Packages.fonts
+    pkgs.wine64Packages.waylandFull
+    pkgs.corefonts
+    pkgs.cabin
+
+    pkgs.wqy_zenhei
+    pkgs.wqy_microhei
+
+    pkgs.lexend
+    pkgs.material-symbols
   ];
+
+  fonts.fontconfig.enable = true;
 
   xdg.desktopEntries.gtkcord = {
     name = "gtkcord";
@@ -520,6 +583,7 @@ in
       compdef runcage=exec;
 
       source ~/.config/p10k.zsh;
+      source ~/.bash_config
     '';
     envExtra = ''
       fpath=( ${pkgs.python311Packages.argcomplete}/lib/python3.11/site-packages/argcomplete/bash_completion.d "''${fpath[@]}" )

@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./user-hardware.nix
+      ./nvidia.nix
       ./j.nix
     ];
   nix.settings.sandbox = true;
