@@ -18,6 +18,7 @@ let
     openpyxl
     seaborn
     matplotlib
+    wxpython
 
     scapy
     levenshtein

@@ -9,6 +9,27 @@ vim.lsp.enable('luau_lsp')
 vim.lsp.enable('marksman')
 vim.lsp.enable('sourcekit')
 vim.lsp.enable('ts_ls')
+vim.lsp.config('shuck', {
+    cmd = {'shuck', 'server'},
+    filetypes = {'sh', 'bash'},
+    root_markers = {'.shuck.toml', '.git'}
+})
+vim.lsp.enable('shuck')
+
+vim.diagnostic.config({
+    virtual_text = true,
+    float = {source = true, border = 'rounded'},
+    severity_sort = true,
+})
+
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+    pattern = {"rust"},
+    callback = function()
+        vim.diagnostic.config({
+            virtual_text = false,
+        })
+    end,
+})
 
 -- require'lspconfig'.nil_ls.setup(lspsetup)  -- theres a bug that come from using capabilites? not sure
 -- require'lspconfig'.rust_analyzer.setup(lspsetup)
